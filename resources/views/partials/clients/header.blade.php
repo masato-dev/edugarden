@@ -1,3 +1,5 @@
 <header>
-    This is header
+    <div class="container">
+        This is header
+    </div>
 </header>

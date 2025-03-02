@@ -1,0 +1,21 @@
+@use 'tailwindcss';
+@use 'bootstrap/scss/bootstrap';
+
+@use './fonts/svn-gilroy.scss';
+
+// Không có cú pháp tương đương với `@source` trong SCSS, có thể bỏ qua nếu không cần thiết
+
+// @import '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+// @import '../../storage/framework/views/*.php';
+// @import "../**/*.blade.php";
+// @import "../**/*.js";
+// @import "../**/*.vue";
+// @import 'boo';
+
+// Định nghĩa biến trong SCSS
+$font-sans: 'Gilroy', ui-sans-serif, system-ui, sans-serif, 
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+
+body {
+    font-family: $font-sans;
+}
