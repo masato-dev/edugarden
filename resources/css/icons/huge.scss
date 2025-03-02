@@ -1,0 +1,32 @@
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    background-color: currentColor;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+}
+
+.icon.ic-arrow-down {
+    mask-image: url('../images/icons/ic_arrow_down.svg');
+    -webkit-mask-image: url('../images/icons/ic_arrow_down.svg');
+}
+
+.icon.ic-login {
+    mask-image: url('../images/icons/ic_login.svg');
+    -webkit-mask-image: url('../images/icons/ic_login.svg');
+}
+
+.icon.ic-register {
+    mask-image: url('../images/icons/ic_register.svg');
+    -webkit-mask-image: url('../images/icons/ic_register.svg');
+}
+
+.icon.ic-search {
+    mask-image: url('../images/icons/ic_search.svg');
+    -webkit-mask-image: url('../images/icons/ic_search.svg');
+}

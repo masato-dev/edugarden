@@ -1,0 +1,35 @@
+@use '../../variables' as *;
+
+header {
+
+    #authenticationWrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .k-btn {
+            padding: 16px;
+            width: calc(50% - 8px);
+        }
+    }
+}
+
+#headerSearchWrapper {
+    padding: 16px;
+    background-color: #F8F8F8;
+    border-radius: 10px;
+
+    input[type="text"] {
+        border: none;
+        outline: none;
+        width: 100%;
+        caret-color: $mainColor; // Use the text color variable for cursor
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+
+    .ic-search {
+        color: #8F7EEB;
+    }
+}

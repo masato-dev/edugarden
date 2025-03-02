@@ -1,0 +1,36 @@
+@use 'variables.scss' as *;
+
+.text-main {
+    color: $mainColor;
+}
+
+.text-dark {
+    color: $textColor;
+}
+
+.k-btn {
+    border-radius: 10px;
+    padding: 8px 16px;
+    transition: all .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-main {
+    background-color: $mainColor;
+    color: white;
+    &:hover {
+        background-color: darken($mainColor, 10%);
+    }
+    
+}
+
+.btn-dark {
+    background-color: $buttonDarkColor;
+    color: white;
+    &:hover {
+        background-color: darken($buttonDarkColor, 10%);
+    }
+}
