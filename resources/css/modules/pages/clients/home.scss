@@ -1,0 +1,26 @@
+#homeSlider {
+    .home-slider-img {
+        height: 500px;
+    }
+}
+
+#homeWidget {
+    padding: 40px 0;
+    background-color: #3A6A6C;
+    .widget-item {
+        color: white;
+    }
+
+    .widget-item-title {
+        margin: 0;
+    }
+
+    .widget-item-description {
+        margin: 0;
+    }
+}
+
+#homeSupport {
+    // margin-top: 90px;
+    background-color: #F3F3F3;
+}

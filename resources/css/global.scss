@@ -1,0 +1,59 @@
+@use 'variables' as *;
+
+.book-card {
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all .3s;
+    &:hover {
+        transform: translateY(-4px);
+    }
+    .book-card-info {
+        padding: 16px;
+
+        .book-card-title {
+            height: 50px;
+        }
+
+        .book-card-desc {
+            min-height: 60px;
+        }
+    }
+
+    .book-card-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 4px;
+            padding: 8px;
+            width: 50%;
+
+            &.btn-add-to-cart {
+                background-color: $mainColor;
+                color: #fff;
+                border-bottom-left-radius: 10px;
+            }
+
+            &.btn-buy-now {
+                background-color: $buttonDarkColor;
+                color: #fff;
+                border-bottom-right-radius: 10px;
+            }
+        }
+    }
+
+    .book-card-thumbnail {
+        width: 100%;
+        padding-top: 80%;
+        background-size: cover;
+        background-position: center;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+}

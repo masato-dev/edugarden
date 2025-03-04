@@ -1,6 +1,6 @@
 .icon {
-    width: 24px;
-    height: 24px;
+    width: 1.3em;
+    height: 1.3em;
     display: inline-block;
     background-color: currentColor;
     mask-size: contain;
@@ -9,24 +9,69 @@
     -webkit-mask-size: contain;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-position: center;
-}
+    
+    &.ic-arrow-down {
+        mask-image: url('../images/icons/ic_arrow_down.svg');
+        -webkit-mask-image: url('../images/icons/ic_arrow_down.svg');
+    }
 
-.icon.ic-arrow-down {
-    mask-image: url('../images/icons/ic_arrow_down.svg');
-    -webkit-mask-image: url('../images/icons/ic_arrow_down.svg');
-}
+    &.ic-login {
+        mask-image: url('../images/icons/ic_login.svg');
+        -webkit-mask-image: url('../images/icons/ic_login.svg');
+    }
 
-.icon.ic-login {
-    mask-image: url('../images/icons/ic_login.svg');
-    -webkit-mask-image: url('../images/icons/ic_login.svg');
-}
+    &.ic-register {
+        mask-image: url('../images/icons/ic_register.svg');
+        -webkit-mask-image: url('../images/icons/ic_register.svg');
+    }
 
-.icon.ic-register {
-    mask-image: url('../images/icons/ic_register.svg');
-    -webkit-mask-image: url('../images/icons/ic_register.svg');
-}
+    &.ic-search {
+        mask-image: url('../images/icons/ic_search.svg');
+        -webkit-mask-image: url('../images/icons/ic_search.svg');
+    }
 
-.icon.ic-search {
-    mask-image: url('../images/icons/ic_search.svg');
-    -webkit-mask-image: url('../images/icons/ic_search.svg');
+    &.ic-shopping-basket {
+        mask-image: url('../images/icons/ic_shopping_basket.svg');
+        -webkit-mask-image: url('../images/icons/ic_shopping_basket.svg');
+    }
+
+    &.ic-star {
+        mask-image: url('../images/icons/ic_star.svg');
+        -webkit-mask-image: url('../images/icons/ic_star.svg');
+    }
+
+    &.ic-shopping-cart {
+        mask-image: url('../images/icons/ic_shopping_cart.svg');
+        -webkit-mask-image: url('../images/icons/ic_shopping_cart.svg');
+    }
+
+    &.ic-shopping-card-add {
+        mask-image: url('../images/icons/ic_shopping_card_add.svg');
+        -webkit-mask-image: url('../images/icons/ic_shopping_card_add.svg');
+    }
+
+    &.ic-shopping-basket-done {
+        mask-image: url('../images/icons/ic_shopping_basket_done.svg');
+        -webkit-mask-image: url('../images/icons/ic_shopping_basket_done.svg');
+    }
+
+    &.ic-delivery-box {
+        mask-image: url('../images/icons/ic_delivery_box.svg');
+        -webkit-mask-image: url('../images/icons/ic_delivery_box.svg');
+    }
+
+    &.ic-container-truck {
+        mask-image: url('../images/icons/ic_container_truck.svg');
+        -webkit-mask-image: url('../images/icons/ic_container_truck.svg');
+    }
+
+    &.ic-credit-card-validation {
+        mask-image: url('../images/icons/ic_credit_card_validation.svg');
+        -webkit-mask-image: url('../images/icons/ic_credit_card_validation.svg');
+    }
+
+    &.ic-call {
+        mask-image: url('../images/icons/ic_call.svg');
+        -webkit-mask-image: url('../images/icons/ic_call.svg');
+    }
 }

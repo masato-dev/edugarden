@@ -8,9 +8,9 @@
                 <div id="headerSearchWrapper">
                     <div class="row">
                         <div class="col-2">
-                            <div class="text-dark d-flex align-items-center">
-                                Tên sách
-                                <img src="{{ asset('images/icons/ic_arrow_down.svg') }}" alt="Icon Arrow Down">
+                            <div class="text-color d-flex align-items-center m-0">
+                                <span>Tên sách</span>
+                                <i class="icon ic-arrow-down"></i>
                             </div>
                         </div>
                         <div class="col-9">

@@ -7,6 +7,7 @@
     <title>{{ config('app.name') }}</title>
 
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
+    @stack('styles')
     
 </head>
 <body>
@@ -17,6 +18,6 @@
     @include('partials.clients.footer')
 
     @routes()
-    @push('scripts')
+    @stack('scripts')
 </body>
 </html>
