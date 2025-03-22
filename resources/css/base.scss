@@ -120,3 +120,74 @@
 .text-justify {
     text-align: justify;
 }
+
+
+.k-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+
+    &.show {
+        display: flex;
+    }
+    
+    .k-modal-content {
+        background-color: white;
+        border-radius: 10px;
+        width: 600px;
+        
+        .k-modal-header {
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: $mainColor;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+
+            .k-modal-title {
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        .k-modal-body {
+            padding: 16px;
+        }
+    }
+}
+
+.k-input-wrapper {
+    background-color: #F8F8F8;
+    color: #A3A1BF;
+    padding: 16px;
+
+    .k-input {
+        border: none;
+        outline: none;
+        width: 100%;
+
+        &.icon {
+            color: #A3A1BF;
+        }
+
+        &::placeholder {
+            color: #A3A1BF;
+        }
+
+        &:focus {
+            border: none;
+            outline: none;
+        }
+    }
+}

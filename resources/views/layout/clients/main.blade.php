@@ -13,6 +13,9 @@
 <body>
     @include('partials.clients.header')
     <main>
+        @component('components.auth.register-modal') @endcomponent
+        @component('components.auth.login-modal') @endcomponent
+        
         @yield('content')
     </main>
     @include('partials.clients.footer')

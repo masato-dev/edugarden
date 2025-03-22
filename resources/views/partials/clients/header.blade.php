@@ -24,12 +24,12 @@
             </div>
             <div class="col-3">
                 <div id="authenticationWrapper">
-                    <button class="k-btn btn-dark">
+                    <button class="k-btn btn-dark" id="loginBtn">
                         <i class="icon ic-login"></i>
                         <span>Đăng nhập</span>
                     </button>
 
-                    <button class="k-btn btn-main">
+                    <button class="k-btn btn-main" id="registerBtn">
                         <i class="icon ic-register"></i>
                         <span>Đăng ký</span>
                     </button>

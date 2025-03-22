@@ -74,4 +74,19 @@
         mask-image: url('../images/icons/ic_call.svg');
         -webkit-mask-image: url('../images/icons/ic_call.svg');
     }
+    
+    &.ic-mail {
+        mask-image: url('../images/icons/ic_mail.svg');
+        -webkit-mask-image: url('../images/icons/ic_mail.svg');
+    }
+
+    &.ic-lock-password {
+        mask-image: url('../images/icons/ic_lock_password.svg');
+        -webkit-mask-image: url('../images/icons/ic_lock_password.svg');
+    }
+
+    &.ic-student-card {
+        mask-image: url('../images/icons/ic_student_card.svg');
+        -webkit-mask-image: url('../images/icons/ic_student_card.svg');
+    }
 }
