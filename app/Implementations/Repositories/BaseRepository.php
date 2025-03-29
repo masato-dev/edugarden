@@ -1,8 +1,9 @@
 <?php
 namespace App\Implementations\Repositories;
 
-use App\Interfaces\Repositories\IRepository;
 use App\Implementations\Services\Cache\CacheService;
+use App\Interfaces\Cache\Behaviour\ShouldCache;
+use App\Interfaces\Repositories\IRepository;
 use App\Events\Cache\Queries\GetModels;
 use App\Events\Cache\Queries\GetModelByCriteria;
 use App\Events\Cache\Queries\GetModelById;

@@ -28,6 +28,12 @@
                     @endcomponent
                 </div>
                 <div class="mb-3">
+                    <div class="church-select-wrapper">
+                        <i class="icon ic-church"></i>
+                        <div id="churchSelect" class="w-100 k-select"></div>
+                    </div>
+                </div>
+                <div class="mb-3">
                     @component('components.common.form.k-input')
                         @slot('id', 'registerModalPasswordInput')
                         @slot('placeholder', 'Mật khẩu')

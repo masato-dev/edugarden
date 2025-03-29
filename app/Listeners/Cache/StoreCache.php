@@ -3,7 +3,7 @@
 namespace App\Listeners\Cache;
 
 use App\Interfaces\Cache\Events\ICacheEvent;
-use App\Services\Cache\CacheService;
+use App\Implementations\Services\Cache\CacheService;
 use Cache;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;

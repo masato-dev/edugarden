@@ -12,6 +12,7 @@ const styles = [
     ...styleModules,
 ]
 
+
 const scripts = [
     'resources/js/app.js',
 ]

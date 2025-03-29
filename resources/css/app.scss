@@ -1,6 +1,7 @@
 @use 'tailwindcss';
 @use 'bootstrap/scss/bootstrap';
 @use 'toastr';
+@use 'virtual-select-plugin/dist/virtual-select.min.css';
 
 @use './fonts/svn-gilroy.scss';
 @use 'variables';
@@ -9,6 +10,7 @@
 @use 'icons/huge.scss';
 
 @use './modules/partials/header.scss';
+@use './modules/partials/register-modal.scss';
 
 // Không có cú pháp tương đương với `@source` trong SCSS, có thể bỏ qua nếu không cần thiết
 
