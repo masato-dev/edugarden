@@ -9,7 +9,7 @@
             <button type="button" class="k-modal-close" data-dismiss="modal" aria-label="Close">&times;</button>
         </div>
         <div class="k-modal-body">
-            <form action="" method="POST">
+            <form action="{{ route('auth.client.login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     @component('components.common.form.k-input')
@@ -17,6 +17,7 @@
                         @slot('placeholder', 'Email')
                         @slot('type', 'email')
                         @slot('icon', 'ic-mail')
+                        @slot('name', 'email')
                     @endcomponent
                 </div>
                 <div class="mb-3">
@@ -25,12 +26,13 @@
                         @slot('placeholder', 'Mật khẩu')
                         @slot('type', 'password')
                         @slot('icon', 'ic-lock-password')
+                        @slot('name', 'password')
                     @endcomponent
                 </div>
 
                 <div class="mb-3">
                     <div class="d-flex align-items-center gap-2">
-                        <input type="checkbox" name="remember" id="" width="16" height="16">
+                        <input type="checkbox" name="remember" id="remember" width="16" height="16">
                         <label for="remember" class="text-color">Nhớ lần đăng nhập sau</label>
                     </div>
                 </div>

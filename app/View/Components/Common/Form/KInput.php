@@ -12,12 +12,14 @@ class KInput extends Component
     private string $placeholder;
     private ?string $icon;
     private ?string $type;
+    private ?string $name;
 
-    public function __construct(?string $id = null, string $placeholder, ?string $icon = null, ?string $type = 'text') {
+    public function __construct(?string $id = null, string $placeholder, ?string $icon = null, ?string $type = 'text', ?string $name = null) {
         $this->id = $id;
         $this->placeholder = $placeholder;
         $this->icon = $icon;
         $this->type = $type;
+        $this->name = $name;
     }
 
     /**
@@ -30,6 +32,7 @@ class KInput extends Component
             'placeholder' => $this->placeholder,
             'icon' => $this->icon,
             'type' => $this->type,
+            'name' => $this->name,
         ]);
     }
 }

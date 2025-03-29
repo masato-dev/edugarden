@@ -10,7 +10,7 @@
     
     if(registerBtn) {
         registerBtn.addEventListener('click', () => {
-        auth.showRegisterModal();
+            auth.showRegisterModal();
         });
     }
 })(window.header = window.header || {}, window);

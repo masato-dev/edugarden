@@ -2,5 +2,5 @@
     @if (isset($icon))
         <i class="icon {{ $icon ?? 'ic-user' }}"></i>
     @endif
-    <input id="{{ $id ?? '' }}" type="{{ $type ?? 'text' }}" placeholder="{{ $placeholder ?? '' }}" class="k-input">
+    <input name="{{ $name ?? '' }}" id="{{ $id ?? '' }}" type="{{ $type ?? 'text' }}" placeholder="{{ $placeholder ?? '' }}" class="k-input">
 </div>

@@ -1,7 +1,8 @@
 (function(exports, global) {
+
+    const loginModal = document.getElementById('loginModal');
+    const registerModal = document.getElementById('registerModal');
     exports.showLoginModal = function() {
-        const loginModal = document.getElementById('loginModal');
-        const registerModal = document.getElementById('registerModal');
         if (loginModal) {
             loginModal.classList.add('show');
         }
@@ -11,15 +12,12 @@
     };
 
     exports.hideLoginModal = function() {
-        const loginModal = document.getElementById('loginModal');
         if (loginModal) {
             loginModal.classList.remove('show');
         }
     };
 
     exports.showRegisterModal = function() {
-        const loginModal = document.getElementById('loginModal');
-        const registerModal = document.getElementById('registerModal');
         if (loginModal) {
             loginModal.classList.remove('show');
         }
@@ -30,11 +28,20 @@
     };
 
     exports.hideRegisterModal = function() {
-        const registerModal = document.getElementById('registerModal');
         if (registerModal) {
             registerModal.classList.remove('show');
         }
     };
+
+    exports.isLoginModalShowing = function () {
+        if(!loginModal) return false;
+        return loginModal.classList.contains('show');
+    }
+
+    exports.isRegisterModalShowing = function () {
+        if(!registerModal) return false;
+        return registerModal.classList.contains('show');
+    }
 
     
 })(window.auth = window.auth || {}, window);

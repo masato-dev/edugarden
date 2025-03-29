@@ -4,6 +4,8 @@
     @vite('resources/css/modules/pages/clients/home.scss')
 @endpush
 
+@component('components.common.notification.alert')@endcomponent
+
 @section('content')
     <div id="homeSlider">
         <img src="https://img.freepik.com/premium-vector/back-school-discount-banner-template-learning-knowledge-education-flyer-poster-with-textbooks-books-stationery_555489-1653.jpg" alt="Slider Image" class="w-100 home-slider-img">
