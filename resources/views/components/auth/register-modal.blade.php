@@ -9,7 +9,7 @@
             <button type="button" class="k-modal-close" data-dismiss="modal" aria-label="Close">&times;</button>
         </div>
         <div class="k-modal-body">
-            <form action="{{ route('auth.client.register') }}" method="POST">
+            <form action="{{ route('auth.client.register') }}" method="POST" id="registerForm">
                 @csrf
                 <div class="mb-3">
                     @component('components.common.form.k-input')
@@ -54,6 +54,10 @@
                         @slot('icon', 'ic-lock-password')
                         @slot('name', 'passwordConfirm')
                     @endcomponent
+
+                    <div class="mt-2">
+                        <span class="text-danger d-none" id="registerModalPasswordConfirmError">Nhập lại mật khẩu không đúng</span>
+                    </div>
                 </div>
 
                 <div class="mb-3 py-3" style="border-bottom: dashed 1px #ccc;">
