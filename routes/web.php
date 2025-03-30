@@ -12,6 +12,7 @@ Route::controller(HomeController::class)->group(function () {
 Route::controller(AuthController::class)->prefix('/auth/client')->name('auth.client.')->group(function () {
     Route::post('/login', 'login')->name('login');
     Route::post('/register', 'register')->name('register');
+    Route::match(['get', 'post'], '/logout', 'logout')->name('logout');
 });
 
 require_once __DIR__.'/ajax.php';

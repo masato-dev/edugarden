@@ -23,17 +23,32 @@
                 </div>
             </div>
             <div class="col-3">
-                <div id="authenticationWrapper">
-                    <button class="k-btn btn-dark" id="loginBtn">
-                        <i class="icon ic-login"></i>
-                        <span>Đăng nhập</span>
-                    </button>
+                
+                @auth('user:web')
+                    <div class="dropdown">
+                        <button class="k-btn btn-main dropdown-toggle d-flex gap-2 py-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="icon ic-register"></i>
+                            <span>{{ auth('user:web')->user()->name }}</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
+                            <li><a class="dropdown-item" href="#">Lịch sử giao dịch</a></li>
+                            <li><a class="dropdown-item" href="{{ route('auth.client.logout') }}">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                @else
+                    <div id="authenticationWrapper">
+                        <button class="k-btn btn-dark d-flex gap-2" id="loginBtn">
+                            <i class="icon ic-login"></i>
+                            <span>Đăng nhập</span>
+                        </button>
 
-                    <button class="k-btn btn-main" id="registerBtn">
-                        <i class="icon ic-register"></i>
-                        <span>Đăng ký</span>
-                    </button>
-                </div>
+                        <button class="k-btn btn-main d-flex gap-2" id="registerBtn">
+                            <i class="icon ic-register"></i>
+                            <span>Đăng ký</span>
+                        </button>
+                    </div>
+                @endauth
             </div>
         </div>
     </div>

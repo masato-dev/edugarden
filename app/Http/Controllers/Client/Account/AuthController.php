@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Client\Account;
 use App\Enums\AlertTypes;
 use App\Http\Controllers\Core\ClientController;
 use App\Interfaces\Services\Account\IUserService;
+use Exception;
 use Illuminate\Http\Request;
+use Log;
 
 class AuthController extends ClientController
 {
@@ -29,6 +31,31 @@ class AuthController extends ClientController
     }
 
     public function register(Request $request) {
-        
+        $email = $request->email;
+        $user = $this->userService->getBy(['email' => $email])->first();
+        if($user)
+            return $this->redirectBackWithMessage(__('Email đã tồn tại trong hệ thống'), AlertTypes::$error);
+        try {
+            $user = $this->userService->create($request->all());
+            if($user)
+                return $this->redirectBackWithMessage(__('Đăng ký tài khoản thành công'), AlertTypes::$success);
+            else
+                return $this->redirectBackWithMessage(__('Đăng ký tài khoản thất bại'), AlertTypes::$error);
+        }
+        catch (Exception $e) {
+            Log::error($e->getTraceAsString());
+            return $this->redirectBackWithMessage($e->getMessage(), AlertTypes::$error);
+        }
+    }
+
+    public function logout(Request $request) {
+        $user = auth('user:web')->user();
+        if($user) {
+            auth('user:web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return $this->redirectBackWithMessage(__('Đăng xuất thành công'), AlertTypes::$success);
+        }
+        return redirect()->back();
     }
 }

@@ -1,4 +1,5 @@
 ;(async function () {
+    const registerModalChurchInput = document.getElementById('registerModalChurchInput');
     const response = await fetch(route('ajax.churchs.index'));
     if(response.ok) {
         const json = await response.json();
@@ -17,4 +18,9 @@
             options: churchs,
         })
     }
+
+    document.querySelector('#churchSelect').addEventListener('change', e => {
+        const churchId = e.target.value;
+        registerModalChurchInput.value = churchId;
+    });
 })();

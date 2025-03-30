@@ -9,7 +9,7 @@
             <button type="button" class="k-modal-close" data-dismiss="modal" aria-label="Close">&times;</button>
         </div>
         <div class="k-modal-body">
-            <form action="" method="POST">
+            <form action="{{ route('auth.client.register') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     @component('components.common.form.k-input')
@@ -17,6 +17,7 @@
                         @slot('placeholder', 'Họ và tên')
                         @slot('type', 'text')
                         @slot('icon', 'ic-student-card')
+                        @slot('name', 'name')
                     @endcomponent
                 </div>
                 <div class="mb-3">
@@ -25,6 +26,7 @@
                         @slot('placeholder', 'Email')
                         @slot('type', 'email')
                         @slot('icon', 'ic-mail')
+                        @slot('name', 'email')
                     @endcomponent
                 </div>
                 <div class="mb-3">
@@ -32,6 +34,7 @@
                         <i class="icon ic-church"></i>
                         <div id="churchSelect" class="w-100 k-select"></div>
                     </div>
+                    <input type="hidden" name="church_id" id="registerModalChurchInput">
                 </div>
                 <div class="mb-3">
                     @component('components.common.form.k-input')
@@ -39,6 +42,7 @@
                         @slot('placeholder', 'Mật khẩu')
                         @slot('type', 'password')
                         @slot('icon', 'ic-lock-password')
+                        @slot('name', 'password')
                     @endcomponent
                 </div>
 
@@ -48,6 +52,7 @@
                         @slot('placeholder', 'Xác nhận mật khẩu')
                         @slot('type', 'password')
                         @slot('icon', 'ic-lock-password')
+                        @slot('name', 'passwordConfirm')
                     @endcomponent
                 </div>
 
