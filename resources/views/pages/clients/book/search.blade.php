@@ -9,11 +9,17 @@
                     với từ khoá <span class="fw-600">"{{ $keyword }}"</span> 
                 @endif
             </p>
+
+            @component('components.book.listing.book-listing')
+                @slot('books', $books)
+            @endcomponent
+        @else
+            <div class="d-flex align-items-center justify-content-center flex-column">
+                <img src="{{ asset('images/backgrounds/no_item_found.svg') }}" alt="No item found" width="600" style="aspect-ratio: 21/9;">
+                <p class="mt-3">Không tìm thấy sử dụng tìm kiếm với <span class="fw-600">"{{ $keyword }}"</span></p>
+            </div>
         @endif
 
-        @component('components.book.listing.book-listing')
-            @slot('books', $books)
-        @endcomponent
     </div>
 
 @endsection

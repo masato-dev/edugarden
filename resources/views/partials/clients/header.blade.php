@@ -13,7 +13,11 @@
                             <span>Tên sách</span>
                         </div>
                         <div class="col-9">
-                            <input type="text" id="headerSearchInput" placeholder="Nhập nội dung tìm kiếm...">
+                            <input 
+                                value="{{ request('keyword') ?? '' }}"
+                                type="text" 
+                                id="headerSearchInput" 
+                                placeholder="Nhập nội dung tìm kiếm...">
                         </div>
                         <div class="col-1">
                             <button class="header-search-btn" id="headerSearchBtn">
