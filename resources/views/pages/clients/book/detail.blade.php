@@ -156,6 +156,13 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mt-5">
+                @component('components.book.listing.book-listing')
+                    @slot('title', 'Khám phá thêm một số loại sách khác')
+                    @slot('books', $relatedBooks)
+                @endcomponent
+            </div>
         </div>
     </section>
 @endsection

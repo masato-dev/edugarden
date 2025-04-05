@@ -33,6 +33,11 @@ class BookController extends ClientController
         if(!$book)
             return abort(404);
 
-        return $this->getView('book.detail', ['book' => $book]);
+        $relatedBooks = $this->bookService->getAll(['perpage' => 5]);
+
+        return $this->getView('book.detail', [
+            'book' => $book,
+            'relatedBooks' => $relatedBooks,
+        ]);
     }
 }
