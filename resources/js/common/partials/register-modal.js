@@ -40,15 +40,58 @@
         },
 
         validate() {
-            const password = passwordInput.value;
-            const passwordConfirm = passwordConfirmInput.value;
-            if(password !== passwordConfirm) {
-                confirmError.classList.remove('d-none');
+            const isValidate = kValidator.validate(registerForm, {
+                rules: {
+                    name: {
+                        required: true,
+                    },
+                    email: {
+                        required: true,
+                        email: true,
+                    },
+                    phone: {
+                        required: true,
+                        phone: true,
+                    },
+                    password: {
+                        required: true,
+                        minlength: 6,
+                    },
+                    passwordConfirm: {
+                        equalTo: '#registerModalPasswordInput'
+                    }
+                },
+                messages: {
+                    name: {
+                        required: 'Vui lòng nhập họ và tên',
+                    },
+                    email: {
+                        required: 'Vui lòng nhập email',
+                        email: 'Vui lòng nhập đúng định dạng email',
+                    },
+                    phone: {
+                        required: 'Vui lòng nhập SĐT',
+                        phone: 'Vui lòng nhập đúng định dạng SĐT',
+                    },
+                    password: {
+                        required: 'Mật khẩu là bắt buộc',
+                        minlength: $.validator.format('Mật khẩu phải nhất {0} kí tự'),
+                    },
+                    passwordConfirm: {
+                        equalTo: 'Mật khẩu xác nhận không trùng khớp',
+                    }
+                },
+            });
+            
+            const churchInput = $('#registerModalChurchInput');
+            const isNotEmptyChurchId = churchInput && churchInput.val();
+            if(!isNotEmptyChurchId) {
+                $('#churchSelectError').removeClass('d-none');
             }
             else {
-                confirmError.classList.add('d-none');
+                $('#churchSelectError').addClass('d-none');
             }
-            return password && passwordConfirm && password === passwordConfirm;
+            return isValidate && $(`input[name="church_id]`).val() !== isNotEmptyChurchId;
         },
 
         onInputPassword() {
@@ -66,9 +109,6 @@
                 e.preventDefault();
                 if(this.validate()) {
                     registerForm.submit();
-                }
-                else {
-                    notification.toast('Mập khẩu xác nhận chưa trùng khớp', 'error');
                 }
             });
         },

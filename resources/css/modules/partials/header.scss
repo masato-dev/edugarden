@@ -1,7 +1,6 @@
 @use '../../variables' as *;
 
 header {
-
     #authenticationWrapper {
         display: flex;
         align-items: center;
@@ -31,5 +30,19 @@ header {
 
     .ic-search {
         color: #8F7EEB;
+    }
+
+    .header-search-btn {
+        cursor: pointer;
+        width: 30;
+        height: 30;
+        border-radius: 50%;
+        transition: all .3s;
+        &:hover {
+            background-color: #8F7EEB;
+            .ic-search {
+                color: white;
+            }
+        }
     }
 }

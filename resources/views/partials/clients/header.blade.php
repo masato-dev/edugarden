@@ -8,16 +8,15 @@
                 <div id="headerSearchWrapper">
                     <div class="row">
                         <div class="col-2">
-                            <div class="text-color d-flex align-items-center m-0">
-                                <span>Tên sách</span>
-                                <i class="icon ic-arrow-down"></i>
-                            </div>
+                            <span>Tên sách</span>
                         </div>
                         <div class="col-9">
                             <input type="text" id="headerSearchInput" placeholder="Nhập nội dung tìm kiếm...">
                         </div>
                         <div class="col-1">
-                            <i class="icon ic-search"></i>
+                            <button class="header-search-btn">
+                                <i class="icon ic-search"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

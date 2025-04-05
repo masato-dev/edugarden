@@ -9,7 +9,7 @@
             <button type="button" class="k-modal-close" data-dismiss="modal" aria-label="Close">&times;</button>
         </div>
         <div class="k-modal-body">
-            <form action="{{ route('auth.client.login') }}" method="POST">
+            <form id="loginForm" action="{{ route('auth.client.login') }}" method="POST">
                 @csrf
                 <div class="mb-3">
                     @component('components.common.form.k-input')
@@ -38,7 +38,7 @@
                 </div>
 
                 <div class="mb-3 py-3" style="border-bottom: dashed 1px #ccc;">
-                    <button type="submit" class="k-btn btn-main w-100">Đăng nhập</button>
+                    <button type="submit" class="k-btn btn-main w-100" id="loginBtn">Đăng nhập</button>
                 </div>
 
                 <div class="d-flex justify-content-center">

@@ -11,15 +11,28 @@
         <div class="k-modal-body">
             <form action="{{ route('auth.client.register') }}" method="POST" id="registerForm">
                 @csrf
-                <div class="mb-3">
-                    @component('components.common.form.k-input')
-                        @slot('id', 'registerModalFullNameInput')
-                        @slot('placeholder', 'Họ và tên')
-                        @slot('type', 'text')
-                        @slot('icon', 'ic-student-card')
-                        @slot('name', 'name')
-                    @endcomponent
+                <div class="d-flex mb-3 align-items-center justify-content-between">
+                    <div class="">
+                        @component('components.common.form.k-input')
+                            @slot('id', 'registerModalFullNameInput')
+                            @slot('placeholder', 'Họ và tên')
+                            @slot('type', 'text')
+                            @slot('icon', 'ic-student-card')
+                            @slot('name', 'name')
+                        @endcomponent
+                    </div>
+
+                    <div class="">
+                        @component('components.common.form.k-input')
+                            @slot('id', 'registerModalPhoneInput')
+                            @slot('placeholder', 'SĐT')
+                            @slot('type', 'text')
+                            @slot('icon', 'ic-call')
+                            @slot('name', 'phone')
+                        @endcomponent
+                    </div>
                 </div>
+
                 <div class="mb-3">
                     @component('components.common.form.k-input')
                         @slot('id', 'registerModalEmailInput')
@@ -35,6 +48,9 @@
                         <div id="churchSelect" class="w-100 k-select"></div>
                     </div>
                     <input type="hidden" name="church_id" id="registerModalChurchInput">
+                    <div class="d-none" id="churchSelectError">
+                        <span class="text-danger">Vui lòng chọn hội thánh</span>
+                    </div>
                 </div>
                 <div class="mb-3">
                     @component('components.common.form.k-input')
