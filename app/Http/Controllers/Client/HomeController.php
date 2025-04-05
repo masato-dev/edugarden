@@ -10,6 +10,8 @@ class HomeController extends ClientController
 {
     public function index() {
         $books = Book::all();
-        return view($this->getView('home.index'), compact('books'));
+        return $this->getView('home.index', [
+            'books' => $books,
+        ]);
     }
 }

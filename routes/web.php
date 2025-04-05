@@ -18,5 +18,6 @@ Route::controller(AuthController::class)->prefix('/auth/client')->name('auth.cli
 });
 
 Route::controller(BookController::class)->prefix('/books')->name('books.')->group(function () {
+    Route::get('/search', 'search')->name('search');
     Route::get('/{slug}', 'detail')->name('detail');
 });

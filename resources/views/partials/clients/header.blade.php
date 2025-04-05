@@ -2,7 +2,9 @@
     <div class="container py-3">
         <div class="row align-items-center">
             <div class="col-2">
-                <h2>Logo here</h2>
+                <a href="/" class="text-decoration-none">
+                    <h2 class="text-color">Logo here</h2>
+                </a>
             </div>
             <div class="col-7">
                 <div id="headerSearchWrapper">
@@ -14,7 +16,7 @@
                             <input type="text" id="headerSearchInput" placeholder="Nhập nội dung tìm kiếm...">
                         </div>
                         <div class="col-1">
-                            <button class="header-search-btn">
+                            <button class="header-search-btn" id="headerSearchBtn">
                                 <i class="icon ic-search"></i>
                             </button>
                         </div>

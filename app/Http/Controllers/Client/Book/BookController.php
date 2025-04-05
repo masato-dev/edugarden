@@ -13,6 +13,17 @@ class BookController extends ClientController
     public function __construct(IBookService $bookService) {
         $this->bookService = $bookService;
     }
+
+    public function search(Request $request) {
+        $keyword = $request->keyword;
+        $books = $keyword 
+            ? $this->bookService->autoComplete($keyword, 'title') 
+            : $this->bookService->getAll();
+        return $this->getView('book.search', [
+            'books' => $books,
+            'keyword' => $keyword,
+        ]);
+    }
     public function detail(Request $request) {
         $slug = $request->route('slug');
         if(!$slug)
@@ -22,8 +33,6 @@ class BookController extends ClientController
         if(!$book)
             return abort(404);
 
-        return view($this->getView('book.detail'), [
-            'book' => $book
-        ]);
+        return $this->getView('book.detail', ['book' => $book]);
     }
 }

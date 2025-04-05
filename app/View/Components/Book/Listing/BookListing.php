@@ -16,8 +16,8 @@ class BookListing extends Component
      * @var \App\Models\Book[]
      */
     private array $books;
-    private string $title;
-    public function __construct(array $books, string $title)
+    private ?string $title;
+    public function __construct(array $books, ?string $title = null)
     {
         $this->books = $books;
         $this->title = $title;
