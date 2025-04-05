@@ -4,6 +4,10 @@
     color: $mainColor;
 }
 
+.text-main-outline {
+    color: $mainOutlineColor;
+}
+
 .text-color {
     color: $textColor;
 }
@@ -53,6 +57,14 @@
     &:hover {
         background-color: darken($buttonDarkColor, 10%);
     }
+}
+
+.bg-main {
+    background-color: $mainColor;
+}
+
+.bg-main-outline {
+    background-color: $mainOutlineColor;
 }
 
 .fw-100 {

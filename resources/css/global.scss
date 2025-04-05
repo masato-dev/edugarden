@@ -57,3 +57,93 @@
         border-top-right-radius: 10px;
     }
 }
+
+
+#bookDetailSection {
+    .book-detail-thumbnail {
+        border: solid 1px #ccc;
+        border-radius: 10px;
+        img {
+            border-radius: 10px;
+        }
+    }
+
+    .book-detail-quantity {
+        border: solid 1px #ccc;
+        border-radius: 10px;
+        height: 50px;
+        width: 150px;
+
+        input {
+            border: none;
+            outline: none;
+            text-align: center;
+            width: 100% * 1 / 3;
+            &:focus {
+                border: none;
+                outline: none;
+            }
+        }
+
+        button {
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            width: 100% * 1 / 3;
+            height: 100%;
+            border-right: solid 1px #ccc;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            transition: all .3s;
+            
+            &:last-child {
+                border-right: none;
+                border-left: solid 1px #ccc;
+                border-radius: 0;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+
+            &:hover {
+                background-color: #ccc;
+            }
+        }
+    }
+
+    .book-detail-add-to-cart-btn {
+        height: 50px !important;
+        background-color: $subTextColor !important;
+        transition: all .3s;
+        &:hover {
+            background-color: darken($color: $subTextColor, $amount: 10) !important;
+        }
+    }
+
+    .book-detail-add-to-wishlist-btn {
+        height: 50px !important;
+        width: 50px !important;
+        border: solid 1px #ccc;
+        border-radius: 10px;
+        transition: all .3s;
+        &:hover {
+            background-color: $dangerColor;
+            color: white;
+        }
+    }
+
+    .book-detail-nav {
+        .nav-link {
+            color: $textColor !important;
+        }
+        .nav-link.active {
+            color: $mainColor !important;
+        }
+    }
+
+    table {
+        tr, th, td {
+            height: 64px;
+            line-height: 64px;
+        }
+    }
+}
