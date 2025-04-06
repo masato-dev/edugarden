@@ -67,6 +67,10 @@
         });
 
         headerSearchInput.addEventListener('input', searchAjax);
+        headerSearchInput.addEventListener('blur', e => {
+            if(e.relatedTarget && e.relatedTarget.closest('#headerSearchResult')) return;
+            headerSearchResult.classList.add('d-none');
+        });
 
     }
 
