@@ -1,3 +1,7 @@
+@php
+    use App\Utils\CurrencyUtil;
+@endphp
+
 @extends('layout.clients.main')
 @component('components.common.notification.alert')
 
@@ -34,8 +38,11 @@
                                 <span class="fs-4">Đã bán: {{ $book->buy_quantity }}</span>
                             </div>
 
-                            <hr>
+                            
+                        </div>
 
+                        <div class="mt-3">
+                            <span class="text-danger fs-3 fw-600">{{ CurrencyUtil::toVnd($book->price) }}</span>
                         </div>
 
                         <hr>

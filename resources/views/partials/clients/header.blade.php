@@ -12,12 +12,16 @@
                         <div class="col-2">
                             <span>Tên sách</span>
                         </div>
-                        <div class="col-9">
+                        <div class="col-9" id="headerSearchInputWrapper">
                             <input 
                                 value="{{ request('keyword') ?? '' }}"
                                 type="text" 
                                 id="headerSearchInput" 
                                 placeholder="Nhập nội dung tìm kiếm...">
+
+                            <ul class="list-unstyled d-none" id="headerSearchResult">
+
+                            </ul>
                         </div>
                         <div class="col-1">
                             <button class="header-search-btn" id="headerSearchBtn">

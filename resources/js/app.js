@@ -19,3 +19,5 @@ import './utils/auth';
 import './utils/notification';
 import './utils/k-validator';
 import './common/index';
+import './models/index';
+import './services/network/index';
