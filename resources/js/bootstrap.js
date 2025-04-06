@@ -4,8 +4,14 @@ window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
+// Dependencies Injection
+
+window.instanceNames = window.instanceNames || {
+    BookService: 'BookService',
+};
+
 window.instances = window.instances || {
-    BookService: null,
+    [instanceNames.BookService]: null,
 };
 
 window.locator = {
@@ -14,5 +20,4 @@ window.locator = {
 }
 
 
-// Dependencies Injection
-locator.register(window.instances.BookService ?? 'BookService', new BookService());
+locator.register(instanceNames.BookService, new BookService());

@@ -19,7 +19,7 @@
         if(keyword) {
             clearTimeout(timeoutId);
             timeoutId = setTimeout(async () => {
-                const bookService = locator.make(instances.BookService); // Get instance from locator
+                const bookService = locator.make(instanceNames.BookService); // Get instance from locator
                 const response = await bookService.autoComplete(keyword);
                 if(response.isSuccessfully()) {
                     headerSearchResult.classList.remove('d-none');
