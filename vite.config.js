@@ -15,6 +15,7 @@ const styles = [
 
 const scripts = [
     'resources/js/app.js',
+    'resources/js/pages/book-detail.js',
 ]
 
 const resources = [...styles, ...scripts]
