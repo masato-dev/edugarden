@@ -4,11 +4,11 @@
 
 <div class="d-md-flex d-block align-items-center justify-content-between">
     <div class="d-flex align-items-center gap-3">
-        <img src="{{ $book->thumbnail }}" alt="" width="80" height="80">
+        <img src="{{ $cart->book->thumbnail }}" alt="" width="80" height="80">
         <div>
-            <h6>{{ $book->title }}</h6>
+            <h6>{{ $cart->book->title }}</h6>
             <div class="mt-3">
-                <span class="text-danger fw-600">{{ CurrencyUtil::toVnd($book->price) }}</span>
+                <span class="text-danger fw-600">{{ CurrencyUtil::toVnd($cart->book->price) }}</span>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
         </div>
 
         <div>
-            <span class="text-danger fw-500 fs-5">{{ CurrencyUtil::toVnd($book->price * $cart->quantity) }}</span>
+            <span class="text-danger fw-500 fs-5">{{ CurrencyUtil::toVnd($cart->book->price * $cart->quantity) }}</span>
         </div>
 
         <div>
