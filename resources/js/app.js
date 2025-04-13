@@ -15,6 +15,7 @@ window.$ = window.jQuery = $;
 import './prototype/validator';
 
 // Local modules
+import './common/events/values';
 import './utils/auth';
 import './utils/notification';
 import './utils/k-validator';

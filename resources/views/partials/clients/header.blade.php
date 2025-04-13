@@ -6,7 +6,7 @@
                     <h2 class="text-color">Logo here</h2>
                 </a>
             </div>
-            <div class="col-7">
+            <div class="col-6">
                 <div id="headerSearchWrapper">
                     <div class="row">
                         <div class="col-2">
@@ -31,19 +31,30 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
-                
+            <div class="col-4">
                 @auth('user:web')
-                    <div class="dropdown">
-                        <button class="k-btn btn-main dropdown-toggle d-flex gap-2 py-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="icon ic-register"></i>
-                            <span>{{ auth('user:web')->user()->name }}</span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
-                            <li><a class="dropdown-item" href="#">Lịch sử giao dịch</a></li>
-                            <li><a class="dropdown-item" href="{{ route('auth.client.logout') }}">Đăng xuất</a></li>
-                        </ul>
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+
+                        <a href="{{ route('carts.index') }}" class="k-btn btn-text-color d-flex gap-2 text-decoration-none py-3" id="headerCartBtn">
+                            <i class="icon ic-shopping-cart"></i>
+                            <span>Giỏ hàng</span>
+
+                            <span class="header-cart-quantity" id="headerCartQuantity">
+                                0
+                            </span>
+                        </a>
+    
+                        <div class="dropdown">
+                            <button class="k-btn btn-main dropdown-toggle d-flex gap-2 py-3" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="icon ic-register"></i>
+                                <span>{{ auth('user:web')->user()->name }}</span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="#">Lịch sử giao dịch</a></li>
+                                <li><a class="dropdown-item" href="{{ route('auth.client.logout') }}">Đăng xuất</a></li>
+                            </ul>
+                        </div>
                     </div>
                 @else
                     <div id="authenticationWrapper">

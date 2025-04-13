@@ -4,6 +4,7 @@
     const headerSearchInput = document.getElementById('headerSearchInput');
     const headerSearchBtn = document.getElementById('headerSearchBtn');
     const headerSearchResult = document.getElementById('headerSearchResult');
+    const headerCartQuantity = document.getElementById('headerCartQuantity');
 
     let timeoutId = null;
 
@@ -77,4 +78,11 @@
     if(headerSearchBtn) {
         headerSearchBtn.addEventListener('click', search);
     }
+
+    document.addEventListener(events.CART_UPDATED, (e) => {
+        const quantity = e.detail.quantity;
+        headerCartQuantity.innerText = quantity;
+    });
+
+
 })(window.header = window.header || {}, window);

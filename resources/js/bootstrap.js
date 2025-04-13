@@ -1,5 +1,7 @@
 import axios from 'axios';
+
 import './services/network/index';
+
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -8,10 +10,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 window.instanceNames = window.instanceNames || {
     BookService: 'BookService',
+    CartService: 'CartService',
 };
 
 window.instances = window.instances || {
     [instanceNames.BookService]: null,
+    [instanceNames.CartService]: null,
 };
 
 window.locator = {
@@ -21,3 +25,4 @@ window.locator = {
 
 
 locator.register(instanceNames.BookService, new BookService());
+locator.register(instanceNames.CartService, new CartService());

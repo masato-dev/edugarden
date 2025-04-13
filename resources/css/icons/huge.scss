@@ -109,4 +109,19 @@
         mask-image: url('../images/icons/ic_tick.svg');
         -webkit-mask-image: url('../images/icons/ic_tick.svg');
     }
+
+    &.ic-arrow-left {
+        mask-image: url('../images/icons/ic_arrow_left.svg');
+        -webkit-mask-image: url('../images/icons/ic_arrow_left.svg');
+    }
+
+    &.ic-delete {
+        mask-image: url('../images/icons/ic_delete.svg');
+        -webkit-mask-image: url('../images/icons/ic_delete.svg');
+    }
+
+    &.ic-cash {
+        mask-image: url('../images/icons/ic_cash.svg');
+        -webkit-mask-image: url('../images/icons/ic_cash.svg');
+    }
 }

@@ -9,6 +9,7 @@
 
 @section('content')
     <section id="bookDetailSection" class="py-5">
+        <input type="hidden" name="book" value="{{ json_encode($book) }}">
         <div class="container">
             <div class="row">
                 <div class="col-md-5 col-12">
@@ -173,3 +174,7 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    @vite(['resources/js/pages/book-detail.js'])
+@endpush

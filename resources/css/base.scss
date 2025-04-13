@@ -28,6 +28,7 @@
     border-radius: 10px;
     padding: 8px 16px;
     transition: all .3s;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -41,6 +42,32 @@
         background-color: darken($mainColor, 10%);
     }
     
+}
+
+.btn-main-outline {
+    background-color: white;
+    color: $mainColor;
+    border: solid 1px $mainColor;
+    &:hover {
+        background-color: $mainColor;
+        color: white;
+    }
+}
+
+.btn-danger {
+    background-color: $dangerColor;
+    color: white;
+    &:hover {
+        background-color: darken($dangerColor, 10%);
+    }
+}
+
+.btn-text-color {
+    background-color: $textColor;
+    color: white;
+    &:hover {
+        background-color: darken($textColor, 10%);
+    }
 }
 
 .btn-secondary {
