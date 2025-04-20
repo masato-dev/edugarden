@@ -61,6 +61,13 @@ class ApiService {
 
     async delete(url, parameters = {}) {
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        const urlWithParams = new URL(url);
+        Object.entries(parameters).forEach(([key, value]) => {
+            if (value !== undefined && value !== null) {
+                urlWithParams.searchParams.append(key, value);
+            }
+        });
+        
         try {
             const response = await fetch(url, {
                 headers: {

@@ -19,6 +19,7 @@
         "bootstrap": "^5.3.3",
         "jquery": "^3.7.1",
         "jquery-validation": "^1.21.0",
+        "sweetalert2": "^11.19.1",
         "toastr": "^2.1.4",
         "virtual-select-plugin": "^1.0.47"
     }

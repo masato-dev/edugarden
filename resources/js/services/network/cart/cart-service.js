@@ -13,6 +13,11 @@ class CartService extends ApiService {
         }
         return response;
     }
+
+    async delete(cartId) {
+        const response = await super.delete(route('ajax.carts.delete', { id: cartId }));
+        return response;
+    } 
 }
 
 window.CartService = CartService;

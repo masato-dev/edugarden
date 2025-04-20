@@ -20,7 +20,8 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
         ->name('carts.')
         ->group(function () {
             Route::post('/store', 'store')->name('store');
-            Route::post('/update/{id}', 'update')->name('update');
-            Route::post('/delete/{id}', 'delete')->name('delete');
+            Route::put('/update/{id}', 'update')->name('update');
+            Route::delete('/delete/{id}', 'delete')->name('delete');
+            Route::get('/amount', 'amount')->name('amount');
         });
 });

@@ -16,7 +16,7 @@
     <div class="d-flex align-items-center gap-4">
         <div class="d-flex k-detail-quantity">
             <button class="k-detail-decrease-btn">-</button>
-            <input type="text" class="k-detail-quantity-input" value="1">
+            <input type="text" class="k-detail-quantity-input" value="{{ $cart->quantity }}">
             <button class="k-detail-increase-btn">+</button>
         </div>
 
@@ -25,9 +25,37 @@
         </div>
 
         <div>
-            <button class="k-btn btn-danger k-detail-remove-from-cart-btn" title="Xoá khỏi giỏ hàng">
+            <button data-cart-id="{{ $cart->id }}" class="k-btn btn-danger k-detail-remove-from-cart-btn" title="Xoá khỏi giỏ hàng">
                 <i class="icon ic-delete"></i>
             </button>
         </div>
     </div>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const removeBtn = document.querySelector('.k-detail-remove-from-cart-btn');
+        removeBtn.addEventListener('click', e => {
+            notification.fire.confirm(
+                'Xoá khỏi giỏ hàng',
+                'Bạn có chắc chắc là muốn xoá sản phẩm này khỏi giỏ hàng?'
+            ).then(result => {
+                if(result.isConfirmed) {
+                    const cartId = removeBtn.dataset.cartId;
+                    const cartService = locator.make(instanceNames.CartService);
+                    cartService.delete(cartId).then(response => {
+                        if(response.isSuccessfully()) {
+                            notification.toast('Xoá sản phẩm khỏi giỏ hàng thành công', 'success');
+                            document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {}));
+                            removeBtn.closest('li').remove();
+                        }
+
+                        else {
+                            notification.toast('Đã có lỗi xảy ra, vui lòng thử lại sau', 'error');
+                        }
+                    });
+                }
+            })
+        });
+    });
+</script>

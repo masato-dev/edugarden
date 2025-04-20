@@ -38,9 +38,8 @@
                         <a href="{{ route('carts.index') }}" class="k-btn btn-text-color d-flex gap-2 text-decoration-none py-3" id="headerCartBtn">
                             <i class="icon ic-shopping-cart"></i>
                             <span>Giỏ hàng</span>
-
-                            <span class="header-cart-quantity" id="headerCartQuantity">
-                                0
+                            <span class="header-cart-quantity @if($cartAmount == 0) d-none @endif" id="headerCartQuantity">
+                                {{ $cartAmount  }}
                             </span>
                         </a>
     

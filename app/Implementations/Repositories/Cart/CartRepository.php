@@ -11,6 +11,19 @@ class CartRepository extends BaseRepository implements ICartRepository {
         parent::__construct($model);
     }
 
+    public function create(array $data) {
+        $userId = $data['user_id'];
+        $bookId = $data['book_id'];
+        $record = $this->getBy(['user_id' => $userId, 'book_id' => $bookId])->first();
+        if(!empty($record)) {
+            $data['quantity'] += $record->quantity;
+            return $this->update($record->id, $data);
+        }
+        else {
+            return parent::create($data);
+        }
+    }
+
     public function amount(): int {
         $result = 0;
         $user = auth('user:web')->user();

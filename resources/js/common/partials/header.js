@@ -80,8 +80,19 @@
     }
 
     document.addEventListener(events.CART_UPDATED, (e) => {
-        const quantity = e.detail.quantity;
-        headerCartQuantity.innerText = quantity;
+        fetch(`${ route('ajax.carts.amount') }`)
+            .then(response => response.json())
+            .then(data => {
+                const amount = parseInt(data.data);
+                headerCartQuantity.innerText = amount;
+                if(amount > 0) {
+                    headerCartQuantity.classList.remove('d-none');
+                }
+                else {
+                    headerCartQuantity.classList.add('d-none');
+                }
+            } 
+        );
     });
 
 

@@ -61,4 +61,9 @@ class CartController extends ApiController
             return $this->error($e->getMessage());
         }
     }
+
+    public function amount(Request $request) {
+        $amount = $this->cartService->amount();
+        return $this->success('Get cart amount successfully', $amount);
+    }
 }
