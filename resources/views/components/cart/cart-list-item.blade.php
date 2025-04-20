@@ -34,8 +34,9 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const removeBtn = document.querySelector('.k-detail-remove-from-cart-btn');
-        removeBtn.forEach(btn => {
+        const removeBtns = document.querySelectorAll('.k-detail-remove-from-cart-btn');
+
+        removeBtns.forEach(btn => {
             btn.addEventListener('click', e => {
                 notification.fire.confirm(
                     'Xoá khỏi giỏ hàng',
