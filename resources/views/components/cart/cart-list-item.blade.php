@@ -35,27 +35,29 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const removeBtn = document.querySelector('.k-detail-remove-from-cart-btn');
-        removeBtn.addEventListener('click', e => {
-            notification.fire.confirm(
-                'Xoá khỏi giỏ hàng',
-                'Bạn có chắc chắc là muốn xoá sản phẩm này khỏi giỏ hàng?'
-            ).then(result => {
-                if(result.isConfirmed) {
-                    const cartId = removeBtn.dataset.cartId;
-                    const cartService = locator.make(instanceNames.CartService);
-                    cartService.delete(cartId).then(response => {
-                        if(response.isSuccessfully()) {
-                            notification.toast('Xoá sản phẩm khỏi giỏ hàng thành công', 'success');
-                            document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {}));
-                            removeBtn.closest('li').remove();
-                        }
+        removeBtn.forEach(btn => {
+            btn.addEventListener('click', e => {
+                notification.fire.confirm(
+                    'Xoá khỏi giỏ hàng',
+                    'Bạn có chắc chắc là muốn xoá sản phẩm này khỏi giỏ hàng?'
+                ).then(result => {
+                    if(result.isConfirmed) {
+                        const cartId = btn.dataset.cartId;
+                        const cartService = locator.make(instanceNames.CartService);
+                        cartService.delete(cartId).then(response => {
+                            if(response.isSuccessfully()) {
+                                notification.toast('Xoá sản phẩm khỏi giỏ hàng thành công', 'success');
+                                document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {}));
+                                btn.closest('li').remove();
+                            }
 
-                        else {
-                            notification.toast('Đã có lỗi xảy ra, vui lòng thử lại sau', 'error');
-                        }
-                    });
-                }
-            })
+                            else {
+                                notification.toast('Đã có lỗi xảy ra, vui lòng thử lại sau', 'error');
+                            }
+                        });
+                    }
+                })
+            });
         });
     });
 </script>
