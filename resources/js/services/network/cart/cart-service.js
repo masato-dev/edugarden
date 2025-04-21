@@ -8,8 +8,9 @@ class CartService extends ApiService {
 
     async store(cartRequest) {
         const response = await this.post(route('ajax.carts.store', cartRequest));
+        
         if(response.isSuccessfully()) {
-            return ApiResult.from({'success': true, 'data': Cart.fromJson(response.data), 'exception': null});
+            return ApiResult.from({'success': true, 'data': {...response.data, data: Cart.fromJson(response.data)}, 'exception': null});
         }
         return response;
     }

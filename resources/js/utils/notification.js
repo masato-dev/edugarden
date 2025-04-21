@@ -22,4 +22,13 @@
             ...options
         });
     };
+
+    exports.fire.show = function (title = '', text = '', icon = 'info', options = {}) {
+        return Swal.fire({
+            title: title,
+            text: text,
+            icon: icon,
+            ...options
+        });
+    }
 })(window.notification = window.notification || {fire: {}}, window);

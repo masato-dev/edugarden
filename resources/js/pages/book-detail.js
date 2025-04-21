@@ -27,10 +27,6 @@
         },
 
         async onAddToCart() {
-            document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {
-                detail: {quantity: parseInt(quantityInput.value)}
-            }));
-
             const cartService = locator.make(instanceNames.CartService);
             const book = JSON.parse(hiddenBookInpput.value);
             
@@ -40,7 +36,13 @@
             });
 
             if(response.isSuccessfully()) {
-                notification.toast('Thêm vào giỏ hàng thành công', 'success');
+                console.log(response);
+                
+                document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {}));
+                notification.toast(response.data.message, 'success');
+            }
+            else {
+                notification.fire.show('Lỗi', response.exception, 'error');
             }
         },
 

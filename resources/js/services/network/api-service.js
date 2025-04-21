@@ -2,84 +2,49 @@ import './api-result.js';
 class ApiService {
     constructor() {}
 
-    async get(url, parameters = {}) {
+    async callApi(url, method, data = {}) {
         const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
         const urlWithParams = new URL(url);
-        Object.entries(parameters).forEach(([key, value]) => {
-            if (value !== undefined && value !== null) {
-                urlWithParams.searchParams.append(key, value);
-            }
-        });
-
+        if(method === 'GET' || method === 'DELETE') {
+            Object.entries(data).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    urlWithParams.searchParams.append(key, value);
+                }
+            });
+        }
         try {
-            const response = await fetch(urlWithParams, {
+            const response = await fetch(method === 'GET' || method === 'DELETE' ? urlWithParams : url, {
                 headers: {
                     'X-CSRF-TOKEN': csrfToken,
                 },
-                method: 'GET',
+                method: method,
+                body: method === 'POST' || method === 'PUT' ? JSON.stringify(data) : null,
             });
             const json = await response.json();
-            return ApiResult.from({'success': true, data: json.data, exception: null});
-        } catch (error) {
+            if(!response.ok) {
+                return ApiResult.from({'success': false, data: null, exception: json.errors});
+            }
+            return ApiResult.from({'success': true, data: {...json}, exception: null});
+        }
+        catch (error) {
             return ApiResult.from({'success': false, data: null, exception: error});
         }
+    }
+
+    async get(url, parameters = {}) {
+        return this.callApi(url, 'GET', parameters);
     }
 
     async post(url, data = {}) {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-                method: 'POST',
-                body: JSON.stringify(data),
-            });
-            const json = await response.json();
-            return ApiResult.from({'success': true, data: json.data, exception: null});
-        } catch (error) {
-            return ApiResult.from({'success': false, data: null, exception: error});
-        }
+        return this.callApi(url, 'POST', data);
     }
 
     async put(url, data = {}) {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-                method: 'PUT',
-                body: JSON.stringify(data),
-            });
-            const json = await response.json();
-            return ApiResult.from({'success': true, data: json.data, exception: null});
-        } catch (error) {
-            return ApiResult.from({'success': false, data: null, exception: error});
-        }
+        return this.callApi(url, 'PUT', data);
     }
 
     async delete(url, parameters = {}) {
-        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
-        const urlWithParams = new URL(url);
-        Object.entries(parameters).forEach(([key, value]) => {
-            if (value !== undefined && value !== null) {
-                urlWithParams.searchParams.append(key, value);
-            }
-        });
-        
-        try {
-            const response = await fetch(url, {
-                headers: {
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-                method: 'DELETE',
-            });
-            const json = await response.json();
-            return ApiResult.from({'success': true, data: json.data, exception: null});
-        } catch (error) {
-            return ApiResult.from({'success': false, data: null, exception: error});
-        }
+        return this.callApi(url, 'DELETE', parameters);
     }
 }
 

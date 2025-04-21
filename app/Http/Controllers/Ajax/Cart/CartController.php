@@ -22,7 +22,7 @@ class CartController extends ApiController
         try {
             $created = $this->cartService->create($data);
             if($created)
-                return $this->success('Store new cart item successfully', $created);
+                return $this->success(__('Thêm vào giỏ hàng thành công'), $created);
             else
                 return $this->error('Bad Request !!!', 400);
         }

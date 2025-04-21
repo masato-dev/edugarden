@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 require_once __DIR__.'/ajax.php';
 
 Route::controller(HomeController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('home');
 });
 
 Route::controller(AuthController::class)
