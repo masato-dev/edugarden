@@ -65,7 +65,7 @@
                                     <span>Thêm vào giỏ hàng</span>
                                 </button>
 
-                                <button class="book-detail-add-to-wishlist-btn" title="Thêm vào danh sách yêu thích">
+                                <button class="book-detail-add-to-wishlist-btn" id="addToWishlistBtn" title="Thêm vào danh sách yêu thích">
                                     <i class="icon ic-heart"></i>
                                 </button>
                             </div>

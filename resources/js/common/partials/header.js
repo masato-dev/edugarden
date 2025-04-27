@@ -22,13 +22,14 @@
             timeoutId = setTimeout(async () => {
                 const bookService = locator.make(instanceNames.BookService); // Get instance from locator
                 const response = await bookService.autoComplete(keyword);
+                
                 if(response.isSuccessfully()) {
                     headerSearchResult.classList.remove('d-none');
                     if(response.data.length === 0) {
                         headerSearchResult.innerHTML = `<li class="dropdown-item">Không tìm thấy</li>`;
                     }
                     else {
-                        headerSearchResult.innerHTML = response.data.map((item) => `
+                        headerSearchResult.innerHTML = response.data.data.map((item) => `
                             <li>
                                 <a href="${route('books.detail', { slug: item.slug })}" class="dropdown-item">
                                     ${item.title}

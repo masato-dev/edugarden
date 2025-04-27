@@ -4,6 +4,7 @@
     const quantityInput = document.querySelector('.book-detail-quantity-input');
     const addToCartBtn = document.querySelector('.book-detail-add-to-cart-btn');
     const hiddenBookInpput = document.querySelector('input[name="book"]');
+    const addToWishlistBtn = document.querySelector('#addToWishlistBtn');
 
     const app = {
         start() {
@@ -46,10 +47,19 @@
             }
         },
 
+        onAddToWishlist() {
+            notification.fire.show(
+                'Thông báo', 
+                'Tính năng này còn đang trong quá trình phát triển', 
+                'warning'
+            );
+        },
+
         registerEvents() {
             increaseBtn.addEventListener('click', this.onUpdateQuantity);
             decreaseBtn.addEventListener('click', this.onUpdateQuantity);
             addToCartBtn.addEventListener('click', this.onAddToCart);
+            addToWishlistBtn.addEventListener('click', this.onAddToWishlist);
         },
     }
 

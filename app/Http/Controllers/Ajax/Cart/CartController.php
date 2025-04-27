@@ -38,7 +38,7 @@ class CartController extends ApiController
         try {
             $updated = $this->cartService->update($id, $data);
             if($updated)
-                return $this->success('Update cart successfully', $updated);
+                return $this->success(__('Cập nhật giỏ hàng thành công'), $updated);
             else return $this->error('Bad Request!!');
         }
         catch(Exception $e) {

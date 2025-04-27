@@ -15,6 +15,11 @@ class CartService extends ApiService {
         return response;
     }
 
+    async update(cartId, cartRequest) {
+        const response = await this.put(route('ajax.carts.update', { id: cartId, ...cartRequest }));
+        return response;
+    }
+
     async delete(cartId) {
         const response = await super.delete(route('ajax.carts.delete', { id: cartId }));
         return response;

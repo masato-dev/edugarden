@@ -11,7 +11,7 @@
                 <h2 class="text-color fw-600">Giỏ hàng</h2>
                 <div class="mt-3 d-flex align-items-center text-main">
                     <i class="icon ic-arrow-left"></i>
-                    <a href="#" class="text-main text-decoration-none ">Quay lại mua sắm</a>
+                    <a href="/" class="text-main text-decoration-none ">Quay lại mua sắm</a>
                 </div>
 
                 <div class="row">
@@ -96,3 +96,7 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    @vite(['resources/js/pages/cart-listing.js'])
+@endpush

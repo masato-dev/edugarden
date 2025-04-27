@@ -10,7 +10,7 @@ class BookService extends ApiService {
         if(response.isSuccessfully()) {
             return ApiResult.from({
                 'success': true,
-                'data': {...response.data, data: response.data.map((item) => Book.fromJson(item))},
+                'data': {...response.data, data: response.data.data.map((item) => Book.fromJson(item))},
                 'exception': null
             })
         }
