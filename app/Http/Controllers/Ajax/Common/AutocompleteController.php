@@ -14,9 +14,15 @@ class AutocompleteController extends ApiController
         $queryColumn = $request->queryColumn ?? 'name';
         $keyword = $request->keyword ?? '';
         $limit = $request->limit ?? 20;
-        $records = DB::table($queryTable)
-            ->where($queryColumn, 'like', '%'.$keyword.'%')
-            ->limit($limit)
+        $criteria = json_decode($request->criteria) ?? [];
+        $query = DB::table($queryTable)
+            ->where($queryColumn, 'like', '%'.$keyword.'%');
+        
+        foreach ($criteria as $key => $value) {
+            $query->where($key, $value);
+        }
+
+        $records = $query->limit($limit)
             ->offset(0)
             ->get(['id', $queryColumn]);
         return $this->success(__('Tìm kiếm thành công'), $records);

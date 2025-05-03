@@ -184,9 +184,6 @@
         border-radius: 10px;
         width: 600px;
         max-height: 90vh;
-        overflow-y: auto;
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE and Edge */
 
         &::-webkit-scrollbar {
             display: none; /* Chrome, Safari */
@@ -209,7 +206,11 @@
         }
         
         .k-modal-body {
+            max-height: 80vh;
             padding: 16px;
+            overflow-y: auto;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
         }
     }
 }

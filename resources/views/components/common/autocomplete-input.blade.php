@@ -1,8 +1,9 @@
 <div class="position-relative">
     <div class="input-group">
-        <input id="{{ $id }}" class="form-control" placeholder="Nhập từ khóa...">
-        <input type="hidden" name="{{ $name }}" id="{{ $id }}Hidden">
-        <button type="button" class="btn btn-outline-secondary" id="{{ $id }}ClearBtn">&times;</button>
+        <input id="{{ $id }}" class="form-control" placeholder="Nhập từ khóa..." @if (!empty($value)) {{ 'disabled' }} @endif>
+        <input type="hidden" id="{{ $id }}Criteria" value="{{ json_encode($criteria) }}">
+        <input type="hidden" name="{{ $name }}" id="{{ $id }}Hidden" value="{{ $value }}" @foreach ($wireModels as $model) wire:model="{{ $model }}" @endforeach>
+        <button type="button" class="btn btn-outline-secondary" id="{{ $id }}ClearBtn" wire:click="clearItem('{{ $name }}')">&times;</button>
     </div>
     <ul id="{{ $id }}Results" class="list-group mt-1 d-none w-100" style="position: absolute; z-index: 1000; max-height: 400px; overflow-y: auto"></ul>
 </div>
@@ -17,7 +18,10 @@
         const clearBtn = document.getElementById(`${inputId}ClearBtn`);
 
         const fetchData = async (keyword = '') => {
-            const url = `{{ route('ajax.autocomplete.index', ['queryTable' => $queryTable, 'queryColumn' => $queryColumn]) }}&keyword=${encodeURIComponent(keyword)}`;
+            const url = `{!! route('ajax.autocomplete.index', [
+                'queryTable' => $queryTable,
+                'queryColumn' => $queryColumn,
+            ]) !!}&keyword=${encodeURIComponent(keyword)}&criteria=${document.getElementById(`${@json($id)}Criteria`).value}`;
             const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
@@ -33,15 +37,18 @@
             }
 
             resultList.innerHTML = items.map(item => `
-                <li class="list-group-item list-group-item-action" style="cursor: pointer">${item[`${@json($queryColumn)}`]}</li>
+                <li class="list-group-item list-group-item-action" style="cursor: pointer" wire:click="selectItem('{{ $name }}', ${item.id})">
+                    ${item[`${@json($queryColumn)}`]}
+                </li>
             `).join('');
             resultList.classList.remove('d-none');
 
-            resultList.querySelectorAll('li').forEach(li => {
+            resultList.querySelectorAll('li').forEach((li, index) => {
                 li.addEventListener('click', () => {
-                    input.value = li.textContent;
-                    hiddenInput.value = item.id;
+                    input.value = items[index][`${@json($queryColumn)}`];
+                    hiddenInput.value = items[index].id;
                     resultList.classList.add('d-none');
+                    input.setAttribute('disabled', 'disabled');
                 });
             });
         };
@@ -75,6 +82,7 @@
         clearBtn.addEventListener('click', () => {
             input.value = '';
             resultList.classList.add('d-none');
+            input.removeAttribute('disabled');
         });
     })();
 

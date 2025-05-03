@@ -18,7 +18,7 @@
             <div class="row mt-3">
                 <div class="col-md-8 col-12">    
                     <div class="p-3 border rounded-3">
-                        <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-md-flex d-block align-items-center justify-content-between">
                             <h3 class="text-color fw-600">Địa chỉ giao hàng</h3>
                             <button class="gap-2 d-flex align-items-center k-btn btn-main" type="button" id="addShippingAddressBtn">
                                 <i class="icon ic-location-add"></i>
