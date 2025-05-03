@@ -4,6 +4,7 @@ use App\Http\Controllers\Client\Account\AuthController;
 use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\HomeController;
+use App\Http\Controllers\Client\Order\OrderController;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
 
@@ -35,5 +36,14 @@ Route::controller(CartController::class)
     ->prefix('/carts')
     ->name('carts.')
     ->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
+
+Route::controller(OrderController::class)
+    ->middleware(VerifyUserLoggedIn::class)
+    ->prefix('/orders')
+    ->name('orders.')
+    ->group(function () {
+        Route::post('/process', 'process')->name('process');
         Route::get('/', 'index')->name('index');
     });

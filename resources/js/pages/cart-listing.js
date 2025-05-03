@@ -2,6 +2,13 @@
     const removeBtns = document.querySelectorAll('.k-detail-remove-from-cart-btn');
     const cartDetailIncreaseBtns = document.querySelectorAll('.cart-detail-increase-btn');
     const cartDetailDecreaseBtns = document.querySelectorAll('.cart-detail-decrease-btn');
+    const cartDetailQuantityInputs = document.querySelectorAll('.cart-detail-quantity-input');
+    const codSelect = document.querySelector('#codSelect')
+    const onlineSelect = document.querySelector('#onlineSelect');
+    const codRadio = document.querySelector('#codRadio');
+    const onlineRadio = document.querySelector('#onlineRadio');
+    const cartAmount = document.querySelector('#cartAmount');
+    const processPaymentForm = document.querySelector('#processPaymentForm');
 
     const app = {
         handleQuantity(quantityElement) {
@@ -33,6 +40,11 @@
     
         },
 
+        onCartUpdated() {
+            const total = Array.from(cartDetailQuantityInputs).reduce((acc, curr) => acc + parseInt(curr.value), 0);
+            cartAmount.textContent = total;
+        },
+
         handleRemove(btn) {
             notification.fire.confirm(
                 'Xoá khỏi giỏ hàng',
@@ -54,6 +66,35 @@
                     });
                 }
             })
+        },
+
+        handleSelectPaymentMethod(target) {        
+            const changeEvent = new Event('change');
+            target.dispatchEvent(changeEvent);
+        },
+
+        onPaymentMethodChange(e) {
+            const paymentMethod = e.target.value;
+            
+            if(paymentMethod === '0') {
+                codSelect.classList.add('active');
+                onlineSelect.classList.remove('active');
+            }
+            else {
+                codSelect.classList.remove('active');
+                onlineSelect.classList.add('active');
+            }
+        },
+
+        onSubmitForm(e) {
+            e.preventDefault();
+            const canSubmit = document.querySelector('.payment-select.active') !== null;
+            if(canSubmit) {
+                processPaymentForm.submit();
+            }
+            else {
+                notification.fire.show('Lỗi', 'Vui lòng chọn phương thức thanh toán bên dưới', 'error');
+            }
         },
 
         start() {
@@ -78,6 +119,13 @@
                     this.handleRemove(btn);
                 });
             });
+
+            codSelect.addEventListener('click', () => this.handleSelectPaymentMethod(codRadio));
+            onlineSelect.addEventListener('click', () => this.handleSelectPaymentMethod(onlineRadio));
+            codRadio.addEventListener('change', this.onPaymentMethodChange);
+            onlineRadio.addEventListener('change', this.onPaymentMethodChange);
+            processPaymentForm.addEventListener('submit', this.onSubmitForm);
+            document.addEventListener(events.CART_UPDATED, this.onCartUpdated);
         }
     }
 

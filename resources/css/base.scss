@@ -183,6 +183,14 @@
         background-color: white;
         border-radius: 10px;
         width: 600px;
+        max-height: 90vh;
+        overflow-y: auto;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+
+        &::-webkit-scrollbar {
+            display: none; /* Chrome, Safari */
+        }
         
         .k-modal-header {
             padding: 16px;
@@ -193,13 +201,13 @@
             color: white;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-
+            
             .k-modal-title {
                 display: flex;
                 align-items: center;
             }
         }
-
+        
         .k-modal-body {
             padding: 16px;
         }
@@ -234,9 +242,22 @@
 .k-select {
     max-width: 100% !important;
     .vscomp-toggle-button {
-        background-color: #F8F8F8;
+        background-color: #FFF;
         height: 60px;
         border: none;
-        color: #A3A1BF;
+        color: $textColor;
+    }
+}
+
+.k-select-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #FFF;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+
+    .icon {
+        margin: 0 8 0 16px;
+        color: $textColor;
     }
 }

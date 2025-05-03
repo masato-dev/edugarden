@@ -45,7 +45,7 @@
                 <div class="mb-3">
                     <div class="church-select-wrapper">
                         <i class="icon ic-church"></i>
-                        <div id="churchSelect" class="w-100 k-select"></div>
+                        <div id="churchSelect" class="w-100 k-select church-select"></div>
                     </div>
                     <input type="hidden" name="church_id" id="registerModalChurchInput">
                     <div class="d-none" id="churchSelectError">

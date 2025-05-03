@@ -1,0 +1,11 @@
+@use '../../../variables' as *;
+
+.payment-select {
+    border-radius: 10px; 
+    border: solid 1px #ccc; padding: 8px;
+    cursor: pointer;
+}
+
+.payment-select.active {
+    border: solid 3px $mainColor;
+}

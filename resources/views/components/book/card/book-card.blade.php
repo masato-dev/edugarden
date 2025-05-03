@@ -40,7 +40,7 @@
             </div>
         </div>
     
-        <div class="book-card-actions">
+        <!-- <div class="book-card-actions">
             <button class="btn-add-to-cart" title="Thêm vào giỏ hàng">
                 <i class="icon ic-shopping-cart-add"></i>
                 <span class="fs-6 text-overflow-ellipsis max-lines-1">Thêm</span>
@@ -50,7 +50,7 @@
                 <i class="icon ic-shopping-basket-done"></i>
                 <span class="fs-6 text-overflow-ellipsis max-lines-1">Mua ngay</span>
             </button>
-        </div>
+        </div> -->
     </a>
 </div>
 

@@ -15,9 +15,9 @@
 
     <div class="d-flex align-items-center gap-4">
         <div class="d-flex k-detail-quantity">
-            <button class="k-detail-decrease-btn cart-detail-decrease-btn">-</button>
-            <input type="text" class="k-detail-quantity-input cart-detail-quantity-input" data-cart-id="{{ $cart->id }}" value="{{ $cart->quantity }}">
-            <button class="k-detail-increase-btn cart-detail-increase-btn">+</button>
+            <button type="button" class="k-detail-decrease-btn cart-detail-decrease-btn">-</button>
+            <input name="quantities[]" type="text" class="k-detail-quantity-input cart-detail-quantity-input" data-cart-id="{{ $cart->id }}" value="{{ $cart->quantity }}">
+            <button type="button"` class="k-detail-increase-btn cart-detail-increase-btn">+</button>
         </div>
 
         <div>
