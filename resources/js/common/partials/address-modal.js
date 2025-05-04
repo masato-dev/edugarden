@@ -50,7 +50,7 @@
         onSubmit = (e) => {
             e.preventDefault();
             if (this.validate()) {
-                this.addressForm.submit();
+                
             }
         }
 

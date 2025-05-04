@@ -108,7 +108,7 @@
             registerForm.addEventListener('submit', e => {
                 e.preventDefault();
                 if(this.validate()) {
-                    
+                    registerForm.submit();
                 }
             });
         },
