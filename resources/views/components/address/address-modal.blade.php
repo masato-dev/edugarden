@@ -10,24 +10,26 @@
         </div>
 
         <div class="k-modal-body">
-            <div class="mb-3">
-                <label for="name" class="form-label">Họ tên</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ tên">
-            </div>
-            <div class="mb-3">
-                <label for="phone" class="form-label">Số điện thoại</label>
-                <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại">
-            </div>
-            
-            <livewire:common.location-selector />
-
-            <div class="mb-3">
-                <label for="address_detail" class="form-label">Địa chỉ chi tiết</label>
-                <textarea class="form-control" id="address_detail" name="address_detail" rows="2" placeholder="Số nhà, tên đường..."></textarea>
-            </div>
-            <div class="text-end justify-content-end d-flex">
-                <button type="submit" class="k-btn btn-main">Lưu địa chỉ</button>
-            </div>
+            <form id="addressForm" action="">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Họ tên</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Nhập họ tên">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Số điện thoại</label>
+                    <input type="text" class="form-control" id="phone" name="phone" placeholder="Nhập số điện thoại">
+                </div>
+                
+                <livewire:common.location-selector />
+    
+                <div class="mb-3">
+                    <label for="address_detail" class="form-label">Địa chỉ chi tiết</label>
+                    <input class="form-control" id="address_detail" name="address_detail" rows="2" placeholder="Số nhà, tên đường..." />
+                </div>
+                <div class="text-end justify-content-end d-flex">
+                    <button type="submit" class="k-btn btn-main">Lưu địa chỉ</button>
+                </div>
+            </form>
         </div>
 
     </div>

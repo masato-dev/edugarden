@@ -1,9 +1,9 @@
 ;(function (exports, global) {
-    exports.validate = function (form, options) {
+    exports.validate = function (form, options, errorReplacement = null) {
         const jForm = $(form);
         jForm.validate({
             ...options,
-            errorPlacement: function(error, element) {
+            errorPlacement: errorReplacement || function(error, element) {
                 error.addClass('text-danger');
                 element.closest('.k-input-container').append(error);
             }
