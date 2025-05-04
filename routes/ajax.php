@@ -4,6 +4,7 @@ use App\Http\Controllers\Ajax\Cart\CartController;
 use App\Http\Controllers\Ajax\Church\ChurchController;
 use App\Http\Controllers\Ajax\Common\AutocompleteController;
 use App\Http\Controllers\Ajax\Location\ProvinceController;
+use App\Http\Controllers\Ajax\UserAddress\UserAddressController;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
 
@@ -41,5 +42,15 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
             Route::get('/cities', 'cities')->name('cities');
             Route::get('/districts', 'districts')->name('districts');
             Route::get('/wards', 'wards')->name('wards');
+        });
+
+    Route::controller(UserAddressController::class)
+        ->middleware(VerifyUserLoggedIn::class)
+        ->prefix('/user-addresses')
+        ->name('user-addresses.')
+        ->group(function () {
+            Route::post('/store', 'store')->name('store');
+            Route::put('/update/{id}', 'update')->name('update');
+            Route::delete('/delete/{id}', 'delete')->name('delete');
         });
 });
