@@ -7,11 +7,6 @@
             this.wardIdInputHidden = document.getElementById('addressModalWardInputHidden');
             this.addressForm = document.getElementById('addressForm');
             this.submitBtn = document.querySelector('#addressModal button[type="submit"]');
-
-            // State vars (optional depending on use)
-            this.cityId = null;
-            this.districtId = null;
-            this.wardId = null;
         }
 
         validate() {
@@ -47,10 +42,26 @@
             });
         }
 
-        onSubmit = (e) => {
+        onSubmit = async (e) => {
             e.preventDefault();
             if (this.validate()) {
-                
+                const name = this.addressForm.name.value;
+                const phone = this.addressForm.phone.value;
+                const addressDetail = this.addressForm.address_detail.value;
+                const cityId = this.addressForm.city_id.value;
+                const districtId = this.addressForm.district_id.value;
+                const wardId = this.addressForm.ward_id.value;
+                const isDefault = this.addressForm.is_default.checked;
+
+                Livewire.dispatchTo('address.address-crud-form', 'storeAddress', [
+                    name,
+                    phone,
+                    addressDetail,
+                    cityId,
+                    districtId,
+                    wardId,
+                    isDefault
+                ]);
             }
         }
 

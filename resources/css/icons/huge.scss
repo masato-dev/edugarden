@@ -129,4 +129,9 @@
         mask-image: url('../images/icons/ic_location_add.svg');
         -webkit-mask-image: url('../images/icons/ic_location_add.svg');
     }
+
+    &.ic-edit {
+        mask-image: url('../images/icons/ic_edit.svg');
+        -webkit-mask-image: url('../images/icons/ic_edit.svg');
+    }
 }

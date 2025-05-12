@@ -262,3 +262,9 @@
         color: $textColor;
     }
 }
+
+.k-address-list-item {
+    &.active {
+        border-color: $mainColor !important;
+    }
+}

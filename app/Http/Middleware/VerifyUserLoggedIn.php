@@ -21,7 +21,11 @@ class VerifyUserLoggedIn
         if(empty($user)) {
             $path = $request->path();
             if (str_starts_with($path, 'api') || str_starts_with($path, 'ajax')) {
-                return $this->error('Unauthorized', Response::HTTP_UNAUTHORIZED, 'Vui lòng đăng nhập để thực hiện tính năng này');
+                return $this->error(
+                    'Unauthorized', 
+                    Response::HTTP_UNAUTHORIZED, 
+                    __('Vui lòng đăng nhập để thực hiện tính năng này')
+                );
             }
             return redirect()->route('home');
         }

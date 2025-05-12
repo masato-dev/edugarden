@@ -26,6 +26,11 @@
                     <label for="address_detail" class="form-label">Địa chỉ chi tiết</label>
                     <input class="form-control" id="address_detail" name="address_detail" rows="2" placeholder="Số nhà, tên đường..." />
                 </div>
+
+                <div class="mb-3">
+                    <input type="checkbox" name="is_default" id="isDefaultCheckbox" width="16" height="16">
+                    <label for="is_default" class="form-label">Đặt làm địa chỉ mặc định</label>
+                </div>
                 <div class="text-end justify-content-end d-flex">
                     <button type="submit" class="k-btn btn-main">Lưu địa chỉ</button>
                 </div>

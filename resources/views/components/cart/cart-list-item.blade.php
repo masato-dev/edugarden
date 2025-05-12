@@ -25,7 +25,7 @@
         </div>
 
         <div>
-            <button data-cart-id="{{ $cart->id }}" class="k-btn btn-danger k-detail-remove-from-cart-btn" title="Xoá khỏi giỏ hàng">
+            <button data-cart-id="{{ $cart->id }}" class="k-btn btn-danger k-detail-remove-from-cart-btn" title="Xoá khỏi giỏ hàng" type="button">
                 <i class="icon ic-delete"></i>
             </button>
         </div>

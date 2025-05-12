@@ -17,15 +17,7 @@
 
             <div class="row mt-3">
                 <div class="col-md-8 col-12">    
-                    <div class="p-3 border rounded-3">
-                        <div class="d-md-flex d-block align-items-center justify-content-between">
-                            <h3 class="text-color fw-600">Địa chỉ giao hàng</h3>
-                            <button class="gap-2 d-flex align-items-center k-btn btn-main" type="button" id="addShippingAddressBtn">
-                                <i class="icon ic-location-add"></i>
-                                <span>Thêm địa chỉ giao hàng</span>
-                            </button>
-                        </div>
-                    </div>
+                    <livewire:address.address-crud-form />
     
                     <div class="p-3 border rounded-3 mt-5">
                         <h3 class="text-color fw-600">Sản phẩm</h3>
@@ -38,7 +30,7 @@
                                                 <img class="border rounded-3" src="{{ $item['book']->thumbnail }}" alt="{{ $item['book']->title }}" width="60" height="60">
                                                 <div>
                                                     <p class="fw-600 text-color m-0">{{ $item['book']->title }}</p>
-                                                    <p class="mt-1 m-0 text-secondary">Số lượng: {{ $item['quantity'] }}</>
+                                                    <p class="mt-1 m-0 text-secondary">Số lượng: {{ $item['quantity'] }}</l>
                                                 </div>
                                             </div>
                                             <span class="text-danger fw-600">{{ CurrencyUtil::toVnd($item['price']) }}</span>
@@ -76,7 +68,7 @@
                             <div class="text-danger fs-4 fw-600">{{ CurrencyUtil::toVnd($total + ($shippingPrice ?? 0)) }}</div>
                         </div>
 
-                        <button class="k-btn btn-main w-100 mt-3" id="completePaymentBtn">Hoàn thành thanh toán</button>
+                        <button wire:click="storeAddress" class="k-btn btn-main w-100 mt-3" id="completePaymentBtn">Hoàn thành thanh toán</button>
                     </div>
                 </div>
             </div>

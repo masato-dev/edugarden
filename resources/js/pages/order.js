@@ -11,8 +11,16 @@
             addressModal.classList.add('show');
         },
 
+        onAddressStored() {
+            addressModal.classList.remove('show');
+            notification.toast('Thêm mới địa chỉ thành công', 'success');
+        },
+
         registerEvents() {
             addShippingAddressBtn.addEventListener('click', this.onAddShippingAddress);
+            Livewire.on('addressStored', payload => {
+                this.onAddressStored();
+            });
         }
     }
 
