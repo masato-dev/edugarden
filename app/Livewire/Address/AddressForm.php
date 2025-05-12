@@ -2,13 +2,13 @@
 
 namespace App\Livewire\Address;
 
+use Livewire\Component;
 use App\Interfaces\Services\UserAddress\IUserAddressService;
 use App\Models\UserAddress;
 use Illuminate\Auth\Authenticatable;
-use Livewire\Component;
 use App\Models\User;
 
-class AddressCrudForm extends Component
+class AddressForm extends Component
 {
     public mixed $addresses;
     public UserAddress|null $chosenAddress;
@@ -59,7 +59,7 @@ class AddressCrudForm extends Component
 
     public function render()
     {
-        return view('livewire.address.address-crud-form', [
+        return view('livewire.address.address-form', [
             'chosenAddress' => $this->chosenAddress,
             'addresses' => $this->addresses,
         ]);

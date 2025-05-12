@@ -17,7 +17,7 @@
 
             <div class="row mt-3">
                 <div class="col-md-8 col-12">    
-                    <livewire:address.address-crud-form />
+                    <livewire:address.address-form />
     
                     <div class="p-3 border rounded-3 mt-5">
                         <h3 class="text-color fw-600">Sản phẩm</h3>
