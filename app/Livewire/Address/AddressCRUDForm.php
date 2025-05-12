@@ -10,7 +10,7 @@ use App\Models\User;
 use Log;
 use stdClass;
 
-class AddressCRUDForm extends Component
+class AddressCrudForm extends Component
 {
     public mixed $addresses;
     public UserAddress|null $chosenAddress;
