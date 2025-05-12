@@ -25,6 +25,9 @@ class ProvincesSeeder extends Seeder
         ])->get(env('PROVINCE_API_URL', 'https://provinces.open-api.vn/api/?depth=3'))->json();
         try {
             DB::beginTransaction();
+            City::truncate();
+            District::truncate();
+            Ward::truncate();
             foreach ($response as $city) {
                 $createdCity = City::create([
                     'name' => $city['name'],
