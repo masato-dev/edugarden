@@ -53,7 +53,7 @@
                 const wardId = this.addressForm.ward_id.value;
                 const isDefault = this.addressForm.is_default.checked;
 
-                Livewire.dispatchTo('address.address-crud-form', 'storeAddress', [
+                Livewire.dispatchTo('Address.AddressCrudForm', 'storeAddress', [
                     name,
                     phone,
                     addressDetail,
