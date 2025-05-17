@@ -1,4 +1,5 @@
-<div id="addressListItem{{ $address->id }}" class="k-address-list-item" style="cursor: pointer;">
+<div id="addressListItem{{ $address->id }}" data-address-id="{{ $address->id }}" class="k-address-list-item"
+    style="cursor: pointer;">
     <input type="hidden" name="user_address_id" value="{{ $address->id }}">
     <div class="p-3 border rounded-3">
         <div class="d-md-flex d-block justify-content-between">
@@ -14,7 +15,8 @@
                     <div class="text-color fw-600">{{ $address->name }}</div>
                 @endif
                 <div class="mt-2 text-secondary">{{ $address->phone }}</div>
-                <div class="mt-2 text-secondary">{{ $address->address_detail }}, {{ $address->ward_name }}, {{ $address->district_name }}, {{ $address->city_name }}</div>
+                <div class="mt-2 text-secondary">{{ $address->address_detail }}, {{ $address->ward_name }},
+                    {{ $address->district_name }}, {{ $address->city_name }}</div>
             </div>
 
             <div class="action">

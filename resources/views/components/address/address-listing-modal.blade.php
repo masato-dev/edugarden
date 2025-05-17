@@ -11,7 +11,7 @@
 
         <div class="k-modal-body">
             @foreach ($addresses as $address)
-                <div class="mt-3" wire:click="choseAddress({{ $address->id }})">
+                <div class="mt-3">
                     <x-address.address-list-item :address="$address" />
                 </div>
             @endforeach
@@ -19,3 +19,38 @@
 
     </div>
 </div>
+
+<script>
+    (function () {
+        const addressListItems = document.querySelectorAll('.k-address-list-item');
+        const addressListingModal = document.getElementById('addressListingModal');
+        const app = {
+            start() {
+                this.registerEvents();
+            },
+
+            onItemSelect(addressId) {
+                Livewire.dispatch('choseAddress', [addressId]);
+            },
+
+            onShowAddressFormModal(addressId) {
+                
+            },
+
+            registerEvents() {
+                Array.from(addressListItems).forEach(addressListItem => {
+                    const addressId = addressListItem.dataset.addressId;
+                    const editBtn = addressListItem.querySelector(`#addressListItemEditBtn${addressId}`);
+
+                    addressListItem.addEventListener('click', (e) => {
+                        if(e.target.closest(`#addressListItemEditBtn${addressId}`) == null)
+                            this.onItemSelect(addressListItem.dataset.addressId);
+                    });
+                    editBtn.addEventListener('click', (e) => this.onShowAddressFormModal(addressId));
+                });
+            }
+        }
+
+        app.start();
+    })();
+</script>

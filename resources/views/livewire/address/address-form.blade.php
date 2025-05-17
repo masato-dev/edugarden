@@ -22,7 +22,7 @@
 <script>
     (function() {
         const chosenAddressWrapper = document.getElementById('chosenAddressWrapper');
-        const addressListingModal = document.getElementById('addressListingModal')
+        const addressListingModal = document.getElementById('addressListingModal');
         const app = {
             start() {
                 this.registerEvents();
