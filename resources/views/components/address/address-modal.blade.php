@@ -4,7 +4,7 @@
             <div></div>
             <h5 class="k-modal-title d-flex align-items-center gap-2">
                 <i class="icon ic-location-add"></i>
-                <span>Thêm mới địa chỉ</span>
+                <span id="addressModalTitle">Thêm mới địa chỉ</span>
             </h5>
             <button type="button" class="k-modal-close" data-dismiss="modal" aria-label="Close">&times;</button>
         </div>

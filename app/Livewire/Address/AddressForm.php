@@ -16,7 +16,7 @@ class AddressForm extends Component
     private Authenticatable|User|null $user;
 
     public function getListeners(): array {
-        return ['storeAddress', 'choseAddress'];
+        return ['storeAddress', 'choseAddress', 'updateAddress', 'deleteAddress'];
     }
 
     public function __construct() {
@@ -45,6 +45,37 @@ class AddressForm extends Component
             $this->chosenAddress = $record;
             $this->addresses[] = $record;
             $this->dispatch('addressStored', ['success' => true]);
+        }
+    }
+
+    public function updateAddress(mixed $addressId, string $name, string $phone, string $addressDetail, int $cityId, int $districtId, int $wardId, bool $isDefault) {
+        $requestData = [
+            'name'=> $name,
+            'phone' => $phone,
+            'address_detail' => $addressDetail,
+            'city_id' => $cityId,
+            'district_id' => $districtId,
+            'ward_id' => $wardId,
+            'is_default' => $isDefault,
+            'user_id'=> $this->user->id,
+        ];
+
+        $record = $this->userAddressService->update($addressId, $requestData);
+        if($record) {
+            $this->chosenAddress = $this->userAddressService->getById($addressId);
+            $this->addresses = $this->userAddressService->getBy(['user_id' => $this->user->id]);
+            $this->dispatch('addressUpdated', ['success' => true]);
+        }
+    }
+
+    public function deleteAddress(mixed $addressId) {
+        $isDeleted = $this->userAddressService->delete($addressId);
+        if($isDeleted) {
+            $this->chosenAddress = $this->chosenAddress->id == $addressId
+                ? $this->userAddressService->getBy(['user_id'=> $this->user->id, 'is_default' => 1])->first()
+                : $this->chosenAddress;
+            $this->addresses = $this->userAddressService->getBy(['user_id' => $this->user->id]);
+            $this->dispatch('addressDeleted', ['success'=> true]);
         }
     }
 

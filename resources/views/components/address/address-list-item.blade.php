@@ -1,4 +1,4 @@
-<div id="addressListItem{{ $address->id }}" data-address-id="{{ $address->id }}" class="k-address-list-item"
+<div id="addressListItem{{ $address->id }}" data-address-id="{{ $address->id }}" data-address="{{ json_encode($address) }}" class="k-address-list-item"
     style="cursor: pointer;">
     <input type="hidden" name="user_address_id" value="{{ $address->id }}">
     <div class="p-3 border rounded-3">

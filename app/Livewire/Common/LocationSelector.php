@@ -11,6 +11,8 @@ class LocationSelector extends Component
     public $wDistrictId = null;
     public $wWardId = null;
 
+    protected $listeners = ['selectItem', 'clearItem'];
+
     public function selectItem($type, $id) {
         Log::info($id);
         if ($type == 'city_id') {

@@ -1,4 +1,39 @@
+let globalMode = 'create';
+let globalAddress = {};
 ;(function (exports, global) {
+    exports.show = function(mode = 'create', address = {}) {
+        globalMode = mode;
+        globalAddress = address;
+        if(mode == 'create') {
+            document.querySelector('#addressModal').classList.add('show');
+        }
+
+        if(mode == 'update') {
+            const addressModal = document.querySelector('#addressModal');
+            addressModal.querySelector('#addressModalTitle').innerText = 'Cập nhật địa chỉ';
+            addressModal.querySelector('#name').value = address.name;
+            addressModal.querySelector('#phone').value = address.phone;
+            addressModal.querySelector('#address_detail').value = address.address_detail;
+            addressModal.querySelector('#isDefaultCheckbox').checked = address.is_default;
+            addressModal.querySelector('#addressModalCityInputHidden').value = address.city_id;
+            addressModal.querySelector('#addressModalDistrictInputHidden').value = address.district_id;
+            addressModal.querySelector('#addressModalWardInputHidden').value = address.ward_id;
+            addressModal.querySelector('#addressModalCityInput').value = address.city_name;
+            addressModal.querySelector('#addressModalDistrictInput').value = address.district_name;
+            addressModal.querySelector('#addressModalWardInput').value = address.ward_name;
+
+            Livewire.dispatchTo('common.location-selector', 'selectItem', ['city_id', address.city_id]);
+            Livewire.dispatchTo('common.location-selector', 'selectItem', ['district_id', address.district_id]);
+            Livewire.dispatchTo('common.location-selector', 'selectItem', ['ward_id', address.ward_id]);
+
+            addressModal.classList.add('show');
+        }
+    }
+
+    exports.hide = function() {
+        document.querySelector('#addressModal').classList.remove('show');
+    }
+
     class AddressModalApp {
         constructor() {
             this.addressModal = document.getElementById('addressModal');
@@ -53,15 +88,30 @@
                 const wardId = this.addressForm.ward_id.value;
                 const isDefault = this.addressForm.is_default.checked;
 
-                Livewire.dispatchTo('address.address-form', 'storeAddress', [
-                    name,
-                    phone,
-                    addressDetail,
-                    cityId,
-                    districtId,
-                    wardId,
-                    isDefault
-                ]);
+                if(globalMode == 'create') {
+                    Livewire.dispatchTo('address.address-form', 'storeAddress', [
+                        name,
+                        phone,
+                        addressDetail,
+                        cityId,
+                        districtId,
+                        wardId,
+                        isDefault
+                    ]);
+                }
+
+                if(globalMode == 'update') {
+                    Livewire.dispatchTo('address.address-form', 'updateAddress', [
+                        globalAddress.id,
+                        name,
+                        phone,
+                        addressDetail,
+                        cityId,
+                        districtId,
+                        wardId,
+                        isDefault
+                    ]);
+                }
             }
         }
 
@@ -88,4 +138,4 @@
         const appInstance = new AddressModalApp();
         appInstance.start();
     }
-})(window, window);
+})(window.addressModal = window.addressModal || {}, window);

@@ -33,20 +33,36 @@
                 Livewire.dispatch('choseAddress', [addressId]);
             },
 
-            onShowAddressFormModal(addressId) {
-                
+            onShowAddressFormModal(addressId, address = {}) {
+                addressListingModal.classList.remove('show');
+                addressModal.show('update', address);
+            },
+
+            onDeleteAddress(addressId) {
+                notification.fire.confirm(
+                    'Xoá địa chỉ này?',
+                    'Bạn có chắc chắn muốn xoá địa chỉ này, các thông tin liên quan đến địa chỉ này sẽ được xoá khỏi hệ thống',
+                    'warning',
+                ).then(result => {
+                    if(result.isConfirmed) {
+                        Livewire.dispatchTo('address.address-form', 'deleteAddress', [addressId]);
+                    }
+                })
             },
 
             registerEvents() {
                 Array.from(addressListItems).forEach(addressListItem => {
                     const addressId = addressListItem.dataset.addressId;
+                    const address = JSON.parse(addressListItem.dataset.address);
                     const editBtn = addressListItem.querySelector(`#addressListItemEditBtn${addressId}`);
+                    const deleteBtn = addressListItem.querySelector(`#addressListItemDeleteBtn${addressId}`);
 
                     addressListItem.addEventListener('click', (e) => {
                         if(e.target.closest(`#addressListItemEditBtn${addressId}`) == null)
                             this.onItemSelect(addressListItem.dataset.addressId);
                     });
-                    editBtn.addEventListener('click', (e) => this.onShowAddressFormModal(addressId));
+                    editBtn.addEventListener('click', (e) => this.onShowAddressFormModal(addressId, address));
+                    deleteBtn.addEventListener('click', (e) => this.onDeleteAddress(addressId));
                 });
             }
         }
