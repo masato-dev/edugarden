@@ -74,21 +74,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Add this code to your website just before the closing </body> tag -->
-            
-    <ai360-chatbot
-        style="Friendly"
-        primary-color="#00B9FF"
-        avatar-shape="circle"
-        font-size="12"
-        chat-position="left"
-        field="travel"
-        name="Chatbot Du Lịch"
-        uuid="b0185692-08b8-43fc-b96d-6e23dc8fb0a3"
-    ></ai360-chatbot>
-
-    <script src="https://ai.rada360.com/libs/ai360-chatbot-lib.min.js"></script>
 @endsection
 
 @push('scripts')
