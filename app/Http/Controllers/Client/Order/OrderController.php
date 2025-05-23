@@ -7,6 +7,7 @@ use App\Enums\DeliveryStatuses;
 use App\Enums\PaymentStatuses;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Core\ClientController;
+use App\Interfaces\Services\Cart\ICartService;
 use App\Interfaces\Services\Order\IOrderItemService;
 use App\Interfaces\Services\Order\IOrderService;
 use App\Interfaces\Services\UserAddress\IUserAddressService;
@@ -21,11 +22,13 @@ class OrderController extends ClientController
     protected IOrderService $orderService;
     protected IOrderItemService $orderItemService;
     protected IUserAddressService $userAddressService;
+    protected ICartService $cartService;
 
-    public function __construct(IOrderService $orderService, IOrderItemService $orderItemService, IUserAddressService $userAddressService) {
+    public function __construct(IOrderService $orderService, IOrderItemService $orderItemService, IUserAddressService $userAddressService, ICartService $cartService) {
         $this->orderService = $orderService;
         $this->orderItemService = $orderItemService;
         $this->userAddressService = $userAddressService;
+        $this->cartService = $cartService;
     }
 
     public function index(Request $request) {
@@ -48,7 +51,6 @@ class OrderController extends ClientController
         $orderItems = session()->get('order_items');
         $userAddressId = intval($request->chosen_address_id);
         $paymentMethod = intval(session()->get('payment_method'));
-        
         try {
             DB::beginTransaction();
             $order = $this->orderService->create([
@@ -66,14 +68,19 @@ class OrderController extends ClientController
 
             if($order) {
                 foreach($orderItems as $item) {
-                    $this->orderItemService->create([
+                    $orderItem = $this->orderItemService->create([
                         'order_id' => $order->id,
                         'book_id' => $item['book_id'],
                         'quantity' => $item['quantity'],
                         'price' => $item['price'],
                     ]);
+
+                    if($orderItem) {
+                        $this->cartService->delete(intval($item['cart_id']));
+                    }
                 }
             }
+            
             DB::commit();
             return redirect()->route('home')
                 ->with('message', __('Bạn đã đặt hàng thành công'))
@@ -90,6 +97,7 @@ class OrderController extends ClientController
 
     public function process(Request $request) {
         $bookIds = $request->book_ids;
+        $cartIds = $request->cart_ids;
         $books = $request->books;
         $quantities = $request->quantities;
         $prices = $request->prices;
@@ -98,6 +106,7 @@ class OrderController extends ClientController
         for($i = 0; $i < count($bookIds); $i++) {
             $orderItems[] = [
                 'book_id' => $bookIds[$i],
+                'cart_id' => $cartIds[$i],
                 'book' => json_decode($books[$i]),
                 'quantity' => $quantities[$i],
                 'price' => $prices[$i],
