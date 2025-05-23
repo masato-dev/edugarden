@@ -1,8 +1,8 @@
 <?php
 namespace App\Enums;
 class PaymentStatuses {
-    public static const NOT_PAID = 0;
-    public static const PAID = 1;
+    public const NOT_PAID = 0;
+    public const PAID = 1;
 
     public static function getStringStatus(int $status): string {
         return match ($status) {

@@ -1,6 +1,6 @@
 <?php
 namespace App\Enums;
 class PaymentMethods {
-    public static const COD = 0;
-    public static const ONLINE = 1;
+    public const COD = 0;
+    public const ONLINE = 1;
 }

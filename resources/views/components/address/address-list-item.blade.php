@@ -21,11 +21,11 @@
 
             <div class="action">
                 <div class="d-flex gap-2 align-items-center">
-                    <button id="addressListItemEditBtn{{ $address->id }}">
+                    <button type="button" id="addressListItemEditBtn{{ $address->id }}">
                         <i class="icon ic-edit"></i>
                     </button>
 
-                    <button id="addressListItemDeleteBtn{{ $address->id }}" class="text-danger">
+                    <button type="button" id="addressListItemDeleteBtn{{ $address->id }}" class="text-danger">
                         <i class="icon ic-delete"></i>
                     </button>
                 </div>

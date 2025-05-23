@@ -75,7 +75,6 @@
 
         onPaymentMethodChange(e) {
             const paymentMethod = e.target.value;
-            
             if(paymentMethod === '0') {
                 codSelect.classList.add('active');
                 onlineSelect.classList.remove('active');
@@ -90,6 +89,12 @@
             e.preventDefault();
             const canSubmit = document.querySelector('.payment-select.active') !== null;
             if(canSubmit) {
+                console.log(document.querySelector('.payment-select.active').parentNode);
+                
+                const input = document.createElement('input');
+                input.setAttribute('name', 'payment_method_hidden');
+                input.setAttribute('value', document.querySelector('.payment-select.active').parentNode.querySelector('input[name="payment_method"]').value);
+                processPaymentForm.appendChild(input);
                 processPaymentForm.submit();
             }
             else {

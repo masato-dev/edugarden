@@ -32,6 +32,7 @@
                                             <input type="hidden" name="book_ids[]" value="{{ $cart->book_id }}">
                                             <input type="hidden" name="books[]" value="{{ json_encode($cart->book) }}">
                                             <input type="hidden" name="prices[]" value="{{ $cart->book->price }}">
+                                            <input type="hidden" name="cart_ids[]" value="{{ $cart->id }}">
                                             <x-cart.cart-list-item :cart="$cart" />
                                         </li>
                                     @endforeach
@@ -72,10 +73,9 @@
                                         </p>
 
                                         <div class="d-flex justify-content-center gap-3 mt-3">
-                                            <input type="radio" name="payment_method" id="codRadio" value="0" class="d-none">
+                                            <input type="radio" name="payment_method" id="codRadio" value="0" style="visibility: hidden;">
                                             <div id="codSelect"
                                                 class="payment-select d-flex align-items-center gap-2 w-100 ps-3">
-                                                <input type="radio" name="payment_method" value="cod" class="d-none">
                                                 <i class="icon ic-cash fs-3 text-color"></i>
                                                 <div class="ms-2">
                                                     <h6 class="text-color fw-600 m-0">COD</h6>
@@ -85,10 +85,9 @@
                                         </div>
 
                                         <div class="d-flex justify-content-center gap-3 mt-3">
-                                            <input type="radio" name="payment-method" id="onlineRadio" value="1" class="d-none">
+                                            <input type="radio" name="payment_method" id="onlineRadio" value="1" style="visibility: hidden;">
                                             <div id="onlineSelect"
                                                 class="payment-select d-flex align-items-center gap-2 w-100 ps-3">
-                                                <input type="radio" name="payment-method" value="cod" class="d-none">
                                                 <img src="{{ asset('images/icons/ic_vietqr.png') }}" alt="Icon VietQR"
                                                     width="40" height="40">
                                                 <div class="ms-2">

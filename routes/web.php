@@ -45,5 +45,6 @@ Route::controller(OrderController::class)
     ->name('orders.')
     ->group(function () {
         Route::post('/process', 'process')->name('process');
+        Route::post('/pay', 'pay')->name('pay');
         Route::get('/', 'index')->name('index');
     });

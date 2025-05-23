@@ -10,6 +10,7 @@
 
     @if (!empty($chosenAddress))
         <div class="mt-3" id="chosenAddressWrapper">
+            <input type="hidden" name="chosen_address_id" value="{{ $chosenAddress->id }}">
             <x-address.address-list-item :address="$chosenAddress" />
         </div>
     @else
