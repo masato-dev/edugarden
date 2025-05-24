@@ -25,8 +25,8 @@
             <x-common.autocomplete-input
                 queryTable="churchs"
                 queryColumn="name"
-                value="{{ $user->church->id }}"
-                displayValue="{{ $user->church->name }}"
+                value="{{ $user->church->id ?? null }}"
+                displayValue="{{ $user->church->name ?? null }}"
                 name="church_id"
                 id="church"/>
         </div>
