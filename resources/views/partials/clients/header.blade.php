@@ -49,7 +49,7 @@
                                 <span>{{ auth('user:web')->user()->name }}</span>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Thông tin cá nhân</a></li>
+                                <li><a class="dropdown-item" href="{{ route('account.index') }}">Thông tin cá nhân</a></li>
                                 <li><a class="dropdown-item" href="#">Lịch sử giao dịch</a></li>
                                 <li><a class="dropdown-item" href="{{ route('auth.client.logout') }}">Đăng xuất</a></li>
                             </ul>

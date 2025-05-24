@@ -268,3 +268,23 @@
         border-color: $mainColor !important;
     }
 }
+
+.k-list-group-item.active {
+    background-color: $mainColor !important;
+    border-color: $mainColor !important;
+    color: white !important
+}
+
+.k-breadcrumb {
+    .breadcrumb-item > a {
+        color: $textColor !important;
+        text-decoration: none !important;
+
+        &:hover {
+            text-decoration: underline !important;
+        }
+    }
+    .active {
+        color: $mainColor !important;
+    }
+}

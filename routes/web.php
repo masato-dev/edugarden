@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Client\Account\AccountController;
 use App\Http\Controllers\Client\Account\AuthController;
 use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
@@ -57,4 +58,14 @@ Route::controller(PaymentController::class)
     ->name('payments.')
     ->group(function () {
         Route::get('/result', 'result')->name('result');
+    });
+
+Route::controller(AccountController::class)
+    ->middleware(VerifyUserLoggedIn::class)
+    ->prefix('/account')
+    ->name('account.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::put('/update', 'update')->name('update');
+        Route::put('/change-password', 'changePassword')->name('change-password');
     });

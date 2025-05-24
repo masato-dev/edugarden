@@ -28,6 +28,7 @@
                     placeholder: 'Hội thánh',
                     search: true,
                     options: churchs,
+                    value: 1,
                 })
             }
         },

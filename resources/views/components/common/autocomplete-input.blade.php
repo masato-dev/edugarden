@@ -1,6 +1,6 @@
 <div class="position-relative">
     <div class="input-group">
-        <input id="{{ $id }}" class="form-control" placeholder="Nhập từ khóa..." @if (!empty($value)) {{ 'disabled' }} @endif>
+        <input id="{{ $id }}" class="form-control" placeholder="Nhập từ khóa..." @if (!empty($value)) {{ 'disabled' }} @endif value="{{ $displayValue ?? null }}">
         <input type="hidden" id="{{ $id }}Criteria" value="{{ json_encode($criteria) }}">
         <input type="hidden" name="{{ $name }}" id="{{ $id }}Hidden" value="{{ $value }}" @foreach ($wireModels as $model) wire:model="{{ $model }}" @endforeach>
         <button type="button" class="btn btn-outline-secondary" id="{{ $id }}ClearBtn" wire:click="clearItem('{{ $name }}')">&times;</button>

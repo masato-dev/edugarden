@@ -19,6 +19,7 @@ class AutocompleteInput extends Component
     protected ?string $queryColumn;
     protected ?array $criteria;
     protected mixed $value;
+    protected mixed $displayValue;
     protected ?array $wireModels;
     public function __construct(
         ?string $id = null,
@@ -28,6 +29,7 @@ class AutocompleteInput extends Component
         ?string $queryColumn = "name",
         ?array $criteria = [],
         mixed $value = null,
+        mixed $displayValue = null,
         ?array $wireModels = [],
     ) {
         $this->id = $id;
@@ -37,6 +39,7 @@ class AutocompleteInput extends Component
         $this->queryColumn = $queryColumn;
         $this->criteria = $criteria;
         $this->value = $value;
+        $this->displayValue = $displayValue;
         $this->wireModels = $wireModels;
     }
 
@@ -53,6 +56,7 @@ class AutocompleteInput extends Component
             'queryColumn' => $this->queryColumn,
             'criteria' => $this->criteria,
             'value' => $this->value,
+            'displayValue' => $this->displayValue,
             'wireModels' => $this->wireModels
         ]);
     }
