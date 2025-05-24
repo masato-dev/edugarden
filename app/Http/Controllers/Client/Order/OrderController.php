@@ -82,16 +82,15 @@ class OrderController extends ClientController
             }
             
             DB::commit();
-            return redirect()->route('home')
-                ->with('message', __('Bạn đã đặt hàng thành công'))
-                ->with('alertType', AlertTypes::$success);
+            return redirect()->route('payments.result')
+                ->with('isSuccess', true)
+                ->with('orderId', $order->id);
         }
         catch(Exception $e) {
             DB::rollBack();
             Log::error($e->getMessage());
-            return redirect()->route('home')
-                ->with('message', __('Đặt hàng thất bại, vui lòng liên hệ để được hỗ trợ'))
-                ->with('alertType', AlertTypes::$error);
+            return redirect()->route('payments.result')
+                ->with('isSuccess', false);
         }
     }
 
@@ -115,6 +114,24 @@ class OrderController extends ClientController
         session()->put('order_items', $orderItems);
         session()->put('payment_method', $paymentMethod);
         return redirect()->route('orders.index');
+    }
+
+    public function detail(Request $request) {
+        $user = auth('user:web')->user();
+        $orderId = $request->route('id');
+        $order = $this->orderService->getById($orderId);
+
+        if(!$order) {
+            return abort(404);
+        }
+
+        if($order->user_id != $user->id) {
+            return abort(403);
+        }
+
+        return $this->getView('order.detail', [
+            'order' => $order,
+        ]);
     }
 
 }
