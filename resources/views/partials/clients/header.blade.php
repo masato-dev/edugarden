@@ -79,17 +79,19 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="responsiveNavbar">
-                <ul class="navbar-nav w-100 justify-content-between py-2">
-                    @foreach ($menu->menuItems as $item)
-                        @php
-                            $isActive = Request::is(trim($item->url, '/') === '' ? '/' : trim($item->url, '/') . '*');
-                        @endphp
+                @if($menu->menuItems)
+                    <ul class="navbar-nav w-100 justify-content-between py-2">
+                        @foreach ($menu->menuItems as $item)
+                            @php
+                                $isActive = Request::is(trim($item->url, '/') === '' ? '/' : trim($item->url, '/') . '*');
+                            @endphp
 
-                        <a href="{{ $item->url }}" class="nav-link {{ $isActive ? 'text-main fw-bold' : '' }}">
-                            {{ $item->title }}
-                        </a>
-                    @endforeach
-                </ul>
+                            <a href="{{ $item->url }}" class="nav-link {{ $isActive ? 'text-main fw-bold' : '' }}">
+                                {{ $item->title }}
+                            </a>
+                        @endforeach
+                    </ul>
+                @endif
             </div>
         </div>
     </nav>
