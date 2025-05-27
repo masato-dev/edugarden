@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Client\Account\AccountController;
 use App\Http\Controllers\Client\Account\AuthController;
+use App\Http\Controllers\Client\Blog\BlogController;
 use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\HomeController;
@@ -68,4 +69,12 @@ Route::controller(AccountController::class)
         Route::get('/', 'index')->name('index');
         Route::put('/update', 'update')->name('update');
         Route::put('/change-password', 'changePassword')->name('change-password');
+    });
+
+Route::controller(BlogController::class)
+    ->prefix('/blogs')
+    ->name('blogs.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'detail')->name('detail');
     });

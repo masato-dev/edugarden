@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Implementations\Repositories\Account\UserRepository;
+use App\Implementations\Repositories\Blog\BlogRepository;
 use App\Implementations\Repositories\Book\BookRepository;
 use App\Implementations\Repositories\Cart\CartRepository;
 use App\Implementations\Repositories\Church\ChurchRepository;
@@ -13,6 +14,7 @@ use App\Implementations\Repositories\Order\OrderItemRepository;
 use App\Implementations\Repositories\Order\OrderRepository;
 use App\Implementations\Repositories\UserAddress\UserAddressRepository;
 use App\Implementations\Services\Account\UserService;
+use App\Implementations\Services\Blog\BlogService;
 use App\Implementations\Services\Book\BookService;
 use App\Implementations\Services\Cache\CacheService;
 use App\Implementations\Services\Cart\CartService;
@@ -24,6 +26,7 @@ use App\Implementations\Services\Order\OrderItemService;
 use App\Implementations\Services\Order\OrderService;
 use App\Implementations\Services\UserAddress\UserAddressService;
 use App\Interfaces\Repositories\Account\IUserRepository;
+use App\Interfaces\Repositories\Blog\IBlogRepository;
 use App\Interfaces\Repositories\Book\IBookRepository;
 use App\Interfaces\Repositories\Cart\ICartRepository;
 use App\Interfaces\Repositories\Church\IChurchRepository;
@@ -34,6 +37,7 @@ use App\Interfaces\Repositories\Order\IOrderItemRepository;
 use App\Interfaces\Repositories\Order\IOrderRepository;
 use App\Interfaces\Repositories\UserAddress\IUserAddressRepository;
 use App\Interfaces\Services\Account\IUserService;
+use App\Interfaces\Services\Blog\IBlogService;
 use App\Interfaces\Services\Book\IBookService;
 use App\Interfaces\Services\Cart\ICartService;
 use App\Interfaces\Services\Church\IChurchService;
@@ -64,6 +68,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(ICityService::class, CityService::class);
         $this->app->bind(IDistrictService::class, DistrictService::class);
         $this->app->bind(IWardService::class, WardService::class);
+        $this->app->bind(IBlogService::class, BlogService::class);
 
         // Repositories
         $this->app->bind(IUserRepository::class, UserRepository::class);
@@ -76,6 +81,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(ICityRepoository::class, CityRepository::class);
         $this->app->bind(IDistrictRepository::class, DistrictRepository::class);
         $this->app->bind(IWardRepository::class, WardRepository::class);
+        $this->app->bind(IBlogRepository::class, BlogRepository::class);
         
     }
     

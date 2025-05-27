@@ -23,7 +23,7 @@ class BookCard extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.book.card.book-card', [
+        return view('components.book.card.book-card-item', [
             'book' => $this->book,
         ]);
     }

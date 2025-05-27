@@ -1,8 +1,10 @@
 <?php
+use App\Http\Controllers\Ajax\Blog\BlogController;
 use App\Http\Controllers\Ajax\Book\BookController;
 use App\Http\Controllers\Ajax\Cart\CartController;
 use App\Http\Controllers\Ajax\Church\ChurchController;
 use App\Http\Controllers\Ajax\Common\AutocompleteController;
+use App\Http\Controllers\Ajax\Common\ComponentController;
 use App\Http\Controllers\Ajax\Location\ProvinceController;
 use App\Http\Controllers\Ajax\UserAddress\UserAddressController;
 use App\Http\Middleware\VerifyUserLoggedIn;
@@ -52,5 +54,20 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
             Route::post('/store', 'store')->name('store');
             Route::put('/update/{id}', 'update')->name('update');
             Route::delete('/delete/{id}', 'delete')->name('delete');
+        });
+
+    Route::controller(BlogController::class)
+        ->prefix('/blogs')
+        ->name('blogs.')
+        ->group(function () {
+            Route::get('/index', 'index')->name('index');
+        });
+    
+    Route::controller(ComponentController::class)
+        ->prefix('/components')
+        ->name('components.')
+        ->group(function () {
+            Route::post('/load', 'load')->name('load');
+            Route::post('/load-many', 'loadMany')->name('load-many');   
         });
 });

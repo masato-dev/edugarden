@@ -9,7 +9,7 @@
 @endpush
 
 @section('content')
-    <section id="cartPage">
+    <section id="cartPage" class="py-5">
         <form action="{{ route('orders.process') }}" method="POST" id="processPaymentForm">
             @csrf
             <div class="container" class="py-5">

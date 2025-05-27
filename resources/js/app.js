@@ -7,7 +7,6 @@ import toastr from 'toastr';
 import $ from 'jquery';
 import 'jquery-validation';
 
-
 window.toastr = toastr;
 window.$ = window.jQuery = $;
 

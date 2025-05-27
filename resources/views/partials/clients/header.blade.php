@@ -34,7 +34,6 @@
             <div class="col-4">
                 @auth('user:web')
                     <div class="d-flex align-items-center justify-content-end gap-3">
-
                         <a href="{{ route('carts.index') }}" class="k-btn btn-text-color d-flex gap-2 text-decoration-none py-3" id="headerCartBtn">
                             <i class="icon ic-shopping-cart"></i>
                             <span>Giỏ hàng</span>
@@ -56,7 +55,7 @@
                         </div>
                     </div>
                 @else
-                    <div id="authenticationWrapper">
+                    <div id="authenticationWrapper" class="d-flex justify-content-end gap-2">
                         <button class="k-btn btn-dark d-flex gap-2" id="loginBtn">
                             <i class="icon ic-login"></i>
                             <span>Đăng nhập</span>
@@ -71,4 +70,41 @@
             </div>
         </div>
     </div>
+    
+    <nav class="navbar navbar-expand-lg bg-light border-top border-bottom">
+        <div class="container">
+            <a class="navbar-brand d-lg-none" href="/">Menu</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#responsiveNavbar" aria-controls="responsiveNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-between" id="responsiveNavbar">
+                <ul class="navbar-nav w-100 justify-content-between py-2">
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('/') ? 'text-main fw-bold' : '' }}" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('books*') ? 'text-main fw-bold' : '' }}" href="/books">Sách</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('categories*') ? 'text-main fw-bold' : '' }}" href="https://wonkidsclub.net">Wonkids Club</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('categories*') ? 'text-main fw-bold' : '' }}" href="/donate">Dâng hiến</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('about') ? 'text-main fw-bold' : '' }}" href="/about">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('blogs*') ? 'text-main fw-bold' : '' }}" href="{{ route('blogs.index') }}">Cơ đốc giáo dục</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::is('contact') ? 'text-main fw-bold' : '' }}" href="/contact">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </header>
+
