@@ -96,7 +96,7 @@ class OrderResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id')->label('Mã đơn')->sortable()->searchable()->formatStateUsing(fn ($state) => "EDORD-" . str_pad($state, 5, '0', STR_PAD_LEFT)),
+                TextColumn::make('id')->label('Mã đơn')->sortable()->searchable()->formatStateUsing(fn ($state) => "EORD-" . str_pad($state, 3, '0', STR_PAD_LEFT)),
                 TextColumn::make('userAddress.name')->label('Khách hàng')->sortable()->searchable(),
                 TextColumn::make('total')->label('Tổng tiền')->money('VND', true),
                 BadgeColumn::make('payment_method')->label('Phương thức')
