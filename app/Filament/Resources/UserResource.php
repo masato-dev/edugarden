@@ -73,7 +73,11 @@ class UserResource extends Resource
                     ->dateTime('d/m/Y H:i')
                     ->sortable(),
             ])
-            ->filters([])
+            ->filters([
+                Tables\Filters\MultiSelectFilter::make('church')
+                    ->label('Hội thánh')
+                    ->relationship('church', 'name'),      
+            ])
             ->actions([
                 Tables\Actions\Action::make('changePassword')
                     ->label('Đổi mật khẩu')
