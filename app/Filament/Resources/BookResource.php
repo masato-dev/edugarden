@@ -34,7 +34,8 @@ class BookResource extends Resource
 
                 Forms\Components\RichEditor::make('description')
                     ->label('Mô tả')
-                    ->columnSpan(['lg' => 2]),
+                    ->columnSpan(['lg' => 2])
+                    ->required(),
 
                 Forms\Components\TextInput::make('price')
                     ->numeric()
@@ -49,12 +50,14 @@ class BookResource extends Resource
                     ->label('Đánh giá')
                     ->minValue(0)
                     ->maxValue(5)
+                    ->visibleOn(['edit', 'view'])
                     ->step(0.1),
 
                 Forms\Components\TextInput::make('buy_quantity')
                     ->numeric()
                     ->readOnly()
                     ->default(0)
+                    ->visibleOn(['edit', 'view'])
                     ->minValue(0),
             ]);
     }
