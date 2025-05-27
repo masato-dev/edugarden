@@ -14,7 +14,8 @@
             <div class="row">
                 <div class="col-md-5 col-12">
                     <div class="book-detail-thumbnail p-3 mb-3">
-                        <img src={{ $book->thumbnail }} alt="{{ $book->title }}" class="w-100" style="aspect-ratio: 1">
+                        <img src={{ 
+                        str_contains($book->thumbnail, 'https') ? $book->thumbnail : Storage::disk('public')->url($book->thumbnail) }} alt="{{ $book->title }}" class="w-100" style="aspect-ratio: 1">
                     </div>
                 </div>
                 <div class="col-md-7 col-12">

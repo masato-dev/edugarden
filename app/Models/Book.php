@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Utils\StringUtil;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Book extends Model
 {
@@ -20,7 +21,7 @@ class Book extends Model
         parent::boot();
 
         function genSlug($model) {
-            $slug = StringUtil::toSlug($model->title);
+            $slug = Str::slug($model->title);
             $model->slug = $slug;
         }
 

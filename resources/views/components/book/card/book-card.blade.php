@@ -1,10 +1,13 @@
 @php
     use App\Utils\CurrencyUtil;
+    use Illuminate\Support\Facades\Storage;
 @endphp
 
 <div class="book-card">
     <a href="{{ route('books.detail', ['slug' => $book->slug]) }}" class="text-decoration-none">
-        <div class="book-card-thumbnail" style="background-image: url('{{ $book->thumbnail }}');">
+        <div class="book-card-thumbnail" style="background-image: url('{{ 
+            str_contains($book->thumbnail, 'https') ? $book->thumbnail : Storage::disk('public')->url($book->thumbnail) 
+        }}');">
     
         </div>
         

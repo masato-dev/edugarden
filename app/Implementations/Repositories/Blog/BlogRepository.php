@@ -8,4 +8,11 @@ class BlogRepository extends BaseRepository implements IBlogRepository {
     public function __construct(Blog $model) {
         parent::__construct($model);
     }
+
+    public function getAll(array $options = []) {
+        return parent::getBy(['status' => 1], array_merge([
+            $options,
+            'orderBy' => ['created_at' => 'desc'],
+        ]));
+    }
 }
