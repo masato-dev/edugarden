@@ -79,7 +79,7 @@
             </button>
 
             <div class="collapse navbar-collapse justify-content-between" id="responsiveNavbar">
-                @if($menu->menuItems)
+                @if(!empty($menu) && !empty($menu->menuItems))
                     <ul class="navbar-nav w-100 justify-content-between py-2">
                         @foreach ($menu->menuItems as $item)
                             @php
