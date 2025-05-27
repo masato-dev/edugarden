@@ -50,7 +50,7 @@
                         <hr>
                         <div class="mt-5">
                             <h4>Mô tả ngắn:</h4>
-                            <p class="fs-4 fw-400 m-0">{{ $book->description }}</p>
+                            <p class="fs-4 fw-400 m-0">{!! $book->description !!}</p>
                         </div>
                         
                         <div class="mt-3">
