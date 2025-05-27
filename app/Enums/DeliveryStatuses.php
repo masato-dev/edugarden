@@ -6,7 +6,7 @@ class DeliveryStatuses {
     public const DELIVERED = 2;
     public const CANCELLED = 3;
 
-    public static function getStringStatus(int $status): string {
+    public static function label(int $status): string {
         return match ($status) {
             self::PENDING => 'Chờ xác nhận',
             self::CONFIRMED => 'Đang giao',

@@ -25,8 +25,9 @@ class BlogResource extends Resource
     protected static ?string $model = Blog::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationLabel = 'Blogs';
-    protected static ?string $pluralModelLabel = 'Blogs';
+    protected static ?string $modelLabel = 'Cơ đốc giáo dục';
+    protected static ?string $pluralModelLabel = 'Danh sách bài viết';
+    protected static ?string $navigationLabel = 'Cơ đốc giáo dục';
 
     public static function form(Form $form): Form
     {

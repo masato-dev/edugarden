@@ -49,7 +49,7 @@
                             @endif
                         </p>
                         <p class="mb-1"><strong>Phương thức:</strong> {{ PaymentMethods::label($order->payment_method) }}</p>
-                        <p class="mt-1"><strong>Trạng thái giao hàng:</strong> {{ DeliveryStatuses::getStringStatus($order->delivery_status) }}</p>
+                        <p class="mt-1"><strong>Trạng thái giao hàng:</strong> {{ DeliveryStatuses::label($order->delivery_status) }}</p>
                     </div>
                 </div>
             </div>

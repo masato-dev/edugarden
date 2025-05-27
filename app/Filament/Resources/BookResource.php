@@ -15,6 +15,9 @@ class BookResource extends Resource
 {
     protected static ?string $model = Book::class;
 
+    protected static ?string $modelLabel = 'Sản phẩm';
+    protected static ?string $pluralModelLabel = 'Danh sách sản phẩm';
+    protected static ?string $navigationLabel = 'Quản lý sản phẩm';
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
