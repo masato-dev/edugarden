@@ -45,6 +45,7 @@ class BookResource extends Resource
                 Forms\Components\TextInput::make('rating')
                     ->numeric()
                     ->readOnly()
+                    ->default(5)
                     ->label('Đánh giá')
                     ->minValue(0)
                     ->maxValue(5)
@@ -53,6 +54,7 @@ class BookResource extends Resource
                 Forms\Components\TextInput::make('buy_quantity')
                     ->numeric()
                     ->readOnly()
+                    ->default(0)
                     ->minValue(0),
             ]);
     }
