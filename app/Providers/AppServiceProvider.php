@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Http\Composer\HeaderComposer;
 use Illuminate\Http\Request;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use URL;
+use View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -55,5 +57,7 @@ class AppServiceProvider extends ServiceProvider
         if(!$this->app->environment('local')) {
             URL::forceScheme('https');
         }
+
+        View::composer('partials.clients.header', HeaderComposer::class);
     }
 }

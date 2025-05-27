@@ -80,27 +80,15 @@
 
             <div class="collapse navbar-collapse justify-content-between" id="responsiveNavbar">
                 <ul class="navbar-nav w-100 justify-content-between py-2">
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('/') ? 'text-main fw-bold' : '' }}" href="/">Trang chủ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('books*') ? 'text-main fw-bold' : '' }}" href="/books">Sách</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('categories*') ? 'text-main fw-bold' : '' }}" href="https://wonkidsclub.net">Wonkids Club</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('categories*') ? 'text-main fw-bold' : '' }}" href="/donate">Dâng hiến</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('about') ? 'text-main fw-bold' : '' }}" href="/about">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('blogs*') ? 'text-main fw-bold' : '' }}" href="{{ route('blogs.index') }}">Cơ đốc giáo dục</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::is('contact') ? 'text-main fw-bold' : '' }}" href="/contact">Liên hệ</a>
-                    </li>
+                    @foreach ($menu->menuItems as $item)
+                        @php
+                            $isActive = Request::is(trim($item->url, '/') === '' ? '/' : trim($item->url, '/') . '*');
+                        @endphp
+
+                        <a href="{{ $item->url }}" class="nav-link {{ $isActive ? 'text-main fw-bold' : '' }}">
+                            {{ $item->title }}
+                        </a>
+                    @endforeach
                 </ul>
             </div>
         </div>
