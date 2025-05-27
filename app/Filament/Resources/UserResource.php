@@ -40,6 +40,7 @@ class UserResource extends Resource
                 TextInput::make('phone')
                     ->label('Số điện thoại')
                     ->tel()
+                    ->required()
                     ->maxLength(20),
 
                 Select::make('church_id')
