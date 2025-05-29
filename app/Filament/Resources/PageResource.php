@@ -18,7 +18,7 @@ class PageResource extends Resource
 {
     protected static ?string $model = Page::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-chart-bar';
 
     // Việt hóa tiêu đề hiển thị ở sidebar
     protected static ?string $navigationLabel = 'Quản lý nội dung';
@@ -70,6 +70,7 @@ class PageResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label('Chỉnh sửa'),
+                Tables\Actions\DeleteAction::make()->label('Xoá'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
