@@ -14,8 +14,10 @@ class Page extends Model
     ];
 
     private static function genSlug($model) {
-        $slug = Str::slug($model->title);
-        $model->slug = $slug;
+        if(empty($model->slug)) {
+            $slug = Str::slug($model->title);
+            $model->slug = $slug;
+        }
     }
 
     public static function boot() {
