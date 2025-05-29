@@ -30,6 +30,7 @@ Route::controller(BookController::class)
     ->prefix('/books')
     ->name('books.')
     ->group(function () {
+        Route::get('/', 'index')->name('index');
         Route::get('/search', 'search')->name('search');
         Route::get('/{slug}', 'detail')->name('detail');
     });

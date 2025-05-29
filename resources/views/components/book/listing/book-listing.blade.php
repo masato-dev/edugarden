@@ -9,7 +9,7 @@
         @foreach ($books as $book)
             <div class="col">
                 @component('components.book.card.book-card')
-                    @slot('book', $book)
+                    @slot('model', $book)
                 @endcomponent
             </div>
         @endforeach

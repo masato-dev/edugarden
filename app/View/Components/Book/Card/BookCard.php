@@ -9,13 +9,13 @@ use Illuminate\View\Component;
 
 class BookCard extends Component
 {
-    private Book $book;
+    private Book $model;
 
     /**
      * Create a new component instance.
      */
-    public function __construct(Book $book) {
-        $this->book = $book;
+    public function __construct(Book $model) {
+        $this->model = $model;
     }
 
     /**
@@ -24,7 +24,7 @@ class BookCard extends Component
     public function render(): View|Closure|string
     {
         return view('components.book.card.book-card-item', [
-            'book' => $this->book,
+            'book' => $this->model,
         ]);
     }
 }

@@ -14,6 +14,10 @@ class BookController extends ClientController
         $this->bookService = $bookService;
     }
 
+    public function index(Request $request) {
+        return $this->getView('book.index');
+    }
+
     public function search(Request $request) {
         $keyword = $request->keyword;
         $books = $keyword 
