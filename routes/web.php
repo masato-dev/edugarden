@@ -7,6 +7,7 @@ use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\Order\OrderController;
+use App\Http\Controllers\Client\Page\PageController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
@@ -77,5 +78,12 @@ Route::controller(BlogController::class)
     ->name('blogs.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
+        Route::get('/{slug}', 'detail')->name('detail');
+    });
+
+Route::controller(PageController::class)
+    ->name('pages.')
+    ->prefix('/')
+    ->group(function () {
         Route::get('/{slug}', 'detail')->name('detail');
     });
