@@ -15,6 +15,7 @@ class BookController extends ClientController
     }
 
     public function index(Request $request) {
+        $this->setMetadata(__('Sách'), __('Danh sách sản phẩm của Edugarden'), __('Edugarden'));
         return $this->getView('book.index');
     }
 
@@ -23,6 +24,7 @@ class BookController extends ClientController
         $books = $keyword 
             ? $this->bookService->autoComplete($keyword, 'title') 
             : $this->bookService->getAll();
+        $this->setMetadata(__('Tìm kiếm'), __('Kết quả tìm kiếm của Edugarden'), __('Edugarden'));
         return $this->getView('book.search', [
             'books' => $books,
             'keyword' => $keyword,
@@ -36,6 +38,8 @@ class BookController extends ClientController
         $book = $this->bookService->getBy(['slug' => $slug])->first();
         if(!$book)
             return abort(404);
+
+        $this->setMetadata($book->title, $book->description, $book->title);
 
         $relatedBooks = $this->bookService->getAll(['perpage' => 5]);
 

@@ -17,6 +17,7 @@
     "dependencies": {
         "@popperjs/core": "^2.11.8",
         "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.13.1",
         "jquery": "^3.7.1",
         "jquery-pagination": "^1.1.0",
         "jquery-validation": "^1.21.0",

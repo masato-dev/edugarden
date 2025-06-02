@@ -5,6 +5,7 @@ use App\Http\Controllers\Client\Account\AuthController;
 use App\Http\Controllers\Client\Blog\BlogController;
 use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
+use App\Http\Controllers\Client\Contact\ContactController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\Order\OrderController;
 use App\Http\Controllers\Client\Page\PageController;
@@ -16,7 +17,16 @@ require_once __DIR__.'/ajax.php';
 
 Route::controller(HomeController::class)->group(function () {
     Route::get('/', 'index')->name('home');
+    Route::get('/contact', 'contact')->name('contact');
 });
+
+Route::controller(ContactController::class)
+    ->prefix('/contact')
+    ->name('contact.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::post('/send', 'send')->name('send');
+    });
 
 Route::controller(AuthController::class)
     ->prefix('/auth/client')
