@@ -27,20 +27,20 @@
                 <h5 class="text-white fw-600">Liên kết nhanh</h5>
                 <ul class="list-unstyled quick-links">
                     <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white">Trang chủ</a>
+                        <a href="#" class="text-decoration-none" style="color: #BACFDB;">Trang chủ</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white">Giới thiệu</a>
+                        <a href="#" class="text-decoration-none" style="color: #BACFDB;">Giới thiệu</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white">Liên hệ</a>
+                        <a href="#" class="text-decoration-none" style="color: #BACFDB;">Liên hệ</a>
                     </li>
 
                     <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white">Sản phẩm</a>
+                        <a href="#" class="text-decoration-none" style="color: #BACFDB;">Sản phẩm</a>
                     </li>
                     <li class="mb-2">
-                        <a href="#" class="text-decoration-none text-white">Tin tức</a>
+                        <a href="#" class="text-decoration-none" style="color: #BACFDB;">Tin tức</a>
                     </li>
                 </ul>
             </div>
