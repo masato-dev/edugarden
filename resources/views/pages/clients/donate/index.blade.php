@@ -38,9 +38,18 @@
                 </div>
             </form>
 
-            <div class="mt-5" id="qrSection" style="display: none;">
+            <div class="mt-5 d-none" id="qrSection">
                 <h5 class="text-center text-success">Vui lòng quét mã QR bên dưới để chuyển khoản:</h5>
-                <div id="qrImage" class="text-center mt-3"></div>
+                <div class="d-flex justify-content-center mt-5">
+                    <div id="qrImage" class="text-center mt-3" style="
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                        background-position: center;
+                        aspect-ratio: 1;
+                        width: 300px;
+                        max-width: 100%;
+                    "></div>
+                </div>
             </div>
         </div>
     </section>
