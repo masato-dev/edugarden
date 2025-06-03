@@ -5,7 +5,9 @@ use App\Http\Controllers\Ajax\Cart\CartController;
 use App\Http\Controllers\Ajax\Church\ChurchController;
 use App\Http\Controllers\Ajax\Common\AutocompleteController;
 use App\Http\Controllers\Ajax\Common\ComponentController;
+use App\Http\Controllers\Ajax\Donate\DonateController;
 use App\Http\Controllers\Ajax\Location\ProvinceController;
+use App\Http\Controllers\Ajax\Payment\VietQRPaymentController;
 use App\Http\Controllers\Ajax\UserAddress\UserAddressController;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
@@ -70,5 +72,19 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
         ->group(function () {
             Route::post('/load', 'load')->name('load');
             Route::post('/load-many', 'loadMany')->name('load-many');   
+        });
+
+    Route::controller(DonateController::class)
+        ->prefix('/donates')
+        ->name('donates.')
+        ->group(function () {
+            Route::post('/', 'store')->name('store');
+        });
+
+    Route::controller(VietQRPaymentController::class)
+        ->prefix('/payment/vietqr')
+        ->name('payment.vietqr.')
+        ->group(function () {
+            Route::get('/qr-code', 'qrCode')->name('qr-code');
         });
 });

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Composer\HeaderComposer;
 use App\Interfaces\Services\Cart\ICartService;
 use Illuminate\Support\ServiceProvider;
 use View;
@@ -31,6 +32,7 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        View::composer('partials.clients.header', HeaderComposer::class);
         View::composer('layout.clients.main', function ($view) {
             $cartAmount = $this->loadCartAmount();
             $view->with([

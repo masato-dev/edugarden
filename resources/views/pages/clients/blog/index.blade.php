@@ -15,7 +15,7 @@
 
             <div class="mt-3">
                 <x-common.pagination 
-                    :perPage="18"
+                    :perPage="8"
                     :url="route('ajax.blogs.index')"
                     :method="'GET'"
                     :component="'components.blog.blog-card-item'"

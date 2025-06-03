@@ -57,7 +57,5 @@ class AppServiceProvider extends ServiceProvider
         if(!$this->app->environment('local')) {
             URL::forceScheme('https');
         }
-
-        View::composer('partials.clients.header', HeaderComposer::class);
     }
 }

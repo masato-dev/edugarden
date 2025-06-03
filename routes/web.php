@@ -9,6 +9,7 @@ use App\Http\Controllers\Client\Contact\ContactController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\Order\OrderController;
 use App\Http\Controllers\Client\Page\PageController;
+use App\Http\Controllers\Donate\DonateController;
 use App\Http\Controllers\Payment\PaymentController;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,13 @@ Route::controller(ContactController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::post('/send', 'send')->name('send');
+    });
+
+Route::controller(DonateController::class)
+    ->prefix('/donate')
+    ->name('donate.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
     });
 
 Route::controller(AuthController::class)

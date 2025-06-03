@@ -17,15 +17,15 @@
                         <ul class="list-unstyled">
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-geo-alt-fill fs-4 me-3" style="color: #EBA452;"></i>
-                                <span>123 Đường ABC, Quận 1, TP. HCM</span>
+                                <span>45A/14 Nguyễn Văn Thiệt, Phường 3, Tp Vĩnh Long</span>
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-telephone-fill fs-4 me-3" style="color: #EBA452;"></i>
-                                <span>(028) 1234 5678</span>
+                                <span>0386 353 083</span>
                             </li>
                             <li class="mb-3 d-flex align-items-center">
                                 <i class="bi bi-envelope-fill fs-4 me-3" style="color: #EBA452;"></i>
-                                <span>contact@example.com</span>
+                                <span>edugarden.24@gmail.com</span>
                             </li>
                         </ul>
                     </div>
@@ -57,11 +57,18 @@
                                     <label for="message" class="form-label">Nội dung <span class="text-danger">*</span></label>
                                     <textarea name="message" id="message" rows="6" class="form-control" placeholder="Nhập nội dung"></textarea>
                                 </div>
-                            </div>
-                            <div class="text-end mt-4">
-                                <button type="submit" class="btn px-4 py-2 rounded-pill text-white" style="background-color: #EBA452;">
-                                    <i class="bi bi-send me-1"></i> Gửi liên hệ
-                                </button>
+
+                                <div class="col-12">
+                                    </div>
+                                </div>
+                                <div class="text-end">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <div class="g-recaptcha" data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY')  }}" data-action="SEND_CONTACT"></div>
+                                        <button type="submit" class="btn px-4 py-2 rounded-pill text-white" style="background-color: #EBA452;">
+                                            <i class="bi bi-send me-1"></i> Gửi liên hệ
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -72,5 +79,6 @@
 @endsection
 
 @push('scripts')
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
     @vite(['resources/js/pages/contact.js'])
 @endpush

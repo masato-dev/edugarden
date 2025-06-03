@@ -12,5 +12,6 @@ class Donate extends Model
         'phone',
         'amount',
         'note',
+        'is_received',
     ];
 }

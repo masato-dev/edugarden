@@ -13,11 +13,13 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.instanceNames = window.instanceNames || {
     BookService: 'BookService',
     CartService: 'CartService',
+    DonateService: 'DonateService',
 };
 
 window.instances = window.instances || {
     [instanceNames.BookService]: null,
     [instanceNames.CartService]: null,
+    [instanceNames.DonateService]: null,
 };
 
 window.locator = {
@@ -28,3 +30,4 @@ window.locator = {
 
 locator.register(instanceNames.BookService, new BookService());
 locator.register(instanceNames.CartService, new CartService());
+locator.register(instanceNames.DonateService, new DonateService());

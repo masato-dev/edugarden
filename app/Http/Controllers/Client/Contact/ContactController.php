@@ -8,6 +8,7 @@ use App\Http\Controllers\Core\ClientController;
 use App\Interfaces\Services\Contact\IContactService;
 use App\Jobs\SendContactMailJob;
 use App\Models\Contact;
+use App\Utils\GoogleRecaptcha;
 use Exception;
 use Illuminate\Http\Request;
 
@@ -23,6 +24,13 @@ class ContactController extends ClientController
     }
 
     public function send(Request $request) {
+        $captchaToken = $request->get('g-recaptcha-response');
+        $captchaSecrect = env('GOOGLE_RECAPTCHA_SECRET_KEY');
+        $captchaVerified = GoogleRecaptcha::check($captchaToken, $captchaSecrect);
+
+        if (!$captchaVerified)
+            return $this->redirectBackWithMessage('Xác thực reCaptcha không hợp lệ', AlertTypes::$error);
+        
         try {
             $contact = $this->contactService->create($request->all());
 
