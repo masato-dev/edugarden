@@ -5,6 +5,7 @@ return [
     App\Providers\CRUDServiceProvider::class,
     App\Providers\EventServiceProvider::class,
     App\Providers\Filament\AdminPanelProvider::class,
+    App\Providers\SEOToolsServiceProvider::class,
     App\Providers\ViewServiceProvider::class,
     Tighten\Ziggy\ZiggyServiceProvider::class,
 ];
