@@ -10,9 +10,10 @@ class BlogRepository extends BaseRepository implements IBlogRepository {
     }
 
     public function getAll(array $options = []) {
-        return parent::getBy(['status' => 1], array_merge([
-            $options,
+        $defaultOptions = [
             'orderBy' => ['created_at' => 'desc'],
-        ]));
+        ];
+        $mergedOptions = array_merge($defaultOptions, $options);
+        return parent::getBy(['status' => 1], $mergedOptions);
     }
 }

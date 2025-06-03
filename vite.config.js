@@ -22,6 +22,7 @@ const scripts = [
     'resources/js/pages/cart-listing.js',
     'resources/js/pages/order.js',
     'resources/js/pages/contact.js',
+    'resources/js/pages/donate.js',
 
     'resources/js/libraries/jquery-pagination.min.js',
 ]
