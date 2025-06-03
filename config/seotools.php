@@ -36,7 +36,7 @@ return [
             'url'         => null,
             'type'        => 'website',
             'site_name'   => env('APP_NAME', 'Edugarden'),
-            'images'      => [env('APP_OG_IMAGE', asset('images/edugarden-banner.jpg'))],
+            'images'      => [env('APP_OG_IMAGE')],
         ],
     ],
 
@@ -53,7 +53,7 @@ return [
             'description' => env('APP_DESCRIPTION', 'Chuyên sách đạo Tin Lành, Kinh Thánh và giáo trình học Kinh Thánh.'),
             'url'         => null,
             'type'        => 'WebPage',
-            'images'      => [env('APP_OG_IMAGE', asset('images/edugarden-banner.jpg'))],
+            'images'      => [env('APP_OG_IMAGE')],
         ],
     ],
 ];
