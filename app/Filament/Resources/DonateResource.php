@@ -17,7 +17,7 @@ class DonateResource extends Resource
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
     protected static ?string $navigationLabel = 'Quản lý dâng hiến';
     protected static ?string $modelLabel = 'Dâng hiến';
-    protected static ?string $pluralModelLabel = 'Quản lý dâng hiến';
+    protected static ?string $pluralModelLabel = 'Dâng hiến';
 
     public static function form(Form $form): Form
     {
@@ -42,6 +42,7 @@ class DonateResource extends Resource
         ])
         ->actions([
             Tables\Actions\EditAction::make(),
+            Tables\Actions\DeleteAction::make(),
         ])
         ->bulkActions([
             Tables\Actions\DeleteBulkAction::make(),
