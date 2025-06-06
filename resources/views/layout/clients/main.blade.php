@@ -27,5 +27,23 @@
     @routes()
     @stack('scripts')
     @livewireScripts
+    <ai360-chatbot
+        style="Serious"
+        primary-color="#8BC34A"
+        avatar-shape="circle"
+        font-size="16"
+        chat-position="right"
+        bot-avatar=""
+        icon=""
+        chatbox-width="300"
+        chatbox-height="500"
+        font-color="#FFFFFF"
+        field="education"
+        name="Chatbot Kinh Thánh"
+        uuid="2d161d0a-0d01-4b27-a522-2208efb0f136"
+    >
+    </ai360-chatbot>
+                
+    <script src="https://ai.rada360.com/libs/ai360-chatbot-lib.min.js"></script>
 </body>
 </html>
