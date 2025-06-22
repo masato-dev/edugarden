@@ -14,5 +14,3 @@ Allow: /books/
 Allow: /blogs/
 Allow: /contact
 Allow: /pages/
-
-Sitemap: {{url}}/sitemap.xml
