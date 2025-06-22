@@ -31,11 +31,19 @@
                 </div>
 
                 <div class="mb-3">
-                    <div class="d-flex align-items-center gap-2">
-                        <input type="checkbox" name="remember" id="remember" width="16" height="16">
-                        <label for="remember" class="text-color">Nhớ lần đăng nhập sau</label>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <input type="checkbox" name="remember" id="remember" width="16" height="16">
+                            <label for="remember" class="text-color">Nhớ lần đăng nhập sau</label>
+                        </div>
+                        <div>
+                            <button type="button" class="text-main text-decoration-none small" onclick="auth.showForgotPasswordModal()">
+                                Quên mật khẩu?
+                            </button>
+                        </div>
                     </div>
                 </div>
+
 
                 <div class="mb-3 py-3" style="border-bottom: dashed 1px #ccc;">
                     <button type="submit" class="k-btn btn-main w-100" id="loginBtn">Đăng nhập</button>

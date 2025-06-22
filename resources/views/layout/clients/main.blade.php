@@ -9,6 +9,7 @@
      {!! \Artesaos\SEOTools\Facades\JsonLd::generate() !!}
     
     <title>{{ $metaTitle ?? config('app.name') }}</title>
+    <link rel="shortcut icon" href="{{ asset('favicon.ico') }}">
     
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
     @stack('styles')
@@ -19,6 +20,7 @@
     <main>
         @component('components.auth.register-modal') @endcomponent
         @component('components.auth.login-modal') @endcomponent
+        @component('components.auth.forgot-password-modal') @endcomponent
         
         @yield('content')
     </main>

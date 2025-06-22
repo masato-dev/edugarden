@@ -30,4 +30,10 @@ class AccountController extends ClientController
             return $this->redirectBackWithMessage(__('Cập nhật tài khoản thành công'), AlertTypes::$success);
         else return $this->redirectBackWithMessage(__('Cập nhật tài khoản thất bại'), AlertTypes::$error);
     }
+
+    public function verify(Request $request) {
+        return $this->getView('account.verify', [
+            'user' => $this->user
+        ]);
+    }
 }

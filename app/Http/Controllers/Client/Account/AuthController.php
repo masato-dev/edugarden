@@ -5,8 +5,12 @@ namespace App\Http\Controllers\Client\Account;
 use App\Enums\AlertTypes;
 use App\Http\Controllers\Core\ClientController;
 use App\Interfaces\Services\Account\IUserService;
+use App\Jobs\SendEmailVerificationJob;
+use Auth;
 use Exception;
 use Hash;
+use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Http\Request;
 use Log;
 
@@ -28,7 +32,17 @@ class AuthController extends ClientController
             return $this->redirectBackWithMessage(__('Thông tin đăng nhập sai'), AlertTypes::$error);
         }
 
-        return $this->redirectBackWithMessage(__('Đăng nhập thành công'));
+        $user = $this->userService->getBy(['email' => $credentials['email']])->first();
+        if($user instanceof MustVerifyEmail && !$user->hasVerifiedEmail()) {
+            dispatch(new SendEmailVerificationJob($user));
+            return $this->redirectToWithMessage('account.verify', __('Đăng nhập thành công'), AlertTypes::$success);
+        }
+        else if($user) {
+            return $this->redirectBackWithMessage(__('Đăng nhập thành công'), AlertTypes::$success);
+        }
+
+        else return $this->redirectBackWithMessage(__('Đăng nhập thất bại'), AlertTypes::$error);
+
     }
 
     public function register(Request $request) {
@@ -74,5 +88,9 @@ class AuthController extends ClientController
             $this->userService->update($user->id, ['password' => $password]);
             return $this->redirectBackWithMessage(__('Đổi mật khóa thành công'), AlertTypes::$success);
         }
+    }    
+
+    public function forgotPassword(Request $request) {
+        
     }
 }

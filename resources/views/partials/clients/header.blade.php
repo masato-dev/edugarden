@@ -3,14 +3,14 @@
         <div class="row align-items-center">
             <div class="col-2">
                 <a href="/" class="text-decoration-none">
-                    <h2 class="text-color">Logo here</h2>
+                    <img src="{{ asset('images/icons/ic_logo_full.svg') }}" class="w-100" alt="Edugarden Logo">
                 </a>
             </div>
             <div class="col-6">
                 <div id="headerSearchWrapper">
                     <div class="row">
                         <div class="col-2">
-                            <span>Tên sách</span>
+                            <span class="text-color">Tên sách</span>
                         </div>
                         <div class="col-9" id="headerSearchInputWrapper">
                             <input value="{{ request('keyword') ?? '' }}" type="text" id="headerSearchInput"

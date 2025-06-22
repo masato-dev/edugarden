@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Donate;
+namespace App\Http\Controllers\Client\Donate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Core\ClientController;

@@ -9,6 +9,7 @@ use App\Http\Controllers\Ajax\Donate\DonateController;
 use App\Http\Controllers\Ajax\Location\ProvinceController;
 use App\Http\Controllers\Ajax\Payment\VietQRPaymentController;
 use App\Http\Controllers\Ajax\UserAddress\UserAddressController;
+use App\Http\Middleware\VerifyEmailVerified;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
 
     Route::controller(CartController::class)
         ->middleware(VerifyUserLoggedIn::class)
+        ->middleware(VerifyEmailVerified::class)
         ->prefix('/carts')
         ->name('carts.')
         ->group(function () {
@@ -51,6 +53,7 @@ Route::prefix('/ajax')->name('ajax.')->group(function () {
 
     Route::controller(UserAddressController::class)
         ->middleware(VerifyUserLoggedIn::class)
+        ->middleware(VerifyEmailVerified::class)
         ->prefix('/user-addresses')
         ->name('user-addresses.')
         ->group(function () {

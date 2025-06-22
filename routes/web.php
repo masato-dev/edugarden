@@ -2,15 +2,17 @@
 
 use App\Http\Controllers\Client\Account\AccountController;
 use App\Http\Controllers\Client\Account\AuthController;
+use App\Http\Controllers\Client\Account\VerificationController;
 use App\Http\Controllers\Client\Blog\BlogController;
 use App\Http\Controllers\Client\Book\BookController;
 use App\Http\Controllers\Client\Cart\CartController;
 use App\Http\Controllers\Client\Contact\ContactController;
+use App\Http\Controllers\Client\Donate\DonateController;
 use App\Http\Controllers\Client\HomeController;
 use App\Http\Controllers\Client\Order\OrderController;
 use App\Http\Controllers\Client\Page\PageController;
-use App\Http\Controllers\Donate\DonateController;
 use App\Http\Controllers\Payment\PaymentController;
+use App\Http\Middleware\VerifyEmailVerified;
 use App\Http\Middleware\VerifyUserLoggedIn;
 use Illuminate\Support\Facades\Route;
 
@@ -43,7 +45,16 @@ Route::controller(AuthController::class)
         Route::post('/login', 'login')->name('login');
         Route::post('/register', 'register')->name('register');
         Route::post('/reset-password', 'resetPassword')->name('reset-password');
+        Route::post('/forgot-password', 'forgotPassword')->name('forgot-password');
         Route::match(['get', 'post'], '/logout', 'logout')->name('logout');
+    });
+
+Route::controller(VerificationController::class)
+    ->prefix('/verification')
+    ->name('verification.')
+    ->group(function () {
+        Route::post('/send', 'sendEmailVerification')->name('send');
+        Route::get('/verify', 'verify')->name('verify');
     });
 
 Route::controller(BookController::class)
@@ -87,8 +98,9 @@ Route::controller(AccountController::class)
     ->prefix('/account')
     ->name('account.')
     ->group(function () {
-        Route::get('/', 'index')->name('index');
-        Route::put('/update', 'update')->name('update');
+        Route::get('/', 'index')->name('index')->middleware(VerifyEmailVerified::class);
+        Route::put('/update', 'update')->name('update')->middleware(VerifyEmailVerified::class);
+        Route::get('/verify', 'verify')->name('verify');
     });
 
 Route::controller(BlogController::class)
