@@ -38,7 +38,7 @@ class VerificationController extends ClientController
         $user = $this->userService->getById($id);
         $url = $request->fullUrlWithoutQuery('signature');
         $signature = hash_hmac('sha256', $url, env('APP_KEY'));
-        dd(hash_equals($signature, (string) $request->query('signature', '')));
+        dd($url, $signature);
         if (!hash_equals($signature, (string) $request->query('signature', ''))) {
             return $this->redirectToWithMessage('home', __('Liên kết xác minh không hợp lệ hoặc đã hết hạn'), AlertTypes::$error);
         }
