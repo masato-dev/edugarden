@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         URL::macro('alternateHasCorrectSignature',function (Request $request, $absolute = true, array $ignoreQuery = []) {
-        $ignoreQuery[] = 'signature';
+            $ignoreQuery[] = 'signature';
             $absoluteUrl = url($request->path());
             $url = $absolute ? $absoluteUrl : '/' . $request->path();
 
