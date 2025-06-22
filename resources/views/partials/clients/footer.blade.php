@@ -4,10 +4,9 @@
             <div class="col-12 col-md-4">
                 <h5 class="text-white fw-600">Về chúng tôi</h5>
                 <p style="color: #BACFDB;">
-                    Chúng tôi là công ty dược phẩm uy tín tại Việt Nam, luôn cam kết
-                    mang lại cho khách hàng những sản phẩm chất lượng và dịch vụ
-                    tốt nhất.
+                    Là một tổ chức Tin Lành, chúng tôi mong muốn mang Lời Chúa đến gần hơn với mọi người qua các ấn phẩm Cơ Đốc chất lượng — nhằm gây dựng đức tin, nuôi dưỡng tâm linh và sống một đời sống ý nghĩa trong Chúa Giê-xu.
                 </p>
+
             </div>
             <div class="col-12 col-md-4">
                 <h5 class="text-white fw-600">Liên hệ</h5>
