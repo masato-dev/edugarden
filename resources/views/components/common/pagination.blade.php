@@ -9,7 +9,9 @@
         </div>
     </div>
     <div id="dataWrapper" class="{{ $rowWrappers }}"></div>
-    <div id="paginationWrapper" class="mt-3"></div>
+    <div class="mt-3 d-flex justify-content-center" id="pagination-container">
+        <div id="paginationWrapper"></div>
+    </div>
 </div>
 
 <script>
