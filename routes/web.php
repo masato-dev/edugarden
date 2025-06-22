@@ -42,6 +42,7 @@ Route::controller(AuthController::class)
     ->group(function () {
         Route::post('/login', 'login')->name('login');
         Route::post('/register', 'register')->name('register');
+        Route::post('/reset-password', 'resetPassword')->name('reset-password');
         Route::match(['get', 'post'], '/logout', 'logout')->name('logout');
     });
 
@@ -88,7 +89,6 @@ Route::controller(AccountController::class)
     ->group(function () {
         Route::get('/', 'index')->name('index');
         Route::put('/update', 'update')->name('update');
-        Route::put('/change-password', 'changePassword')->name('change-password');
     });
 
 Route::controller(BlogController::class)

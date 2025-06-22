@@ -37,8 +37,6 @@
             });
 
             if(response.isSuccessfully()) {
-                console.log(response);
-                
                 document.dispatchEvent(new CustomEvent(events.CART_UPDATED, {}));
                 notification.toast(response.data.message, 'success');
             }

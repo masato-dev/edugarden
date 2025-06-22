@@ -30,9 +30,13 @@
             <div class="col-md-9 ">
                 <div class="tab-content" id="profile-tabContent">
                     @include('pages.clients.account.blocks.information')
-                    @include('pages.clients.account.blocks.change-password')
+                    @include('pages.clients.account.blocks.reset-password')
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    @vite(['resources/js/pages/account.js'])
+@endpush

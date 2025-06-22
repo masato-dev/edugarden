@@ -6,6 +6,7 @@ use App\Enums\AlertTypes;
 use App\Http\Controllers\Core\ClientController;
 use App\Interfaces\Services\Account\IUserService;
 use Exception;
+use Hash;
 use Illuminate\Http\Request;
 use Log;
 
@@ -57,5 +58,21 @@ class AuthController extends ClientController
             return $this->redirectBackWithMessage(__('Đăng xuất thành công'), AlertTypes::$success);
         }
         return redirect()->back();
+    }
+
+    public function resetPassword(Request $request) {
+        $user = auth('user:web')->user();
+        if($user) {
+            $oldPassword = $request->old_password;
+            $password = $request->password;
+            $passwordConfirmation = $request->password_confirmation;
+            if($password != $passwordConfirmation)
+                return $this->redirectBackWithMessage(__('Nhập lại mật khẩu chưa khớp'), AlertTypes::$error);
+            if(!Hash::check($oldPassword, $user->password))
+                return $this->redirectBackWithMessage(__('Mật khẩu cũ chưa hợp lệ'), AlertTypes::$error);
+
+            $this->userService->update($user->id, ['password' => $password]);
+            return $this->redirectBackWithMessage(__('Đổi mật khóa thành công'), AlertTypes::$success);
+        }
     }
 }
