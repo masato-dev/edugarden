@@ -1,2 +1,18 @@
 User-agent: *
-Disallow:
+Disallow: /auth/
+Disallow: /verification/
+Disallow: /orders/
+Disallow: /payments/
+Disallow: /carts/
+Disallow: /account/
+Disallow: /ajax/
+Disallow: /donate/
+Disallow: /contact/send
+Disallow: /admin
+
+Allow: /books/
+Allow: /blogs/
+Allow: /contact
+Allow: /pages/
+
+Sitemap: {{url}}/sitemap.xml
