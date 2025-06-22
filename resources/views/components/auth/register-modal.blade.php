@@ -1,7 +1,6 @@
 <div id="registerModal" class="k-modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
-            <div></div>
             <h5 class="k-modal-title">
                 <i class="icon ic-register"></i>
                 <span>Đăng ký</span>
