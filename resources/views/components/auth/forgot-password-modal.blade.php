@@ -1,6 +1,7 @@
 <div id="forgotPasswordModal" class="k-modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
+            <div></div>
             <h5 class="k-modal-title">
                 <i class="icon ic-register"></i>
                 <span>Quên mật khẩu</span>

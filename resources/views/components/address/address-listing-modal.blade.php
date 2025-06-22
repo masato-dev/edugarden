@@ -1,6 +1,7 @@
 <div id="addressListingModal" class="k-modal">
     <div class="k-modal-content">
         <div class="k-modal-header">
+            <div></div>
             <h5 class="k-modal-title d-flex align-items-center gap-2">
                 <i class="icon ic-location-add"></i>
                 <span>Danh sách địa chỉ</span>
