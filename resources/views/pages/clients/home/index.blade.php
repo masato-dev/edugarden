@@ -8,7 +8,28 @@
 
 @section('content')
     <div id="homeSlider">
-        <img src="{{ asset('images/banners/banner.png') }}" alt="Slider Image" class="w-100 home-slider-img">
+        <div id="homeSliderCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @foreach ($sliders as $index => $slider)
+                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                        <div class="ratio ratio-21x9">
+                            <img src="{{ Storage::url($slider->url) }}" alt="Slider Image" class="d-block w-100">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            
+            @if(count($sliders) > 1)
+                <button class="carousel-control-prev" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            @endif
+        </div>
     </div>
 
     <div class="container py-3">

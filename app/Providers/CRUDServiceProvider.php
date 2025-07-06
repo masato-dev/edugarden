@@ -15,6 +15,7 @@ use App\Implementations\Repositories\Location\WardRepository;
 use App\Implementations\Repositories\Order\OrderItemRepository;
 use App\Implementations\Repositories\Order\OrderRepository;
 use App\Implementations\Repositories\Page\IPageRepository;
+use App\Implementations\Repositories\Slider\SliderRepository;
 use App\Implementations\Repositories\UserAddress\UserAddressRepository;
 use App\Implementations\Services\Account\UserService;
 use App\Implementations\Services\Blog\BlogService;
@@ -30,6 +31,7 @@ use App\Implementations\Services\Location\WardService;
 use App\Implementations\Services\Order\OrderItemService;
 use App\Implementations\Services\Order\OrderService;
 use App\Implementations\Services\Page\IPageService;
+use App\Implementations\Services\Slider\SliderService;
 use App\Implementations\Services\UserAddress\UserAddressService;
 use App\Interfaces\Repositories\Account\IUserRepository;
 use App\Interfaces\Repositories\Blog\IBlogRepository;
@@ -44,6 +46,7 @@ use App\Interfaces\Repositories\Location\IWardRepository;
 use App\Interfaces\Repositories\Order\IOrderItemRepository;
 use App\Interfaces\Repositories\Order\IOrderRepository;
 use App\Interfaces\Repositories\Page\PageRepository;
+use App\Interfaces\Repositories\Slider\ISliderRepository;
 use App\Interfaces\Repositories\UserAddress\IUserAddressRepository;
 use App\Interfaces\Services\Account\IUserService;
 use App\Interfaces\Services\Blog\IBlogService;
@@ -59,6 +62,7 @@ use App\Interfaces\Services\Location\IWardService;
 use App\Interfaces\Services\Order\IOrderItemService;
 use App\Interfaces\Services\Order\IOrderService;
 use App\Interfaces\Services\Page\PageService;
+use App\Interfaces\Services\Slider\ISliderService;
 use App\Interfaces\Services\UserAddress\IUserAddressService;
 use Illuminate\Support\ServiceProvider;
 
@@ -84,6 +88,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(IDonateService::class, DonateService::class);
         $this->app->bind(IPageService::class, PageService::class);
         $this->app->bind(IContactService::class, ContactService::class);
+        $this->app->bind(ISliderService::class, SliderService::class);
 
         // Repositories
         $this->app->bind(IUserRepository::class, UserRepository::class);
@@ -100,7 +105,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(IDonateRepository::class, DonateRepository::class);
         $this->app->bind(IPageRepository::class, PageRepository::class);
         $this->app->bind(IContactRepository::class, ContactRepository::class);
-                
+        $this->app->bind(ISliderRepository::class, SliderRepository::class);
     }
     
     /**

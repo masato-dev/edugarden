@@ -8,4 +8,10 @@ class BookRepository extends BaseRepository implements IBookRepository {
     public function __construct(Book $model) {
         parent::__construct($model);
     }
+
+    public function getAll(array $options = []) {
+        return parent::getAll(array_merge($options, [
+            'orderBy' => ['created_at' => 'desc'],
+        ]));
+    }
 }
