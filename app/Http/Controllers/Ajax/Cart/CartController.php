@@ -18,6 +18,8 @@ class CartController extends ApiController
 
     public function store(Request $request) {
         $user = auth('user:web')->user();
+        if(empty($user))
+            return $this->error('Unauthorized', 401, __('Vui lòng đăng nhập để thực hiện tính năng này'));
         $data = array_merge(['user_id' => $user->id], $request->all());
         try {
             $created = $this->cartService->create($data);
