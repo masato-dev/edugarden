@@ -41,7 +41,7 @@
                                     <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
                                         <div>
                                             <h3 class="fw-bold text-color mb-2">{{ $blogs[0]->title }}</h3>
-                                            <p class="text-secondary mb-3">{{ \Illuminate\Support\Str::limit($blogs[0]->summary ?? $blogs[0]->content, 120) }}</p>
+                                            <p class="text-secondary mb-3">{{ StringUtil::removeScriptTags(\Illuminate\Support\Str::limit($blogs[0]->summary ?? $blogs[0]->content, 120)) }}</p>
                                         </div>
                                         <a href="{{ route('blogs.detail', ['slug' => $blogs[0]->slug]) }}" class="btn btn-main btn-sm align-self-start mt-2">Đọc tiếp</a>
                                     </div>
@@ -102,15 +102,15 @@
                 @if ($page != null)
                     <div class="container py-5">
                         <div class="row align-items-center">
-                            <div class="col-md-6 mb-4 mb-md-0">
+                            <div class="col-md-4 mb-4 mb-md-0">
                                 <img 
                                     src="{{ $page->image ? Storage::url($page->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" 
                                     alt="About EduGarden" class="img-fluid rounded shadow"
                                     width="100%"
                                     style="aspect-ratio: 4/3;">
                             </div>
-                            <div class="col-md-6">
-                                <h2 class="fw-bold text-main mb-3">{{ $page->title }}</h2>
+                            <div class="col-md-8">
+                                <h2 class="fw-bold text-main mb-3">{{ $section['title'] ?? $page->title }}</h2>
                                 <p class="fs-5" style="
                                     -webkit-line-clamp: 3;
                                     -webkit-box-orient: vertical;
@@ -126,20 +126,18 @@
             @endif
 
             @if ($section['type'] == ModuleTypes::SUPPORT)
-                <div id="homeSupport">
-                    <div class="container py-5">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-10">
-                                <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 d-flex flex-md-row align-items-center" style="background: #f8fafc;">
-                                    <div class="col-md-4 text-center mb-4 mb-md-0">
-                                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Customer Support" class="img-fluid rounded-3" style="max-height:180px; object-fit:cover;">
-                                    </div>
-                                    <div class="col-md-8 ps-md-5">
-                                        <h4 class="text-main mb-2">Hỗ trợ khách hàng</h4>
-                                        <h2 class="fw-bold text-color mb-3">Bạn cần tư vấn hoặc hỗ trợ?</h2>
-                                        <p class="sub-text-color mb-4 fs-5">Nếu bạn không tìm thấy sản phẩm hoặc có thắc mắc, hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ nhanh chóng nhất.</p>
-                                        <a href="/contact" class="btn btn-main btn-lg px-4"><i class="bi bi-envelope-fill me-2"></i>Liên hệ</a>
-                                    </div>
+                <div class="container py-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 d-flex flex-md-row align-items-center" style="background: #f8fafc;">
+                                <div class="col-md-4 text-center mb-4 mb-md-0">
+                                    <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Customer Support" class="img-fluid rounded-3" style="max-height:180px; object-fit:cover;">
+                                </div>
+                                <div class="col-md-8 ps-md-5">
+                                    <h4 class="text-main mb-2">Hỗ trợ khách hàng</h4>
+                                    <h2 class="fw-bold text-color mb-3">Bạn cần tư vấn hoặc hỗ trợ?</h2>
+                                    <p class="sub-text-color mb-4 fs-5">Nếu bạn không tìm thấy sản phẩm hoặc có thắc mắc, hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ nhanh chóng nhất.</p>
+                                    <a href="/contact" class="btn btn-main btn-lg px-4"><i class="bi bi-envelope-fill me-2"></i>Liên hệ</a>
                                 </div>
                             </div>
                         </div>
