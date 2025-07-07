@@ -1,3 +1,8 @@
+@php
+    use App\Enums\ModuleTypes;
+    use App\Utils\StringUtil;
+@endphp
+
 @extends('layout.clients.main')
 
 @push('styles')
@@ -7,112 +12,140 @@
 @component('components.common.notification.alert')@endcomponent
 
 @section('content')
-    <div id="homeSlider">
-        <div id="homeSliderCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                @foreach ($sliders as $index => $slider)
-                    <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
-                        <div class="ratio ratio-21x9">
-                            <img src="{{ Storage::url($slider->url) }}" alt="Slider Image" class="d-block w-100">
+    @if (!empty($sections))
+        @foreach ($sections as $section)
+            @if($section['type'] == ModuleTypes::BOOK)
+                @php $books = $section['data']; @endphp
+                <div class="container py-3">
+                    @component('components.book.listing.book-listing')
+                    @slot('title', $section['title'])
+                        @slot('books', $books)
+                    @endcomponent
+                </div>
+            @endif
+
+            @if($section['type'] == ModuleTypes::BLOG)
+                @php $blogs = $section['data']; @endphp
+                @if(isset($blogs) && count($blogs) >= 1)
+                    <div class="container py-5">
+                        <h2 class="fw-bold text-main mb-4">Cơ đốc giáo dục</h2>
+                        <div class="row g-4">
+                            <!-- Blog mới nhất nổi bật -->
+                            <div class="col-12 mb-3">
+                                <div class="card shadow-lg border-0 rounded-4 flex-md-row align-items-stretch h-100" style="background: #f5f7fa;">
+                                    @if($blogs[0]->thumbnail ?? false)
+                                        <div class="col-md-5 p-0">
+                                            <img src="{{ Storage::url($blogs[0]->thumbnail) }}" alt="{{ $blogs[0]->title }}" class="img-fluid rounded-4 w-100 h-100 object-fit-cover" style="min-height:220px;">
+                                        </div>
+                                    @endif
+                                    <div class="col-md-7 p-4 d-flex flex-column justify-content-between">
+                                        <div>
+                                            <h3 class="fw-bold text-color mb-2">{{ $blogs[0]->title }}</h3>
+                                            <p class="text-secondary mb-3">{{ \Illuminate\Support\Str::limit($blogs[0]->summary ?? $blogs[0]->content, 120) }}</p>
+                                        </div>
+                                        <a href="{{ route('blogs.detail', ['slug' => $blogs[0]->slug]) }}" class="btn btn-main btn-sm align-self-start mt-2">Đọc tiếp</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Các blog còn lại -->
+                            @foreach($blogs as $i => $blog)
+                                @if($i > 0)
+                                <div class="col-md-4 col-12">
+                                    <div class="card h-100 border-0 shadow-sm rounded-3">
+                                        @if($blog->thumbnail ?? false)
+                                            <img src="{{ Storage::url($blog->thumbnail) }}" alt="{{ $blog->title }}" class="card-img-top rounded-top-3" style="height:160px; object-fit:cover;">
+                                        @endif
+                                        <div class="card-body d-flex flex-column">
+                                            <h5 class="card-title fw-semibold">{{ $blog->title }}</h5>
+                                            <p class="card-text text-secondary">{{ \Illuminate\Support\Str::limit($blog->summary ?? $blog->content, 80) }}</p>
+                                            <a href="{{ route('blogs.detail', ['slug' => $blog->slug]) }}" class="btn btn-outline-main btn-sm mt-auto">Đọc tiếp</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                            @endforeach
                         </div>
                     </div>
-                @endforeach
-            </div>
-            
-            @if(count($sliders) > 1)
-                <button class="carousel-control-prev" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
+                @endif
             @endif
-        </div>
-    </div>
 
-    <div class="container py-3">
-        @component('components.book.listing.book-listing')
-        @slot('title', 'Ưu đãi hấp dẫn')
-            @slot('books', $books)
-        @endcomponent
-    </div>
-
-    <div id="homeWidget" class="mt-5">
-        <div class="container">
-            <div class="row align-items-baseline">
-                <div class="col">
-                    @component('components.common.widget-item')
-                        @slot('icon', 'icon ic-delivery-box')
-                        @slot('title', 'Danh mục sản phẩm')
-                        @slot('description', 'Hàng hoá đa dạng với hơn 5000 sản phẩm')
-                    @endcomponent
-                </div>
-
-                <div class="col">
-                    @component('components.common.widget-item')
-                        @slot('icon', 'icon ic-container-truck')
-                        @slot('title', 'Chính sách vận chuyển')
-                        @slot('description', 'Giao hàng nhanh chóng, tiết kiệm, miễn phí vận chuyển')
-                    @endcomponent
-                </div>
-
-                <div class="col">
-                    @component('components.common.widget-item')
-                        @slot('icon', 'icon ic-credit-card-validation')
-                        @slot('title', 'Phương thức thanh toán')
-                        @slot('description', 'Tiện lợi, an toàn, đa dạng phương thức thanh toán')
-                    @endcomponent
-                </div>
-
-                <div class="col">
-                    @component('components.common.widget-item')
-                        @slot('icon', 'icon ic-call')
-                        @slot('title', 'Liên hệ đặt hàng')
-                        @slot('description', 'Hotline/Zalo: 1800 1090')
-                    @endcomponent
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container py-3">
-        @component('components.book.listing.book-listing')
-        @slot('title', 'Lời chúa hôm nay')
-            @slot('books', $books)
-        @endcomponent
-    </div>
-
-    <div id="homeSupport">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-6">
-                    <div id="homeSupportContent">
-                        <h4 class="text-main">Hỗ trợ khách hàng</h4>
-                        <h2 class="mt-3 mb-0 text-color fw-600">
-                            Khách cần hỗ trợ về thông tin sản phẩm
-                        </h2>
-    
-                        <p class="sub-text-color mt-3 mb-0">
-                            Trong trường hợp không tìm thấy được sản phẩm, loại thuốc như mong muốn, quý khách vui lòng nhập thông tin yêu cầu vào khung bên cạnh. Chúng tôi sẽ liên hệ hỗ trợ mua thuốc và báo giá lại sớm nhất có thể cho quý khách.
-                        </p>
+            @if ($section['type'] == ModuleTypes::SLIDER)
+                @php $sliders = $section['data']; @endphp
+                <div id="homeSlider">
+                    <div id="homeSliderCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            @foreach ($sliders as $index => $slider)
+                                <div class="carousel-item {{ $index === 0 ? 'active' : '' }}">
+                                    <div class="ratio ratio-21x9">
+                                        <img src="{{ Storage::url($slider->url) }}" alt="Slider Image" class="d-block w-100">
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        
+                        @if(count($sliders) > 1)
+                            <button class="carousel-control-prev" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Previous</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#homeSliderCarousel" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Next</span>
+                            </button>
+                        @endif
                     </div>
                 </div>
+            @endif
 
-                <div class="col-6">
-                    <div id="homeSupportFormWrapper">
-                        <form action="" id="homeSupportForm">
-                            <div class="form-group">
-                                <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Nhập nội dung..."></textarea>
+            @if ($section['type'] == ModuleTypes::PAGE)
+                @php $page = $section['data']; @endphp
+                @if ($page != null)
+                    <div class="container py-5">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <img 
+                                    src="{{ $page->image ? Storage::url($page->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" 
+                                    alt="About EduGarden" class="img-fluid rounded shadow"
+                                    width="100%"
+                                    style="aspect-ratio: 4/3;">
                             </div>
+                            <div class="col-md-6">
+                                <h2 class="fw-bold text-main mb-3">{{ $page->title }}</h2>
+                                <p class="fs-5" style="
+                                    -webkit-line-clamp: 3;
+                                    -webkit-box-orient: vertical;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                ">{{ StringUtil::removeScriptTags($page->content) }}</p>
+                                <a href="{{ route('pages.detail', ['slug' => $page->slug]) }}" class="btn btn-main mt-3">Đọc thêm</a>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+            @endif
 
-                            <button type="submit" class="k-btn btn-main mt-3 mx-auto">Gửi thông tin</button>
-                        </form>
+            @if ($section['type'] == ModuleTypes::SUPPORT)
+                <div id="homeSupport">
+                    <div class="container py-5">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-10">
+                                <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 d-flex flex-md-row align-items-center" style="background: #f8fafc;">
+                                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                                        <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=400&q=80" alt="Customer Support" class="img-fluid rounded-3" style="max-height:180px; object-fit:cover;">
+                                    </div>
+                                    <div class="col-md-8 ps-md-5">
+                                        <h4 class="text-main mb-2">Hỗ trợ khách hàng</h4>
+                                        <h2 class="fw-bold text-color mb-3">Bạn cần tư vấn hoặc hỗ trợ?</h2>
+                                        <p class="sub-text-color mb-4 fs-5">Nếu bạn không tìm thấy sản phẩm hoặc có thắc mắc, hãy liên hệ với chúng tôi để được tư vấn và hỗ trợ nhanh chóng nhất.</p>
+                                        <a href="/contact" class="btn btn-main btn-lg px-4"><i class="bi bi-envelope-fill me-2"></i>Liên hệ</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </div>
+            @endif
+        @endforeach
+    @endif
 @endsection

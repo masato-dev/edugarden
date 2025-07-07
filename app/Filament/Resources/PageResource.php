@@ -57,6 +57,11 @@ class PageResource extends Resource
                 Forms\Components\RichEditor::make('content')
                     ->label('Nội dung')
                     ->columnSpan(['lg' => 2]),
+
+                Forms\Components\FileUpload::make('image')
+                    ->label('Ảnh')
+                    ->disk('public')
+                    ->columnSpan(['lg' => 2]),
             ]);
     }
 
@@ -67,6 +72,7 @@ class PageResource extends Resource
                 Tables\Columns\TextColumn::make('title')->label('Tiêu đề'),
                 Tables\Columns\TextColumn::make('slug')->label('URL'),
                 Tables\Columns\TextColumn::make('updated_at')->label('Cập nhật')->dateTime('d/m/Y H:i'),
+                Tables\Columns\ImageColumn::make('image')->label('Ảnh'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make()->label('Chỉnh sửa'),

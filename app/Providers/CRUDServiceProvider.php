@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Implementations\Repositories\Account\UserRepository;
+use App\Implementations\Repositories\AppSetting\AppSettingRepository;
 use App\Implementations\Repositories\Blog\BlogRepository;
 use App\Implementations\Repositories\Book\BookRepository;
 use App\Implementations\Repositories\Cart\CartRepository;
@@ -18,6 +19,7 @@ use App\Implementations\Repositories\Page\IPageRepository;
 use App\Implementations\Repositories\Slider\SliderRepository;
 use App\Implementations\Repositories\UserAddress\UserAddressRepository;
 use App\Implementations\Services\Account\UserService;
+use App\Implementations\Services\AppSetting\AppSettingService;
 use App\Implementations\Services\Blog\BlogService;
 use App\Implementations\Services\Book\BookService;
 use App\Implementations\Services\Cache\CacheService;
@@ -34,6 +36,7 @@ use App\Implementations\Services\Page\IPageService;
 use App\Implementations\Services\Slider\SliderService;
 use App\Implementations\Services\UserAddress\UserAddressService;
 use App\Interfaces\Repositories\Account\IUserRepository;
+use App\Interfaces\Repositories\AppSetting\IAppSettingRepository;
 use App\Interfaces\Repositories\Blog\IBlogRepository;
 use App\Interfaces\Repositories\Book\IBookRepository;
 use App\Interfaces\Repositories\Cart\ICartRepository;
@@ -49,6 +52,7 @@ use App\Interfaces\Repositories\Page\PageRepository;
 use App\Interfaces\Repositories\Slider\ISliderRepository;
 use App\Interfaces\Repositories\UserAddress\IUserAddressRepository;
 use App\Interfaces\Services\Account\IUserService;
+use App\Interfaces\Services\AppSetting\IAppSettingService;
 use App\Interfaces\Services\Blog\IBlogService;
 use App\Interfaces\Services\Book\IBookService;
 use App\Interfaces\Services\Cart\ICartService;
@@ -89,6 +93,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(IPageService::class, PageService::class);
         $this->app->bind(IContactService::class, ContactService::class);
         $this->app->bind(ISliderService::class, SliderService::class);
+        $this->app->bind(IAppSettingService::class, AppSettingService::class);
 
         // Repositories
         $this->app->bind(IUserRepository::class, UserRepository::class);
@@ -106,6 +111,7 @@ class CRUDServiceProvider extends ServiceProvider
         $this->app->bind(IPageRepository::class, PageRepository::class);
         $this->app->bind(IContactRepository::class, ContactRepository::class);
         $this->app->bind(ISliderRepository::class, SliderRepository::class);
+        $this->app->bind(IAppSettingRepository::class, AppSettingRepository::class);
     }
     
     /**

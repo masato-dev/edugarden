@@ -11,6 +11,7 @@ class Page extends Model
         'title',
         'slug',
         'content',
+        'image',
     ];
 
     private static function genSlug($model) {

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Core;
 
+use App\Interfaces\Services\AppSetting\IAppSettingService;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
@@ -14,10 +15,12 @@ class ClientController extends BaseController
     protected ?string $metaKeywords = null;
 
     public function getView(string $path, array $data = []) {
+        $appSettingService = app(IAppSettingService::class);
+        $activeSetting = $appSettingService->getBy(['is_active' => true])->first();
         return view(config('const.clients.views.root') . $path, array_merge([
-            'metaTitle' => $this->metaTitle,
-            'metaDescription' => $this->metaDescription,
-            'metaKeywords' => $this->metaKeywords,
+            'metaTitle' => $this->metaTitle ?? $activeSetting->meta_title,
+            'metaDescription' => $this->metaDescription ?? $activeSetting->meta_description,
+            'metaKeywords' => $this->metaKeywords ?? $activeSetting->meta_keywords,
         ], $data));
     }
 
