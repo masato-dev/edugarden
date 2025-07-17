@@ -62,7 +62,7 @@ class AppSettingResource extends Resource
 
                 Forms\Components\Card::make()
                     ->schema([
-                        Forms\Components\TextInput::make('meta_title')
+                        Forms\Components\TextInput::make(' meta_title')
                             ->label('Meta Title')
                             ->maxLength(255),
 

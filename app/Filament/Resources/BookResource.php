@@ -35,6 +35,11 @@ class BookResource extends Resource
                     ->label('Ảnh bìa')
                     ->directory('books/thumbnails'),
 
+                Forms\Components\RichEditor::make('short_description')
+                    ->label('Mô tả ngắn')
+                    ->columnSpan(['lg' => 2])
+                    ->required(),
+
                 Forms\Components\RichEditor::make('description')
                     ->label('Mô tả')
                     ->columnSpan(['lg' => 2])

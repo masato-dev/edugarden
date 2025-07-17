@@ -15,6 +15,7 @@ class Book extends Model
         'price',
         'rating',
         'buy_quantity',
+        'short_description',
     ];
 
     protected static function boot() {

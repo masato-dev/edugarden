@@ -1,5 +1,6 @@
 @php
     use App\Utils\CurrencyUtil;
+    use App\Utils\StringUtil;
     use Illuminate\Support\Facades\Storage;
 @endphp
 
@@ -32,7 +33,7 @@
     
             <div class="mt-3">
                 <p class="m-0 desc-text-color text-overflow-ellipsis max-lines-3 book-card-desc">
-                    {{ $model['description'] }}
+                    {{ StringUtil::removeScriptTags($model['short_description'] ?? $model['description']) }}
                 </p>
             </div>
     
