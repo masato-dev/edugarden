@@ -357,22 +357,17 @@
     white-space: nowrap;
 }
 
-/* Hover để hiện dropdown */
-.navbar .dropdown:hover > .dropdown-menu {
-    display: block;
-    margin-top: 0;
-}
-
-/* Dropdown nhiều cấp hiển thị sang phải */
+/* Dropdown nhiều cấp hiển thị sang phải khi click */
 .dropdown-menu .dropdown-menu {
     left: 100%;
     top: 0;
     margin-left: 0.1rem;
 }
 
-/* Chevron xoay khi hover */
-.nav-item.dropdown:hover > a .fa-chevron-down {
+/* Chevron xoay khi menu mở */
+.nav-item .dropdown-toggle[aria-expanded="true"] .fa-chevron-down {
     transform: rotate(180deg);
     transition: transform 0.2s ease;
 }
+
 
