@@ -342,7 +342,37 @@
     color: darken($textColor, 10%);
 }
 
-/* Ẩn caret mặc định của Bootstrap dropdown */
+/* Ẩn caret mặc định của Bootstrap */
 .dropdown-toggle::after {
     display: none !important;
 }
+
+/* Ép dropdown rộng hơn */
+.dropdown-menu {
+    min-width: 220px;
+}
+
+/* Giữ nội dung trên 1 dòng */
+.dropdown-menu a {
+    white-space: nowrap;
+}
+
+/* Hover để hiện dropdown */
+.navbar .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+}
+
+/* Dropdown nhiều cấp hiển thị sang phải */
+.dropdown-menu .dropdown-menu {
+    left: 100%;
+    top: 0;
+    margin-left: 0.1rem;
+}
+
+/* Chevron xoay khi hover */
+.nav-item.dropdown:hover > a .fa-chevron-down {
+    transform: rotate(180deg);
+    transition: transform 0.2s ease;
+}
+
