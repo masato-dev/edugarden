@@ -342,3 +342,7 @@
     color: darken($textColor, 10%);
 }
 
+/* Ẩn caret mặc định của Bootstrap dropdown */
+.dropdown-toggle::after {
+    display: none !important;
+}
