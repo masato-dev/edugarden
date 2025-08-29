@@ -18,6 +18,7 @@
                     -webkit-line-clamp: 2;
                     -webkit-box-orient: vertical;
                     overflow: hidden;
+                    height: fit-content;
                     text-overflow: ellipsis;">
                 {{ $model['title'] }}
             </h4>
