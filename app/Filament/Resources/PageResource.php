@@ -53,9 +53,12 @@ class PageResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->columnSpan(['lg' => 2]),
+                Forms\Components\RichEditor::make('summary')
+                    ->label('Mô tả ngắn')
+                    ->columnSpanFull(),
 
                 Forms\Components\RichEditor::make('content')
-                    ->label('Nội dung')
+                    ->label('Nội dung chính')
                     ->columnSpan(['lg' => 2]),
 
                 Forms\Components\FileUpload::make('image')

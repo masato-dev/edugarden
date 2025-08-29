@@ -117,7 +117,7 @@
                                     overflow: hidden;
                                     text-overflow: ellipsis;
                                     display: -webkit-box;
-                                ">{{ StringUtil::removeScriptTags($page->content) }}</p>
+                                ">{{ StringUtil::removeScriptTags($page->summary ?? $page->content) }}</p> <!--  Ưu tiên hiển thị nội dung ngắn, nếu không tồn tại thì render content, maximum 3 dòng -->
                                 <a href="{{ route('pages.detail', ['slug' => $page->slug]) }}" class="btn btn-main mt-3">Đọc thêm</a>
                             </div>
                         </div>

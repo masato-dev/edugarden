@@ -12,6 +12,7 @@ class Page extends Model
         'slug',
         'content',
         'image',
+        'summary',
     ];
 
     private static function genSlug($model) {
