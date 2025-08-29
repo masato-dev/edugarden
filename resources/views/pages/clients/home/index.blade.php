@@ -43,7 +43,7 @@
                                         <div class="blog-section__card-body">
                                             <h5 class="blog-section__card-title">{{ $blog->title }}</h5>
                                             <p class="blog-section__card-desc">
-                                                {{ \Illuminate\Support\Str::limit($blog->summary ?? $blog->content, 80) }}
+                                                {{ \Illuminate\Support\Str::limit(StringUtil::removeScriptTags($blog->summary ?? $blog->content), 80) }}
                                             </p>
                                             <a href="{{ route('blogs.detail', ['slug' => $blog->slug]) }}"
                                                 class="btn btn-outline-main btn-sm blog-section__card-cta">
