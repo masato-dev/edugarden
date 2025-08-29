@@ -19,8 +19,7 @@
         elseif ($rating >= $i - 0.5) $stars[] = 'half';
         else $stars[] = 'empty';
     }
-    $colors = ['#e74c3c', '#27ae60', '#2980b9', '#f39c12', '#8e44ad', '#16a085'];
-    $badgeColor = $colors[array_rand($colors)];
+    $badgeColor = '#f39c12';
 @endphp
 
 <a href="{{ route('books.detail', ['slug' => $model['slug']]) }}" class="bookcard">
