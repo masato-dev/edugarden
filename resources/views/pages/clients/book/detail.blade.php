@@ -24,7 +24,7 @@
                         <h2 class="fw-600 text-color">{{ $book->title }}</h2>
                         @if(isset($book->category))
                             <div class="mt-3">
-                                <span class="badge bg-primary fs-6">{{ $book->category->name }}</span>
+                                <span class="badge bg-main fs-6">{{ $book->category->name }}</span>
                             </div>
                         @endif
                         <div class="d-flex gap-2 align-items-center mt-3">
