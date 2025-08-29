@@ -12,13 +12,13 @@
                 <h5 class="text-white fw-600">Liên hệ</h5>
                 <ul class="list-unstyled">
                     <li class="mb-2">
-                        <span style="color: #BACFDB;">Số 123, đường ABC, phường DEF, thành phố GHI</span>
+                        <span style="color: #BACFDB;">45A/14 Nguyễn Văn Thiệt, Phường 3, Tp Vĩnh Long</span>
                     </li>
                     <li class="mb-2">
-                        <span style="color: #BACFDB;">0123 456 7890</span>
+                        <span style="color: #BACFDB;">0386 353 083</span>
                     </li>
                     <li class="mb-2">
-                        <span style="color: #BACFDB;">support@domain.com</span>
+                        <span style="color: #BACFDB;">edugarden.24@gmail.com</span>
                     </li>
                 </ul>
             </div>

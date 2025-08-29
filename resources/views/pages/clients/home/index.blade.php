@@ -154,14 +154,14 @@
                                     <a href="/contact" class="btn btn-main btn-lg px-4">
                                     <i class="bi bi-envelope-fill me-2"></i>Liên hệ
                                     </a>
-                                    <a href="tel:+84000000000" class="btn btn-outline-main btn-lg px-4">
+                                    <a href="tel:+84386353083" class="btn btn-outline-main btn-lg px-4">
                                     <i class="bi bi-telephone-fill me-2"></i>Gọi ngay
                                     </a>
                                 </div>
 
                                 <div class="mt-3 d-flex flex-wrap gap-2">
                                     <span class="badge rounded-pill px-3 py-2"
-                                        style="background:#CFE3D6; color:#374B42;">Email: support@edugarden.vn</span>
+                                        style="background:#CFE3D6; color:#374B42;">Email: edugarden.24@gmail.com</span>
                                     <span class="badge rounded-pill px-3 py-2"
                                         style="background:#CFE3D6; color:#374B42;">Zalo / Messenger</span>
                                 </div>
