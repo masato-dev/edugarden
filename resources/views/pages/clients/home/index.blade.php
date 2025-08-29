@@ -150,21 +150,6 @@
                                     Không tìm thấy sản phẩm hoặc có thắc mắc? Liên hệ ngay để được đội ngũ EduGarden hỗ trợ nhanh chóng.
                                 </p>
 
-                                <ul class="list-unstyled d-grid gap-2 mb-4">
-                                    <li class="d-flex align-items-start">
-                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
-                                    <span>Phản hồi trung bình &lt; 15 phút</span>
-                                    </li>
-                                    <li class="d-flex align-items-start">
-                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
-                                    <span>Tư vấn sản phẩm theo nhu cầu</span>
-                                    </li>
-                                    <li class="d-flex align-items-start">
-                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
-                                    <span>Hỗ trợ đổi trả theo chính sách</span>
-                                    </li>
-                                </ul>
-
                                 <div class="d-flex flex-wrap gap-2">
                                     <a href="/contact" class="btn btn-main btn-lg px-4">
                                     <i class="bi bi-envelope-fill me-2"></i>Liên hệ
