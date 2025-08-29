@@ -76,7 +76,7 @@
                             <div style="background-color: #F9FAFB;" class="py-2">
                                 <ul class="list-unstyled ps-3">
                                     <li class="py-1 d-flex align-items-center gap-2">
-                                        <div class="p-1 bg-main-outline rounded-circle">
+                                        <div class="bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Sách đảm bảo chất lượng</span>
