@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Utils\StringUtil;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Str;
 
 class Book extends Model
@@ -16,7 +17,12 @@ class Book extends Model
         'rating',
         'buy_quantity',
         'short_description',
+        'category_id',
     ];
+
+    public function category(): BelongsTo {
+        return $this->belongsTo(Category::class);
+    }
 
     protected static function boot() {
         parent::boot();

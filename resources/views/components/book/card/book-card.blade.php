@@ -30,9 +30,11 @@
             <div class="bookcard__placeholder">No image</div>
         @endif
 
-        <span class="bookcard__badge" style="background-color: {{ $badgeColor }}">
-            {{ $model['category_name'] ?? 'Cựu ước' }}
-        </span>
+        @if(isset($model['category']))
+            <span class="bookcard__badge" style="background-color: {{ $badgeColor }}">
+                {{ $model['category']['name'] }}
+            </span>
+        @endif
 
         <div class="bookcard__overlay"></div>
     </figure>

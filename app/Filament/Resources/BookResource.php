@@ -29,6 +29,14 @@ class BookResource extends Resource
                     ->label('Tiêu đề')
                     ->maxLength(255),
 
+                Forms\Components\Select::make('category_id')
+                    ->label('Danh mục')
+                    ->relationship('category', 'name')
+                    ->preload()
+                    ->searchable()
+                    ->nullable()
+                    ->placeholder('- Không chọn -'),
+
                 Forms\Components\FileUpload::make('thumbnail')
                     ->image()
                     ->disk('public')
