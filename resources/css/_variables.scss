@@ -1,14 +1,16 @@
-$mainColor: #4CAF50;          // Xanh lá chủ đạo (tone Material Green 500)
-$mainOutlineColor: #D8EAD8;   // Xanh lá nhạt làm viền / outline
-$buttonDarkColor: #2E7D32;    // Xanh lá đậm cho button hoặc hover
-$dangerColor: #E53935;        // Giữ đỏ cảnh báo nhưng hơi trầm lại
+$mainColor: #6BA368;          // Xanh olive tươi, nổi bật trên nền #F4F1E7
+$mainOutlineColor: #CFE3D6;   // Xanh pastel nhạt để làm border/outline
+$buttonDarkColor: #466D4B;    // Xanh lá rêu đậm, dùng cho hover/active
+$dangerColor: #C94C4C;        // Đỏ trầm (bớt gắt so với #E53935)
 
-$bgSecondary: #F5F8F5;        // Nền phụ màu xanh lá rất nhạt
+$bgSecondary: #F4F1E7;        // Nền phụ chính (màu chủ đạo sáng)
+$bgAlt: #FAF9F6;              // Nền trắng ngà (cho card hoặc section khác biệt)
 
-$textColor: #1B1B1B;          // Gần như đen, dễ đọc
-$subTextColor: #2F4F4F;       // Xanh xám đậm (Slate-like)
-$descTextColor: #5F6F61;      // Xanh lá ghi nhẹ
-$secondaryTextColor: #8C9A8C; // Xanh xám nhạt
+$textColor: #1B1B1B;          // Gần như đen, đọc tốt trên nền sáng
+$subTextColor: #374B42;       // Xanh rêu đậm hơn, thay cho slate
+$descTextColor: #5E6F65;      // Ghi xanh nhẹ, hợp tone nền be
+$secondaryTextColor: #9AA79C; // Xanh xám nhạt, cho phụ đề / icon
+
 
 
 
