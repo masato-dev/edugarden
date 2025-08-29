@@ -13,7 +13,15 @@
         </div>
         
         <div class="book-card-info">
-            <h4 class="book-card-title text-color fw-600 text-overflow-ellipsis max-lines-2">{{ $model['title'] }}</h4>
+            <h4 class="book-card-title text-color fw-600 text-overflow-ellipsis"
+                style="display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;">
+                {{ $model['title'] }}
+            </h4>
+
     
             <button class="mt-3 k-btn btn-secondary">
                 Cựu ước
