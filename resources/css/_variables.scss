@@ -1,11 +1,29 @@
-$mainColor: #EBA452;
-$mainOutlineColor: #eeddc9;
-$buttonDarkColor: #615B6B;
-$dangerColor: #E64646;
+$mainColor: #4CAF50;          // Xanh lá chủ đạo (tone Material Green 500)
+$mainOutlineColor: #D8EAD8;   // Xanh lá nhạt làm viền / outline
+$buttonDarkColor: #2E7D32;    // Xanh lá đậm cho button hoặc hover
+$dangerColor: #E53935;        // Giữ đỏ cảnh báo nhưng hơi trầm lại
 
-$bgSecondary: #F7F7F7;
+$bgSecondary: #F5F8F5;        // Nền phụ màu xanh lá rất nhạt
 
-$textColor: #282556;
-$subTextColor: #615E90;
-$descTextColor: #7A7A7A;
-$secondaryTextColor: #989898;
+$textColor: #1B1B1B;          // Gần như đen, dễ đọc
+$subTextColor: #2F4F4F;       // Xanh xám đậm (Slate-like)
+$descTextColor: #5F6F61;      // Xanh lá ghi nhẹ
+$secondaryTextColor: #8C9A8C; // Xanh xám nhạt
+
+
+
+// ====== Biến tiện ích thêm ======
+$radius-lg: 18px;
+$radius-md: 12px;
+$shadow-sm: 0 6px 16px rgba(0, 0, 0, .06);
+$shadow-md: 0 14px 30px rgba(0, 0, 0, .10);
+$tr-fast: .18s ease;
+$tr-slow: .4s ease;
+$space-1: 8px;
+$space-2: 10px;
+$space-3: 12px;
+$space-4: 14px;
+
+// Nhấn chính & phụ
+$accent: $mainColor;
+$accent-2: darken($mainColor, 10%);
