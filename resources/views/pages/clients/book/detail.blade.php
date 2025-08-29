@@ -81,13 +81,13 @@
                                         </div>
                                         <span>Sách đảm bảo chất lượng</span>
                                     </li>
-                                    <li class="py-1 d-flex align-items-center gap-2">
+                                    <li class="d-flex align-items-center gap-2" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                         <div class="p-1 bg-main-outline rounded-circle">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Giao hàng nhanh chóng</span>
                                     </li>
-                                    <li class="pt-1 d-flex align-items-center gap-2">
+                                    <li class="d-flex align-items-center gap-2" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                         <div class="p-1 bg-main-outline rounded-circle">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
