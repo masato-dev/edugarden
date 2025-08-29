@@ -81,14 +81,14 @@
                                         </div>
                                         <span>Sách đảm bảo chất lượng</span>
                                     </li>
-                                    <li class="d-flex align-items-center gap-2" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
-                                        <div class="p-1 bg-main-outline rounded-circle">
+                                    <li class="d-flex align-items-center gap-2">
+                                        <div class="p-1 bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Giao hàng nhanh chóng</span>
                                     </li>
-                                    <li class="d-flex align-items-center gap-2" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
-                                        <div class="p-1 bg-main-outline rounded-circle">
+                                    <li class="d-flex align-items-center gap-2">
+                                        <div class="p-1 bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Đổi trả miễn phí nếu sản phẩm lỗi</span>
