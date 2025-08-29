@@ -118,25 +118,78 @@
                 <div class="container py-5">
                     <div class="row justify-content-center">
                         <div class="col-lg-12">
-                            <div class="card shadow-lg border-0 rounded-4 p-4 p-md-5 d-flex flex-md-row align-items-center"
-                                style="background: #f8fafc;">
-                                <div class="col-md-4 text-center mb-4 mb-md-0">
-                                    <img src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=2671&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                                        alt="Customer Support" class="img-fluid rounded-3" style="max-height:180px; object-fit:cover;">
-                                </div>
-                                <div class="col-md-8 ps-md-5">
-                                    <h4 class="text-main mb-2">Hỗ trợ khách hàng</h4>
-                                    <h2 class="fw-bold text-color mb-3">Bạn cần tư vấn hoặc hỗ trợ?</h2>
-                                    <p class="sub-text-color mb-4 fs-5">Nếu bạn không tìm thấy sản phẩm hoặc có thắc mắc, hãy liên hệ
-                                        với chúng tôi để được tư vấn và hỗ trợ nhanh chóng nhất.</p>
-                                    <a href="/contact" class="btn btn-main btn-lg px-4"><i class="bi bi-envelope-fill me-2"></i>Liên
-                                        hệ</a>
+                        <section class="support-cta shadow-lg border-0 rounded-4 overflow-hidden">
+                            <div class="row g-0 align-items-stretch">
+
+                            {{-- Media / Illustration --}}
+                            <div class="col-md-5">
+                                <div class="support-cta__media position-relative h-100" style="background:#F4F1E7;">
+                                <img
+                                    src="https://images.unsplash.com/photo-1516387938699-a93567ec168e?q=80&w=1200&auto=format&fit=crop"
+                                    alt="Customer Support"
+                                    class="support-cta__img w-100 h-100"
+                                    loading="lazy" decoding="async"
+                                    style="object-fit:cover; min-height:220px;">
+                                <span class="support-cta__badge position-absolute top-0 start-0 m-3 px-3 py-1 rounded-pill fw-semibold"
+                                        style="background:#fff; color:#466D4B; box-shadow:0 8px 18px rgba(0,0,0,.08);">
+                                    Trực 24/7
+                                </span>
                                 </div>
                             </div>
+
+                            {{-- Content --}}
+                            <div class="col-md-7">
+                                <div class="support-cta__body h-100 d-flex flex-column p-4 p-md-5"
+                                    style="background: linear-gradient(180deg,#FAFAF8 0%, #FFFFFF 60%), #F4F1E7;">
+                                <div class="mb-2">
+                                    <h4 class="m-0" style="color:#6BA368; font-weight:800;">Hỗ trợ khách hàng</h4>
+                                    <h2 class="fw-bold text-color mt-2 mb-3">Bạn cần tư vấn hoặc hỗ trợ?</h2>
+                                </div>
+
+                                <p class="sub-text-color fs-5 mb-3">
+                                    Không tìm thấy sản phẩm hoặc có thắc mắc? Liên hệ ngay để được đội ngũ EduGarden hỗ trợ nhanh chóng.
+                                </p>
+
+                                <ul class="list-unstyled d-grid gap-2 mb-4">
+                                    <li class="d-flex align-items-start">
+                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
+                                    <span>Phản hồi trung bình &lt; 15 phút</span>
+                                    </li>
+                                    <li class="d-flex align-items-start">
+                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
+                                    <span>Tư vấn sản phẩm theo nhu cầu</span>
+                                    </li>
+                                    <li class="d-flex align-items-start">
+                                    <i class="bi bi-check-circle-fill me-2" style="color:#6BA368;"></i>
+                                    <span>Hỗ trợ đổi trả theo chính sách</span>
+                                    </li>
+                                </ul>
+
+                                <div class="d-flex flex-wrap gap-2">
+                                    <a href="/contact" class="btn btn-main btn-lg px-4">
+                                    <i class="bi bi-envelope-fill me-2"></i>Liên hệ
+                                    </a>
+                                    <a href="tel:+84000000000" class="btn btn-outline-main btn-lg px-4">
+                                    <i class="bi bi-telephone-fill me-2"></i>Gọi ngay
+                                    </a>
+                                </div>
+
+                                <div class="mt-3 d-flex flex-wrap gap-2">
+                                    <span class="badge rounded-pill px-3 py-2"
+                                        style="background:#CFE3D6; color:#374B42;">Email: support@edugarden.vn</span>
+                                    <span class="badge rounded-pill px-3 py-2"
+                                        style="background:#CFE3D6; color:#374B42;">Zalo / Messenger</span>
+                                </div>
+                                </div>
+                            </div>
+
+                            </div>
+                        </section>
                         </div>
                     </div>
                 </div>
             @endif
+
         @endforeach
     @endif
 @endsection
