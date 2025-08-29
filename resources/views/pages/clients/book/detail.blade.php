@@ -15,14 +15,17 @@
                 <div class="col-md-5 col-12">
                     <div class="book-detail-thumbnail p-3 mb-3">
                         <img src={{ 
-                        str_contains($book->thumbnail, 'https') ? $book->thumbnail : Storage::disk('public')->url($book->thumbnail) }} alt="{{ $book->title }}" class="w-100" style="aspect-ratio: 1">
+                            str_contains($book->thumbnail, 'https') ? $book->thumbnail : Storage::disk('public')->url($book->thumbnail) }} alt="{{ $book->title }}" class="w-100"
+                            style="aspect-ratio: 1">
                     </div>
                 </div>
                 <div class="col-md-7 col-12">
                     <div class="book-detail-info">
                         <h2 class="fw-600 text-color">{{ $book->title }}</h2>
                         @if(isset($book->category))
-                            <div class="mt-3"><p class="fs-4 fw-400 m-0">{{ $book->category->name }}</p></div>
+                            <div class="mt-3">
+                                <span class="badge bg-primary fs-6">{{ $book->category->name }}</span>
+                            </div>
                         @endif
                         <div class="d-flex gap-2 align-items-center mt-3">
                             @php
@@ -42,7 +45,7 @@
                                 <span class="fs-4">Đã bán: {{ $book->buy_quantity }}</span>
                             </div>
 
-                            
+
                         </div>
 
                         <div class="mt-3">
@@ -52,9 +55,11 @@
                         <hr>
                         <div class="mt-5">
                             <h4>Mô tả ngắn:</h4>
-                            <p class="fs-4 fw-400 m-0" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">{!! $book->short_description !!}</p>
+                            <p class="fs-4 fw-400 m-0"
+                                style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis;">
+                                {!! $book->short_description !!}</p>
                         </div>
-                        
+
                         <div class="mt-3">
                             <div class="d-flex align-items-center gap-3">
                                 <div class="d-flex book-detail-quantity">
@@ -68,7 +73,8 @@
                                     <span>Thêm vào giỏ hàng</span>
                                 </button>
 
-                                <button class="book-detail-add-to-wishlist-btn" id="addToWishlistBtn" title="Thêm vào danh sách yêu thích">
+                                <button class="book-detail-add-to-wishlist-btn" id="addToWishlistBtn"
+                                    title="Thêm vào danh sách yêu thích">
                                     <i class="icon ic-heart"></i>
                                 </button>
                             </div>
@@ -78,19 +84,22 @@
                             <div style="background-color: #F9FAFB;" class="py-2">
                                 <ul class="list-unstyled ps-3">
                                     <li class="py-1 d-flex align-items-center gap-2">
-                                        <div class="bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                                        <div class="bg-main-outline rounded-circle"
+                                            style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Sách đảm bảo chất lượng</span>
                                     </li>
                                     <li class="py-1 d-flex align-items-center gap-2">
-                                        <div class="p-1 bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                                        <div class="p-1 bg-main-outline rounded-circle"
+                                            style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Giao hàng nhanh chóng</span>
                                     </li>
                                     <li class="pt-1 d-flex align-items-center gap-2">
-                                        <div class="p-1 bg-main-outline rounded-circle" style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
+                                        <div class="p-1 bg-main-outline rounded-circle"
+                                            style="width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;">
                                             <i class="icon ic-tick text-main"></i>
                                         </div>
                                         <span>Đổi trả miễn phí nếu sản phẩm lỗi</span>
@@ -106,13 +115,19 @@
             <div class="mt-3">
                 <ul class="nav nav-tabs mb-3 book-detail-nav" id="pills-tab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Mô tả chi tiết</button>
+                        <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                            aria-selected="true">Mô tả chi tiết</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Thông tin chi tiết</button>
+                        <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                            aria-selected="false">Thông tin chi tiết</button>
                     </li>
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Đánh giá</button>
+                        <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact"
+                            aria-selected="false">Đánh giá</button>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -163,7 +178,7 @@
                         <hr>
                         <div class="mt-3">
                             <ul class="list-unstyled">
-                                
+
                             </ul>
                         </div>
                     </div>
@@ -172,8 +187,8 @@
 
             <div class="mt-5">
                 @component('components.book.listing.book-listing')
-                    @slot('title', 'Khám phá thêm một số loại sách khác')
-                    @slot('books', $relatedBooks)
+                @slot('title', 'Khám phá thêm một số loại sách khác')
+                @slot('books', $relatedBooks)
                 @endcomponent
             </div>
         </div>
