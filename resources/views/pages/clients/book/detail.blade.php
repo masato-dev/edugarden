@@ -21,7 +21,9 @@
                 <div class="col-md-7 col-12">
                     <div class="book-detail-info">
                         <h2 class="fw-600 text-color">{{ $book->title }}</h2>
-                        <div class="mt-3"><p class="fs-4 fw-400 m-0">Cựu ước</p></div>
+                        @if(isset($book->category))
+                            <div class="mt-3"><p class="fs-4 fw-400 m-0">{{ $book->category->name }}</p></div>
+                        @endif
                         <div class="d-flex gap-2 align-items-center mt-3">
                             @php
                                 $rating = $book->rating;
@@ -132,10 +134,12 @@
                                     <th>Năm xuất bản</th>
                                     <td>{{ $book->published_year ?? 'Đang cập nhật' }}</td>
                                 </tr>
-                                <tr>
-                                    <th>Loại sách</th>
-                                    <td>{{ $book->category ?? 'Cựu ước' }}</td>
-                                </tr>
+                                @if(isset($book->category))
+                                    <tr>
+                                        <th>Loại sách</th>
+                                        <td>{{ $book->category->name }}</td>
+                                    </tr>
+                                @endif
                                 <tr>
                                     <th>Số lượng trang</th>
                                     <td>{{ $book->number_of_pages ?? 'Đang cập nhật' }}</td>
