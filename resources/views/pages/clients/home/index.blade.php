@@ -99,31 +99,37 @@
 
             @if ($section['type'] == ModuleTypes::PAGE)
                 @php $page = $section['data']; @endphp
-                @if ($page != null)
+                @if ($page)
                     <div class="container py-5">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 mb-4 mb-md-0">
-                                <img 
-                                    src="{{ $page->image ? Storage::url($page->image) : 'https://via.placeholder.com/400x300?text=No+Image' }}" 
-                                    alt="About EduGarden" class="img-fluid rounded shadow"
-                                    width="100%"
-                                    style="aspect-ratio: 4/3;">
+                        <div class="feature-page">
+                            <div class="feature-page__media">
+                                <img
+                                    class="feature-page__img"
+                                    src="{{ $page->image ? Storage::url($page->image) : 'https://via.placeholder.com/800x600?text=No+Image' }}"
+                                    alt="{{ $section['title'] ?? $page->title }}">
+                                {{-- <span class="feature-page__badge">Cơ đốc giáo dục</span> --}}
                             </div>
-                            <div class="col-md-8">
-                                <h2 class="fw-bold text-main mb-3">{{ $section['title'] ?? $page->title }}</h2>
-                                <p class="fs-5" style="
-                                    -webkit-line-clamp: 3;
-                                    -webkit-box-orient: vertical;
-                                    overflow: hidden;
-                                    text-overflow: ellipsis;
-                                    display: -webkit-box;
-                                ">{{ StringUtil::removeScriptTags($page->summary ?? $page->content) }}</p> <!--  Ưu tiên hiển thị nội dung ngắn, nếu không tồn tại thì render content, maximum 3 dòng -->
-                                <a href="{{ route('pages.detail', ['slug' => $page->slug]) }}" class="btn btn-main mt-3">Đọc thêm</a>
+
+                            <div class="feature-page__body">
+                                <h2 class="feature-page__title">
+                                    {{ $section['title'] ?? $page->title }}
+                                </h2>
+
+                                <p class="feature-page__desc">
+                                    {{ StringUtil::removeScriptTags($page->summary ?? $page->content) }}
+                                </p>
+
+                                <div class="feature-page__actions">
+                                    <a href="{{ route('pages.detail', ['slug' => $page->slug]) }}" class="btn btn-main">
+                                        Đọc tiếp
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 @endif
             @endif
+
 
             @if ($section['type'] == ModuleTypes::SUPPORT)
                 <div class="container py-5">
